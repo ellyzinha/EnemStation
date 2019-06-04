@@ -2,13 +2,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Tela de Questões - Enem Station</title>
 	<!-- Bootstrap Search button -->
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<!-- Fontes para o menu -->
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -36,6 +37,12 @@
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
           </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Login</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Cadastro</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -59,60 +66,138 @@
 		</a>
 	</div>
 
-<section class="details-card">
-		<div class="container">
-				<div class="row">
-						<div class="col-md-4">
-								<div class="card-content">
-										<div class="card-img">
-												<img src="https://d2q576s0wzfxtl.cloudfront.net/2018/11/12204558/q7.png" alt="">
-												<span><h4>heading</h4></span>
-										</div>
-										<div class="card-desc">
-												<h3>QUESTÃO 07 </h3>
-												<p>A utilização de determinadas variedades linguísticas em campanhas educativas tem a função de atingir...</p>
-														<a href="questao07.html" class="btn-card">Ver questão</a>   
-										</div>
-								</div>
-						</div>
-						<div class="col-md-4">
-								<div class="card-content">
-										<div class="card-img">
-											
-												<img src="https://d2q576s0wzfxtl.cloudfront.net/2018/11/11212451/ENEM2018.png" alt="">
-												<span><h4>heading2</h4></span>
-										</div>
-										<div class="card-desc">
-												<h3>QUESTÃO 02</h3>
-												<p>No cartum, a crítica está no fato de a sociedade exigir do adolescente que</p>
-														<a href="#" class="btn-card">Ver questão</a>   
-										</div>
-								</div>
-						</div>
-						<div class="col-md-4">
-								<div class="card-content">
-										<div class="card-img">
-												<img src="https://d2q576s0wzfxtl.cloudfront.net/2018/11/12210757/q13.png" alt="">
-												<span><h4>heading3</h4></span>
-										</div>
-										<div class="card-desc">
-												<h3>QUESTÃO 13</h3>
-												<p>O segundo texto, que propõe uma reflexão sobre o primeiro acerca do impacto de mudanças no estilo de vida na saúde...</p>
-														<a href="#" class="btn-card">Ver questão</a>   
-										</div>
-								</div>
-						</div>
-				</div>
+<div class="container">
+    <h1>Escolha a disciplina</h1>
+	<div class="row">
+	    <!-- CHARACTER -->
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	         <div class="card-img">
+              <img src="img/disciplinas/portugues.jpg" alt="Avatar">
+              </div>
+              <div class="cardcontainer text-center" title="Character herpa derpa do">
+                <a href="questoesport.html" style="color: white">Português</a>
+              </div>
+            </div>
+	    </div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/matematica.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+										<a href="#" style="color: white">Matemática</a>  
+                </div>
+            </div>
+			</div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/fisica.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Física</a>
+                </div>
+            </div>
+			</div>
+	    <!-- OTHER -->
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/quimica.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Quimica</a>
+                </div>
+            </div>
+			</div>
+			<div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/historia.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Historia</a>
+                </div>
+            </div>
+	    </div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/geografia.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Geografia</a>
+                </div>
+            </div>
+	    </div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/biologia.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Biologia</a>
+                </div>
+            </div>
+	    </div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/literatura.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Literatura</a>
+                </div>
+            </div>
+	    </div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/espanhol.png" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Espanhol</a>
+                </div>
+            </div>
+	    </div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/ingles.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Inglês</a>
+                </div>
+            </div>
+	    </div>
+	    <div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/filosofia.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Filosofia</a>
+                </div>
+            </div>
+			</div>
+			<div class="col-md-2">
+	        <div class="card OTH">
+	            <div class="card-img">
+                    <img src="img/disciplinas/sociologia.jpg" alt="Avatar">
+                </div>
+                <div class="cardcontainer text-center">
+                    <a href="#" style="color: white">Sociologia</a>
+                </div>
+            </div>
+			</div>
 		</div>
-</section>
-
+</div>
 		
 		  <!-- Footer -->
 			<footer class="footer text-center">
 					<div class="container">
-						<div class="row">
-			
-							
+						<div class="row">	
 			
 							<!-- Footer Social Icons -->
 							<div class="col-lg-4 mb-5 mb-lg-0 text-center">
@@ -130,8 +215,6 @@
 									<i class="fab fa-fw fa-dribbble"></i>
 								</a>
 							</div>
-			
-							
 			
 						</div>
 					</div>
@@ -154,7 +237,7 @@
 	  <!-- Bootstrap core JavaScript -->
 		<script src="vendor/jquery/jquery.min.js"></script>
 		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	
+		<script src="js/cards.js"></script>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+.pagination>li>a {align-content:center; border-radius: 50% !important;margin: 0 5px;}
 
 .search {
 	position: relative; 
