@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+	<title>Informações pessoais</title>
+
+    <!-- Fontes para esse tema -->
+      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Tema CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+ 
+
+</head>
+<body style="background-image: url('images/plano_fundo_infor_pessoais.jpg');">
+  <!-- Menu de navegação -->
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Funcionalidades</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <br><br><br><br><br><br><br>
+
+  <!--formulario-->
+
+  <br>
+  <div class="container" style="background-color: #FA8072; font-size: 200%;  border-radius: 20px;">
+    <p class="display-10 font-italic">Está quase lá, preencha o formulario a seguir para aproveita todas as nossas ferramentas.<b>Nenhuma das suas informações seram publicadas!</b> </p>
+  </div>
+  <div class="container" style="background-color: white; border-radius: 20px; font-size: 20px; margin-left: 8%; width: 60%; mar">
+    <br><h1>informações pessoais</h1><br>
+   <form th:action="@{/evento/add}" th:object="${evento}" method="post">
+   
+   <input type="hidden" th:field="*{codigo}"/>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="estado">Estado</label>
+        <select class="form-control" id="estado">
+                  <option>Acre</option> 
+                  <option>Alagoas</option> 
+                  <option>Amapá</option> 
+                  <option>Amazonas</option> 
+                  <option>Bahia</option>
+                  <option>Ceará</option>
+                  <option>Distrito Federal</option>
+                  <option>Espírito Santo</option>
+                  <option>Goiás</option>   
+                  <option>Maranhão</option>
+                  <option>Mato Grosso</option>
+                  <option>Mato Grosso do Sul</option>
+                  <option>Minas Gerais</option>
+                  <option>Pará</option>
+                  <option>Paraíba</option>
+                  <option>Paraná</option>
+                  <option>Pernambuco</option>
+                  <option>Piauí</option>
+                  <option>Rio de Janeiro</option>
+                  <option>Rio Grande do Norte</option>
+                  <option>Rio Grande do Sul</option>
+                  <option>Rondônia</option>
+                  <option>Roraima</option>
+                  <option>Santa Catarina</option>
+                  <option>São Paulo</option>
+                  <option>Sergipe</option>
+                  <option>Tocantins</option>
+
+                </select>
+        
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="cidade">Cidade</label>
+        <select class="form-control" id="cidade">
+                  <option>Recife</option> 
+                  <option>Boa Viagem</option> 
+                  <option>Jaboatão dos Guararapes</option> 
+                  <option>Cabo de santa Gostinho</option> 
+                  <option>Sitoria de Santo Antão </option>   
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="masculino">Sexo</label>
+          <br><label for="masculino">Masculino:</label> <input type="radio" th:field="*{quant_max_convidados}"  id="masculino" name="sexo" value="masculino">
+
+           <label for="feminino">Feminino:</label> <input type="radio" th:field="*{quant_max_convidados}"  id="feminino" name="sexo" value="feminino">
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="nascimento">Data de Nascimento</label>
+        <input type="date" th:field="*{duracao_horas}" class="form-control" id="nascimento">
+      </div>
+    </div>
+      <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="escolaridade">Escolaridade</label>
+        <select class="form-control" id="escolaridade">
+          <option>Ensino fundamental</option>
+          <option>Ensino médio</option>
+          <option>Ensino superior</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="instituicao">Instituição</label>
+        <div class="input-group">
+        <input type="input" th:field="*{duracao_horas}" class="form-control" id="instituicao">
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="tipo_instituicao">Tipo de instituição de Ensino</label>
+        <select class="form-control" id="tipo_instituicao">
+          <option>Púbblico</option>
+          <option>Privado</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="processo">Qual processo seletivo irá fazer</label>
+          <select class="form-control" id="processo">
+            <option>Vestibular</option>
+            <option>Concurso</option>
+          </select>
+      </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-8 mb-5">
+      <label for="sim">Já particiou do Enem (Exame Nascional do Ensino Medio)</label><br>
+      <label for="sim">Sim</label>
+      <input type="radio" name="enem" id="sim" >
+      <label for="nao">Não</label>
+      <input type="radio" name="enem" id="nao">
+    </div>
+  </div>
+ 
+  
+  <button class="btn btn-success" type="submit" style=" margin: 0% 15% 2% 0%;  padding: 1% 5% 1% 5%;">Salvar</button>
+  <div class="form-row">
+  <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger">
+      <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
+  </div>
+  </div>
+</form>
+</div>
+
+<div class="container" style="background-color: #00FA9A; border-radius: 20px; font-size: 20px; margin-left: 69%; width: 30%; margin-top: -48%; margin-bottom: 30%;">
+  <div class="col-md-4 mb-5">
+    <p>50% das pessoas que organiza seu tempo e consegui cumprir suas atividades , são aprovadas em grandes universidades.</p>
+  </div>
+</div>
+
+
+
+
+    
+<!-- Footer -->
+<footer class="footer text-center">
+    <div class="container">
+
+        <!-- Footer Social Icons -->
+
+        <section class="py-4 text-center">
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-dribbble"></i>
+          </a>
+        </section>
+
+        
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Enem Station 2019</small>
+    </div>
+  </section>
+   <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+</body>
+</html>

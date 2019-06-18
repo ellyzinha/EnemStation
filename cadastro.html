@@ -19,32 +19,36 @@
 
 
 </head>
-<body id="page-top" style="background-color:  #66CDAA;">
-     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="index.html">Enem Station</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">Home</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="modal"  data-target="#modal-login">Login</a>
-          </li>
-        </ul>
+<body id="page-top" style="background-color:  rgb(243, 243, 243);">
+     <!-- Menu de navegação -->
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Funcionalidades</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cadastro.html">Cadastro</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 <!--formulario-->
 
-<br>
+<br><br><br><br><br><br>
 <div class="container">
 
 <div class="card bg-light">
@@ -86,7 +90,7 @@
         <button type="submit" class="btn btn-secondary btn-block"> Criar Conta </button>
     </div> <!-- form-group// -->      
     <p class="text-center">Já é cadastrado? 
-    	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-login">Entrar</button>
+    	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-login">Entrar</button>
     	</p>                                                                 
 </form>
 </article>
@@ -98,38 +102,36 @@
 <br><br>
     <!--modal de login-->
   <div class="modal" tabindex="-1" role="dialog" id="modal-login">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: #66CDAA;">
-        <h5 class="modal-title">Login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:rgb(43, 5, 78);">
+            <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="padding: 5% 10% 5% 15%">
+            <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
+                   
+                      <form>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">E-mail</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Senha</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                          </div>
+                          <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
+                        </form>
+                        Esqueceu senha? <a href="esquecer_senha.html">Recuperar</a>
+    
+          </div>
+          <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
+            <button type="button" class="btn btn-info" href="cadastro.html">Cadastrar</button>
+          </div>
+        </div>
       </div>
-      <div class="modal-body" style="padding: 5% 10% 5% 15%">
-        <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
-               
-                  <form>
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">E-mail</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-                      </div>
-                      <button type="submit" class="btn btn-primary">Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
-                    </form>
-      </div>
-      <div class="modal-footer" style="background-color: #66CDAA; padding: 5% 26% 5% 10%;">
-      	<p>
-        Não é cadastrado?<a href="cadastro.html" style="color: blue;">Cadastre-se</a>
-      	</p>
-      </div>
-    </div>
-  </div>
-</div>
-
     
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -146,15 +148,13 @@
   <script src="js/freelancer.min.js"></script>
 
 </div>
-<footer class="footer text-center">
+ <!-- Footer -->
+ <footer class="footer text-center">
     <div class="container">
-      <div class="row">
-
-        
 
         <!-- Footer Social Icons -->
-        <div class="col-lg-4 mb-5 mb-lg-0 text-center">
-          <h4 class="text-uppercase mb-4">Around the Web</h4>
+
+        <section class="py-4 text-center">
           <a class="btn btn-outline-light btn-social mx-1" href="#">
             <i class="fab fa-fw fa-facebook-f"></i>
           </a>
@@ -167,18 +167,18 @@
           <a class="btn btn-outline-light btn-social mx-1" href="#">
             <i class="fab fa-fw fa-dribbble"></i>
           </a>
-        </div>
+        </section>
 
         
 
       </div>
     </div>
-    
   </footer>
+
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
     <div class="container">
-      <small>Copyright &copy; Your Website 2019</small>
+      <small>Copyright &copy; Enem Station 2019</small>
     </div>
   </section>
    <!-- Bootstrap core JavaScript -->
