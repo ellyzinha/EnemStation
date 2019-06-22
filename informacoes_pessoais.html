@@ -12,11 +12,33 @@
       <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Tema CSS -->
     <link href="css/freelancer.min.css" rel="stylesheet">
 
- 
+ <style>
+
+    #aviso{
+      background-color: white;
+      border-radius: 20px; 
+      margin-top: 7%;
+      }
+    #paragrafo{
+      text-shadow: 1px 2px black;
+      font-size: 200%;
+     
+    }
+    #formulario{
+      background-color: white; 
+      border-radius: 20px; 
+      font-size: 20px; 
+      margin-left: 1%; 
+      
+    
+  }
+   
+ </style>
 
 </head>
 <body style="background-image: url('images/plano_fundo_infor_pessoais.jpg');">
@@ -43,21 +65,30 @@
         </div>
       </div>
     </nav>
-  <br><br><br><br><br><br><br>
-
-  <!--formulario-->
-
+  
+ <br>
+<!--aviso-->
   <br>
-  <div class="container" style="background-color: #FA8072; font-size: 200%;  border-radius: 20px;">
-    <p class="display-10 font-italic">Está quase lá, preencha o formulario a seguir para aproveita todas as nossas ferramentas.<b>Nenhuma das suas informações seram publicadas!</b> </p>
+  <div class="container" id="aviso">
+    <div class=" col-12 col-md-12">
+      <p class="display-10 font-italic" id="paragrafo">Está quase lá, preencha o formulario a seguir para aproveita todas as nossas ferramentas.<b> Nenhuma das suas informações seram publicadas!</b> </p>
+    </div>
   </div>
-  <div class="container" style="background-color: white; border-radius: 20px; font-size: 20px; margin-left: 8%; width: 60%; mar">
-    <br><h1>informações pessoais</h1><br>
+
+   <!--formulario-->
+  <div class="container" id="formulario">
+    <div>
+    <div class="form-row">
+      <div class="col-md-11 mb-11">
+        <br><h1>informações pessoais</h1><br> 
+      </div>
+    </div>
+    
    <form th:action="@{/evento/add}" th:object="${evento}" method="post">
    
    <input type="hidden" th:field="*{codigo}"/>
     <div class="form-row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="estado">Estado</label>
         <select class="form-control" id="estado">
                   <option>Acre</option> 
@@ -91,7 +122,7 @@
                 </select>
         
       </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="cidade">Cidade</label>
         <select class="form-control" id="cidade">
                   <option>Recife</option> 
@@ -103,19 +134,19 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="masculino">Sexo</label>
           <br><label for="masculino">Masculino:</label> <input type="radio" th:field="*{quant_max_convidados}"  id="masculino" name="sexo" value="masculino">
 
            <label for="feminino">Feminino:</label> <input type="radio" th:field="*{quant_max_convidados}"  id="feminino" name="sexo" value="feminino">
       </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="nascimento">Data de Nascimento</label>
         <input type="date" th:field="*{duracao_horas}" class="form-control" id="nascimento">
       </div>
     </div>
       <div class="form-row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="escolaridade">Escolaridade</label>
         <select class="form-control" id="escolaridade">
           <option>Ensino fundamental</option>
@@ -123,7 +154,7 @@
           <option>Ensino superior</option>
         </select>
       </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="instituicao">Instituição</label>
         <div class="input-group">
         <input type="input" th:field="*{duracao_horas}" class="form-control" id="instituicao">
@@ -131,14 +162,14 @@
     </div>
   </div>
   <div class="form-row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="tipo_instituicao">Tipo de instituição de Ensino</label>
         <select class="form-control" id="tipo_instituicao">
           <option>Púbblico</option>
           <option>Privado</option>
         </select>
       </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <label for="processo">Qual processo seletivo irá fazer</label>
           <select class="form-control" id="processo">
             <option>Vestibular</option>
@@ -147,7 +178,7 @@
       </div>
   </div>
   <div class="form-row">
-    <div class="col-md-8 mb-5">
+    <div class="col-md-8 mb-4">
       <label for="sim">Já particiou do Enem (Exame Nascional do Ensino Medio)</label><br>
       <label for="sim">Sim</label>
       <input type="radio" name="enem" id="sim" >
@@ -155,29 +186,36 @@
       <input type="radio" name="enem" id="nao">
     </div>
   </div>
- 
   
-  <button class="btn btn-success" type="submit" style=" margin: 0% 15% 2% 0%;  padding: 1% 5% 1% 5%;">Salvar</button>
+  <button class="btn btn-success" type="submit" style=" margin: 0% 15% 2% 0%;  padding: 1% 5% 1% 5%; position: relative;">Salvar</button>
   <div class="form-row">
   <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger">
       <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
   </div>
   </div>
 </form>
+
 </div>
-
-<div class="container" style="background-color: #00FA9A; border-radius: 20px; font-size: 20px; margin-left: 69%; width: 30%; margin-top: -48%; margin-bottom: 30%;">
-  <div class="col-md-4 mb-5">
-    <p>50% das pessoas que organiza seu tempo e consegui cumprir suas atividades , são aprovadas em grandes universidades.</p>
-  </div>
 </div>
-
-
-
-
+<!--aviso ou anucios-->
+<div class="container">
+  <div class="row" style='margin: -62% 0% 50% 87%; background-color: white; width: 30%; height: 50%; border-radius: 20px;'>
+    <div class="col-md-4 mb-4">
+      <br>
+      <img src="images/aviso.jpg" width="300px">
+      <p style="width: 300%;">80% das pessoas que organiza seu tempo, são aprovadas em grades universidades.</p>
+     
+    </div>
     
-<!-- Footer -->
-<footer class="footer text-center">
+  </div>
+  </div>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="footer text-center">
     <div class="container">
 
         <!-- Footer Social Icons -->
@@ -209,6 +247,10 @@
       <small>Copyright &copy; Enem Station 2019</small>
     </div>
   </section>
+
+ 
+
+ 
    <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

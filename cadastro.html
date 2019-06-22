@@ -23,7 +23,7 @@
      <!-- Menu de navegação -->
   <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.html">Enem Station</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -31,16 +31,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Funcionalidades</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="index.html">Home</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Funcionalidades</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cadastro.html">Cadastro</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">Sobre</a>
             </li>
           </ul>
         </div>
@@ -88,10 +88,11 @@
     </div> <!-- form-group// -->                                      
     <div class="form-group">
         <button type="submit" class="btn btn-secondary btn-block"> Criar Conta </button>
-    </div> <!-- form-group// -->      
-    <p class="text-center">Já é cadastrado? 
-    	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-login">Entrar</button>
-    	</p>                                                                 
+    </div> <!-- form-group// -->    
+      
+    <p class="text-center"><label for="nao_cadastrado"> Já é cadastrado?</label>
+      <a href="" data-toggle="modal" data-target="#modal-login" style="font-size: 15pt;" id="nao_cadastrado">Entrar</a>
+    	</p>
 </form>
 </article>
 </div> <!-- card.// -->
@@ -106,7 +107,7 @@
         <div class="modal-content">
           <div class="modal-header" style="background-color:rgb(43, 5, 78);">
             <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="btn btn-light" class="close" data-dismiss="modal" aria-label="Close" style="background-color: white;">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -122,13 +123,14 @@
                             <label for="exampleInputPassword1">Senha</label>
                             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                           </div>
+                          <a href=""></a>
                           <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
                         </form>
                         Esqueceu senha? <a href="esquecer_senha.html">Recuperar</a>
     
           </div>
           <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
-            <button type="button" class="btn btn-info" href="cadastro.html">Cadastrar</button>
+            <a href="cadastro.html" class="btn btn-info">Cadastrar</a>
           </div>
         </div>
       </div>
