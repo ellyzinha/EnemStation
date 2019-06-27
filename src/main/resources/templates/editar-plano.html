@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Enem Station</title>
+
+  <!-- Fontes para esse tema -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Tema CSS -->
+  <link href="css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/plano.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Menu de navegação -->
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Meu Perfil</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  <br><br><br><br><br><br><br><br><br>
+  <div class="container" style="border: 2px solid black; background-color: white; border-radius: 25px;">
+  <h1 style="color: #808080;">Monte seu Plano de Estudo</h1>
+    <div class="tab_container">
+      <input id="tab1" type="radio" name="tabs" checked>
+      <label for="tab1"><i class="fa fa-code"></i><span>Segunda</span></label>
+
+      <input id="tab2" type="radio" name="tabs">
+      <label for="tab2"><i class="fa fa-pencil-square-o"></i><span>Terça</span></label>
+
+      <input id="tab3" type="radio" name="tabs">
+      <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Quarta</span></label>
+
+      <input id="tab4" type="radio" name="tabs">
+      <label for="tab4"><i class="fa fa-folder-open-o"></i><span>Quinta</span></label>
+
+      <input id="tab5" type="radio" name="tabs">
+      <label for="tab5"><i class="fa fa-envelope-o"></i><span>Sexta</span></label>
+
+    <!-- Tab Segunda --> 
+    <section id="content1" class="tab-content">
+    <!-- Formulário de Plano -->
+    <div align="center">
+    <form class="">
+      <!-- Select -->
+            <span style="color: #808080;">Horário</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha um Horário</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+     <!-- Select -->
+            <span style="color: #808080;">Disciplina</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha uma disciplina</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+       <!-- Assunto -->
+            <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Assunto">
+    </form>
+  </div>
+
+    <!-- Tabela do Plano de Estudo -->
+
+    <div class="container" align="center">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Horário</th>
+            <th>Disciplina</th>
+            <th>Assunto</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+            <tr>
+                <td>13:00</td>
+                <td>Matemática</td>
+                <td>Conjunto</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td>História</td>
+                <td>Revolução Francesa</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td>Filosofia</td>
+                <td>Sócrates</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    </div>
+</div>
+            
+      </section>
+
+      <section id="content2" class="tab-content">
+       <div align="center">
+    <form class="">
+      <!-- Select -->
+            <span>Horário</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha um Horário</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+     <!-- Select -->
+            <span>Disciplina</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha uma disciplina</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+       <!-- Assunto -->
+            <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Assunto">
+    </form>
+  </div>
+
+    <!-- Tabela do Plano de Estudo -->
+
+    <div class="container" align="center">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Horário</th>
+            <th>Disciplina</th>
+            <th>Assunto</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+            <tr>
+                <td>13:00</td>
+                <td>Matemática</td>
+                <td>Conjunto</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td>História</td>
+                <td>Revolução Francesa</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td>Filosofia</td>
+                <td>Sócrates</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    </div>
+</div>
+          
+      </section>
+
+      <section id="content3" class="tab-content">
+       <div align="center">
+    <form class="">
+      <!-- Select -->
+            <span>Horário</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha um Horário</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+     <!-- Select -->
+            <span>Disciplina</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha uma disciplina</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+       <!-- Assunto -->
+            <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Assunto">
+    </form>
+  </div>
+
+    <!-- Tabela do Plano de Estudo -->
+
+    <div class="container" align="center">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Horário</th>
+            <th>Disciplina</th>
+            <th>Assunto</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+            <tr>
+                <td>13:00</td>
+                <td>Matemática</td>
+                <td>Conjunto</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td>História</td>
+                <td>Revolução Francesa</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td>Filosofia</td>
+                <td>Sócrates</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    </div>
+</div>
+        
+      </section>
+
+      <section id="content4" class="tab-content">
+        <div align="center">
+    <form class="">
+      <!-- Select -->
+            <span>Horário</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha um Horário</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+     <!-- Select -->
+            <span>Disciplina</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha uma disciplina</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+       <!-- Assunto -->
+            <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Assunto">
+    </form>
+  </div>
+
+    <!-- Tabela do Plano de Estudo -->
+
+    <div class="container" align="center">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Horário</th>
+            <th>Disciplina</th>
+            <th>Assunto</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+            <tr>
+                <td>13:00</td>
+                <td>Matemática</td>
+                <td>Conjunto</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td>História</td>
+                <td>Revolução Francesa</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td>Filosofia</td>
+                <td>Sócrates</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    </div>
+</div>
+      </section>
+
+      <section id="content5" class="tab-content">
+       <div align="center">
+    <form class="">
+      <!-- Select -->
+            <span>Horário</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha um Horário</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+     <!-- Select -->
+            <span>Disciplina</span>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option value="" disabled>Choose option</option>
+                <option value="1" selected>Escolha uma disciplina</option>
+                <option value="2">Report a bug</option>
+                <option value="3">Feature request</option>
+                <option value="4">Feature request</option>
+            </select>
+            <br><br>
+
+       <!-- Assunto -->
+            <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Assunto">
+    </form>
+  </div>
+
+    <!-- Tabela do Plano de Estudo -->
+
+    <div class="container" align="center">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Horário</th>
+            <th>Disciplina</th>
+            <th>Assunto</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+            <tr>
+                <td>13:00</td>
+                <td>Matemática</td>
+                <td>Conjunto</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>15:00</td>
+                <td>História</td>
+                <td>Revolução Francesa</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>17:00</td>
+                <td>Filosofia</td>
+                <td>Sócrates</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    </div>
+</div>
+      </section>
+    </div>
+  </div>
+  <br><br>
+    
+
+ <!-- Footer -->
+ <footer class="footer text-center">
+    <div class="container">
+
+        <!-- Footer Social Icons -->
+
+        <section class="py-4 text-center">
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-dribbble"></i>
+          </a>
+        </section>
+
+        
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Enem Station 2019</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+ 
+
+  
+  
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>

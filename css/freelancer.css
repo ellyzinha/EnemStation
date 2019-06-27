@@ -161,13 +161,13 @@ sup {
 }
 
 a {
-  color: #380568;
+  color: #1abc9c;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #380568;
+  color: #117964;
   text-decoration: underline;
 }
 
@@ -4390,7 +4390,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #380463;
+  background-color: #1abc9c;
 }
 
 .nav-fill .nav-item {
@@ -10676,7 +10676,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #380463;
+  color: #1abc9c;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
@@ -10684,7 +10684,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #380463;
+  color: #1abc9c;
 }
 
 #mainNav .navbar-toggler {
@@ -10709,11 +10709,11 @@ a.text-dark:hover, a.text-dark:focus {
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
     color: #fff;
-    background: #380463;
+    background: #1abc9c;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
     color: #fff;
-    background: #380463;
+    background: #1abc9c;
   }
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;

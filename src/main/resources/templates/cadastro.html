@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+	<title>Cadastro</title>
+
+    <!-- Fontes para esse tema -->
+      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Tema CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+
+
+</head>
+<body id="page-top" style="background-color:  rgb(243, 243, 243);">
+     <!-- Menu de navegação -->
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">Enem Station</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{ind}">Home</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Funcionalidades</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">Sobre</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!--formulario-->
+
+<br><br><br><br><br><br>
+<div class="container">
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">CADASTRE-SE</h4>
+	<p class="text-center">Aproveite todas nossas ferramentas</p>
+	<p>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-google"></i>   Login via Gmail</a>
+	</p>
+	<p align="center" class="divider-text">
+        <span class="bg-light">OU</span>
+    </p>
+	<form>
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Nome completo" type="text">
+    </div> 
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="E-mail" type="email">
+    </div> 
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Senha" type="password">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Confirmar senha" type="password">
+    </div> <!-- form-group// -->                                      
+    <div class="form-group">
+        <button type="submit" class="btn btn-secondary btn-block"> Criar Conta </button>
+    </div> <!-- form-group// -->    
+      
+    <p class="text-center"><label for="nao_cadastrado"> Já é cadastrado?</label>
+      <a href="" data-toggle="modal" data-target="#modal-login" style="font-size: 15pt;" id="nao_cadastrado">Entrar</a>
+    	</p>
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div> 
+<!--container end.//-->
+
+<br><br>
+    <!--modal de login-->
+  <div class="modal" tabindex="-1" role="dialog" id="modal-login">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color:rgb(43, 5, 78);">
+            <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
+            <button type="button" class="close btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="padding: 5% 10% 5% 15%">
+            <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
+                   
+                      <form>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">E-mail</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Senha</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                          </div>
+                          <a href=""></a>
+                          <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
+                        </form>
+                        Esqueceu senha? <a href="esquecer_senha.html">Recuperar</a>
+    
+          </div>
+          <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
+            <a href="cadastro.html" class="btn btn-info">Cadastrar</a>
+          </div>
+        </div>
+      </div>
+    
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</div>
+ <!-- Footer -->
+ <footer class="footer text-center">
+    <div class="container">
+
+        <!-- Footer Social Icons -->
+
+        <section class="py-4 text-center">
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-dribbble"></i>
+          </a>
+        </section>
+
+        
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Enem Station 2019</small>
+    </div>
+  </section>
+   <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+</body>
+</html>

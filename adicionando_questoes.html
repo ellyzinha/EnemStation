@@ -20,25 +20,35 @@
 
 </head>
 
-<body id="page-top"  style="background-color: rgb(251, 253, 253);">
+<body id="page-top"  style="background-color: #7FFFD4;">
 
-  <!-- Menu de navegação -->
-  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="adm.html">Perfil de Administrador</a>
-            </li>
-          </ul>
-        </div>
+  <!-- MENU -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
+
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Administrador</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Perfil</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="modal"  data-target="#modal-login">Gerencia desempenho</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cadastro.html">Sair</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
   <!---formulario----->
   <br><br><br><br><br><br>
   <h1 class="font-weight-normal" align="center" >Disciplina de Português</h1>
@@ -93,7 +103,7 @@
 <div class="form-group" align="center">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-lg" style=" width: 200px;">Postar</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-lg" style=" width: 200px;">Posta</button>
   </div>
 </div>
 
@@ -102,13 +112,16 @@
  </div>
 </main>
 <br><br>
- <!-- Footer -->
- <footer class="footer text-center">
+  <!-- Footer -->
+  <footer class="footer text-center">
     <div class="container">
+      <div class="row">
+
+        
 
         <!-- Footer Social Icons -->
-
-        <section class="py-4 text-center">
+        <div class="col-lg-4 mb-5 mb-lg-0 text-center">
+          <h4 class="text-uppercase mb-4">Around the Web</h4>
           <a class="btn btn-outline-light btn-social mx-1" href="#">
             <i class="fab fa-fw fa-facebook-f"></i>
           </a>
@@ -121,7 +134,7 @@
           <a class="btn btn-outline-light btn-social mx-1" href="#">
             <i class="fab fa-fw fa-dribbble"></i>
           </a>
-        </section>
+        </div>
 
         
 
