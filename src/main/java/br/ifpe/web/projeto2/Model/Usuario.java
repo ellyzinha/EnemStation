@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -29,6 +30,7 @@ public class Usuario {
 	private String senha;
 	@Column(nullable = false)
 	@NotBlank
+	@Transient
 	private String conf_senha;
 	
 	
