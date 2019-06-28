@@ -1,4 +1,4 @@
-package br.ifpe.web.projeto2.Controller;
+package br.ifpe.web.projeto2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

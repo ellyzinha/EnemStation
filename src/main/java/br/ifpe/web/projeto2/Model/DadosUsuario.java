@@ -1,4 +1,4 @@
-package br.ifpe.web.projeto2.Controller;
+package br.ifpe.web.projeto2.Model;
 
 import java.sql.Date;
 
@@ -94,4 +94,3 @@ public class DadosUsuario {
 
 	
 }
-
