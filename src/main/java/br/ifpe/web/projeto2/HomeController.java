@@ -8,34 +8,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.ifpe.web.projeto2.DAO.DadosUsuarioDAO;
-import br.ifpe.web.projeto2.DAO.UsuarioDAO;
 import br.ifpe.web.projeto2.Model.DadosUsuario;
-import br.ifpe.web.projeto2.Model.Usuario;
 
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private UsuarioDAO usuarioRep;
 	@Autowired
 	private DadosUsuarioDAO dadosUsuarioRep;
 	
 	@GetMapping("/ind")
 	public String index() {
 		return "index.html";
-	}
-
-	@GetMapping("cadastro")
-	public ModelAndView cadastro() {
-		ModelAndView mv = new ModelAndView("cadastro");
-		mv.addObject("usuario",new Usuario());
-		return mv;
-	}
-	
-	@PostMapping("/addUsuario")
-	public String addUsuario(@ModelAttribute Usuario usuario) {
-		usuarioRep.save(usuario);
-		return "redirect:/cadastro";
 	}
 	
 	@GetMapping("dados_pessoais")

@@ -1,14 +1,21 @@
 package br.ifpe.web.projeto2.Model;
 
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+
 
 
 
@@ -28,17 +35,30 @@ public class Usuario {
 	@Column(nullable = false)
 	@NotBlank
 	private String senha;
-	@Column(nullable = false)
-	@NotBlank
-	@Transient
-	private String conf_senha;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Version
+	private Date lastLogin;
+	private boolean ativo;
+	@Enumerated
+	private Permissao permissao;
 	
-	
-	public String getConf_senha() {
-		return conf_senha;
+	public Date getLastLogin() {
+		return lastLogin;
 	}
-	public void setConf_senha(String conf_senha) {
-		this.conf_senha = conf_senha;
+	public void setLastLogin(Date lastLogin) {
+		this.lastLogin = lastLogin;
+	}
+	public boolean isAtivo() {
+		return ativo;
+	}
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+	public Permissao getPermissao() {
+		return permissao;
+	}
+	public void setPermissao(Permissao permissao) {
+		this.permissao = permissao;
 	}
 	public Integer getId_usuario() {
 		return id_usuario;
