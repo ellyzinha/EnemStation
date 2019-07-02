@@ -2,27 +2,72 @@ package br.ifpe.web.projeto2;
 
 
 
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.web.projeto2.DAO.UsuarioDAO;
+import br.ifpe.web.projeto2.Model.Usuario;
+import br.ifpe.web.projeto2.service.UsuarioService;
 
 @Controller
 public class AutenticaçãoController {
 	
 	@Autowired
 	private UsuarioDAO usuarioRep;
+	@Autowired
+	private UsuarioService usuarioService;
 	
+	//Efetuar Login
+	@GetMapping("/ind")
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView("/index");
+		mv.addObject("usuario", new Usuario());
+		return mv;
+	}
+	
+	@PostMapping("/efetuarLogin")
+	public String efetuarLogin(Usuario usuario, RedirectAttributes ra, HttpSession session) throws br.ifpe.web.projeto2.service.ServiceException {
+		Usuario usuarioLogado;
+		try {
+			usuarioLogado = this.usuarioService.efetuarLogin(usuario.getEmail(),usuario.getSenha());
+			session.setAttribute("usuarioLogado", usuarioLogado);
+		} catch (ServiceException e) {
+			ra.addFlashAttribute("mensagemErro", e.getMessage());
+			return "redirect:/ind";
+		}
+		
+		return "redirect:/perfil";
+	}
+	
+	@PostMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/ind";
+	}
 	
 	//Método para modificar a senha do usuário que vai ser redirecionado pelo link do email.
 	@GetMapping("/modificarSenha")
-	public ModelAndView alterarSenha(@RequestParam Integer id_usuario) {
+	public ModelAndView alterarSenha(@RequestParam Integer id_usuario, Usuario usuario) {
 		ModelAndView mv = new ModelAndView("/modificar_senha");
 		mv.addObject("usuario", usuarioRep.getOne(id_usuario));
 		return mv;
+	}
+	
+	@PostMapping("/novaSenha")
+	public String novaSenha(@RequestParam Usuario senha) {
+		this.usuarioRep.save(senha);
+		return "redirect:/modificar_senha"; 
+		
 	}
 
 }

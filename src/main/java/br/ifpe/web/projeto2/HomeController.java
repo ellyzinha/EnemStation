@@ -1,5 +1,7 @@
 package br.ifpe.web.projeto2;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,16 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 import br.ifpe.web.projeto2.DAO.DadosUsuarioDAO;
 import br.ifpe.web.projeto2.Model.DadosUsuario;
 
+
 @Controller
 public class HomeController {
 	
 	@Autowired
 	private DadosUsuarioDAO dadosUsuarioRep;
-	
-	@GetMapping("/ind")
-	public String index() {
-		return "index.html";
-	}
+
 	
 	@GetMapping("dados_pessoais")
 	public ModelAndView dados_pessoais() {

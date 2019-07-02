@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -75,7 +75,7 @@
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{cadastro}">Cadastro</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/cad}">Cadastro</a>
           </li>
         </ul>
       </div>
@@ -184,7 +184,7 @@
 
       <!-- About Section Button -->
       <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="cadastro.html">
+        <a class="btn btn-xl btn-outline-light" th:href="@{cadastro}">
           <i class="fas fa-user-plus"></i>
           Faça seu Cadastro
         </a>
@@ -251,22 +251,29 @@
       <div class="modal-body" style="padding: 5% 10% 5% 15%">
         <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
                
-                  <form>
+                  <form th:action="@{/efetuarLogin}" th:object="${usuario}" method="post" >
                       <div class="form-group">
                         <label for="exampleInputEmail1">E-mail</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
+                        <input th:field="*{email}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        <input th:field="*{senha}" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                       </div>
                       <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
+                      
+                      <div th:if="${mensagem}">
+								<div class="alert alert-success" th:text="${mensagem}"></div>
+							</div>
+							<div th:if="${mensagemErro}">
+								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
+							</div>
                     </form>
-                    Esqueceu senha? <a href="esquecer_senha.html">Recuperar</a>
+                    Esqueceu senha? <a th:href="@{/esquecer_senha}">Recuperar</a>
 
       </div>
       <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
-        <button type="button" class="btn btn-info" href="cadastro.html">Cadastrar</button>
+        <button type="button" class="btn btn-info" th:href="@{/cad}">Cadastrar</button>
       </div>
     </div>
   </div>
