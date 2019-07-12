@@ -1,11 +1,17 @@
 package br.ifpe.web.projeto2.service;
 
+
+
+import javax.mail.internet.InternetAddress;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.ifpe.web.projeto2.DAO.LoginGmailDAO;
 import br.ifpe.web.projeto2.DAO.UsuarioDAO;
+import br.ifpe.web.projeto2.Model.LoginGmail;
 import br.ifpe.web.projeto2.Model.Usuario;
 import br.ifpe.web.projeto2.exceptions.EmailExistsException;
 
@@ -16,6 +22,9 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioDAO usuarioDao;
+	@Autowired
+	private LoginGmailDAO loginGmailDAO;
+	
 	
 	public Usuario efetuarLogin(String email, String senha) throws ServiceException {
 		Usuario usuario = this.usuarioDao.efetuarLogin(email, senha);
@@ -40,20 +49,43 @@ public class UsuarioService {
 		return usuarioDao.findByNomeEmailAprox(nome, email);
 	}
 	
+	public void criarUsuario(Usuario usuario) throws Exception {
+			
+		    if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
+		        throw new EmailExistsException
+		          ("Já existe usuário com este e-mail: " + usuario.getEmail());
+		    }
+	//	    usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+		 
+			usuarioDao.save(usuario);
+		}
 	
-public void criarUsuario(Usuario usuario) throws Exception {
+	public void updateSenha(String senha, Integer id_usuario) {
+        usuarioDao.updateSenha(senha, id_usuario);
+    }
 	
-	
-	    if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
-	        throw new EmailExistsException
-	          ("Já existe usuário com este e-mail: " + usuario.getEmail());
-	    }
-//	    usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
-	 
-		usuarioDao.save(usuario);
+	//Verificando EMail no banco
+	public LoginGmail findByLoginGmail(String email) {
+		return loginGmailDAO.findByLoginEmail(email);
 	}
 
+	public InternetAddress findUsuarioByEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
+	//Verificando se o email já existe no banco e salvando
+	
+ /**	public void loginGmail(LoginGmail lg) {
+		if(this.findByLoginGmail(lg.email != null)) {
+			
+		}
+		loginGmailDAO.save(lg);
+	} **/
+	
+	
+	
+
+
+
 }
-
-

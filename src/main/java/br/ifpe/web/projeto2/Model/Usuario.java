@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 
@@ -18,7 +20,7 @@ public class Usuario {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id_usuario;
 	@Column(nullable = false)
-	
+	@NotBlank(message = "Campo obrigatório, Insira um nome")
 	private String nome;
 	@NotBlank(message = "Insira um email válido")
 	@Email
@@ -26,12 +28,23 @@ public class Usuario {
 	private String email;
 	@Column(nullable = false)
 	@NotBlank(message = "Insira uma senha para prosseguir")
+	@Min(value = 6, message = "Digite uma senha com mais de 6 caracteres")
 	private String senha;
 	private boolean ativo;
+	@ManyToOne
+	private DadosUsuario dadosUsuario;
 	
 	
 	
 	
+	
+	
+	public DadosUsuario getDadosUsuario() {
+		return dadosUsuario;
+	}
+	public void setDadosUsuario(DadosUsuario dadosUsuario) {
+		this.dadosUsuario = dadosUsuario;
+	}
 	public boolean isAtivo() {
 		return ativo;
 	}

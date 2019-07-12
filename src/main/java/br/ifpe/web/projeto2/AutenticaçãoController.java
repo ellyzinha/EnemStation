@@ -7,9 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -56,18 +54,11 @@ public class AutenticaçãoController {
 	}
 	
 	//Método para modificar a senha do usuário que vai ser redirecionado pelo link do email.
-	@GetMapping("/modificarSenha")
-	public ModelAndView alterarSenha(@RequestParam Integer id_usuario, Usuario usuario) {
+ /**	@GetMapping("/modificarSenha")
+	public ModelAndView alterarSenha(@RequestParam Integer id_usuario) {
 		ModelAndView mv = new ModelAndView("/modificar_senha");
 		mv.addObject("usuario", usuarioRep.getOne(id_usuario));
 		return mv;
-	}
-	
-	@PostMapping("/novaSenha")
-	public String novaSenha(@RequestParam Usuario senha) {
-		this.usuarioRep.save(senha);
-		return "redirect:/modificar_senha"; 
-		
-	}
+	} **/
 
 }

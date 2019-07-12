@@ -8,7 +8,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 public class AutorizadorInterceptor implements HandlerInterceptor {
 	private static final boolean CONTROLAR_ACESSO = true;
 
-	private static final String[] RECURSOS_LIVRES = { "/ind", "/logout", "/efetuarLogin", "/acesso-negado","/cad","/addUsuario","/perfil", "/modificarSenha"};
+	private static final String[] RECURSOS_LIVRES = { "/ind", "/logout", "/efetuarLogin", "/acesso-negado","/cad","/addUsuario","/perfil", "/modificarSenha", "/email-enviado","/esquecer_senha"};
 
 	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
 

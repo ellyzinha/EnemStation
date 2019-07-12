@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,17 +57,38 @@
                         <div class="card-header">
                             <h3 class="mb-0">Modificar Senha</h3>
                         </div>
+                        <div th:if="${error}">
+                                <div class="alert alert-danger">
+                                    <span th:text="${error}"></span>
+                                </div>
+                            </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" th:action="@{/novaSenha}" th:object="${usuario}" method="post">
-                            <input type="hidden" th:field="*{id_usuario}">
-                                <div class="form-group">
+                            <form class="form" role="form" autocomplete="off" th:action="@{/modificar_senha}" th:object="${modificarSenhaForm}" method="post">
+                            <p class="error-message"
+                                   th:if="${#fields.hasGlobalErrors()}"
+                                   th:each="error : ${#fields.errors('global')}"
+                                   th:text="${error}">Validation error</p>
+                                   
+                                   <input type="hidden" name="token" th:value="${token}"/>
+                                   
+                                <div class="form-group" th:classappend="${#fields.hasErrors('senha')}? 'has-error':''">
                                     <label for="inputResetPasswordEmail">Nova Senha</label> 
                                     <input th:field="*{senha}" type="password"
 									required="required" class="form-control"
 									id="inputResetPasswordEmail">
+									<p class="error-message"
+                                       th:each="error: ${#fields.errors('senha')}"
+                                       th:text="${error}">Validation error</p>
 							</div>
-                             
+                                <div class="form-group" th:classappend="${#fields.hasErrors('confirmarSenha')}? 'has-error':''">
+                                    <label for="inputResetPasswordEmail">Confirmar Senha</label>
+                                    <input th:field="*{confirmarSenha}" type="password" class="form-control" id="inputResetPasswordEmail" required="required">
+                                </div>
+                                <p class="error-message"
+                                       th:each="error: ${#fields.errors('confirmarSenha')}"
+                                       th:text="${error}">Validation error</p>
                                 <div class="form-group">
+                                
                                     <button type="submit" class="btn btn-success btn-lg float-center">Salvar</button>
                                 </div>
                             </form>
@@ -79,45 +100,7 @@
     
     
     <!--modal de login-->
-<div class="modal" tabindex="-1" role="dialog" id="modal-login">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color:rgb(43, 5, 78);">
-            <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
-            <button type="button" class="btn btn-light"  data-dismiss="modal" aria-label="Close" style="background-color: white;">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" style="padding: 5% 10% 5% 15%">
-            <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
-                   
-                      <form th:action="@{/efetuarLogin}" th:object="${usuario}" method="post">
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">E-mail</label>
-                            <input th:field="*{email}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Senha</label>
-                            <input th:field="*{senha}" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-                          </div>
-                          <a href=""></a>
-                          <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
-                          <div th:if="${mensagem}">
-								<div class="alert alert-success" th:text="${mensagem}"></div>
-							</div>
-							<div th:if="${mensagemErro}">
-								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
-							</div>
-                        </form>
-                        Esqueceu senha? <a>Recuperar</a>
-    
-          </div>
-          <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
-            <a th:href="@{/cad}" class="btn btn-info">Cadastrar</a>
-          </div>
-        </div>
-      </div>
-</div>
+
 
     
   <!-- Bootstrap core JavaScript -->

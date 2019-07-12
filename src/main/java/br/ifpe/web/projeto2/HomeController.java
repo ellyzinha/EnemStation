@@ -33,10 +33,6 @@ public class HomeController {
 		return "redirect:/dados_pessoais";
 	}
 	
-	@GetMapping("/adicionando_questoes")
-	public String adicionando_questoes() {
-		return "adicionando_questoes";
-	}
 	
 	@GetMapping("/adicionar_materiais")
 	public String adicionar_materiais() {
@@ -60,13 +56,9 @@ public class HomeController {
 	
 	@GetMapping("/editar_plano")
 	public String editar_plano() {
-		return "editar_plano";
+		return "editar-plano";
 	}
 	
-	@GetMapping("/esquecer_senha")
-	public String esquecer_senha() {
-		return "esquecer_senha";
-	}
 	
 	@GetMapping("/perfil")
 	public String perfil() {
