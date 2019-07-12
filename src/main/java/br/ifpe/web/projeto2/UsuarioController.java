@@ -54,16 +54,18 @@ public class UsuarioController {
 	
 	//Salvando informações do gmail
 	
- /**	@RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
+@RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
 	@ResponseBody
 	public String salvarGmail(@RequestParam String nome, @RequestParam String email) {
 		LoginGmail lg = new LoginGmail();
 		lg.email=email;
 		lg.nome=nome;
-		usuarioService.findByLoginGmail(lg);
+		usuarioService.loginGmail(lg);
 		
 		return "redirect:/perfil";
-	} **/
+	} 
+	
+	
 	
 	
 

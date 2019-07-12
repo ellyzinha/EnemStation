@@ -50,10 +50,6 @@
             // Conseguindo a URL da Foto do Perfil
             var userPicture = perfil.getImageUrl();
  
-            document.getElementById('user-photo').src = userPicture;
-            document.getElementById('user-name').innerText = userName;
-            document.getElementById('user-email').innerText = userEmail;
-            
             jQuery(document).ready(
             	function($){
             		
@@ -117,10 +113,14 @@
 	<h4 class="card-title mt-3 text-center">CADASTRE-SE</h4>
 	<p class="text-center">Aproveite todas nossas ferramentas</p>
 	<p>
-	        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR"></div>
+	
+	 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR"></div>
 	<p align="center" class="divider-text">
+	
+	
         <span class="bg-light">OU</span>
 </p>
+
  <!-- Erro -->
    <div class="alert alert-success" th:if="${mensagem}"
 							th:text="${mensagem}">

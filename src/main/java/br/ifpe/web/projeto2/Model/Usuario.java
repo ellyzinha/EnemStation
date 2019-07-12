@@ -2,6 +2,7 @@ package br.ifpe.web.projeto2.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 
 
@@ -28,9 +30,11 @@ public class Usuario {
 	private String email;
 	@Column(nullable = false)
 	@NotBlank(message = "Insira uma senha para prosseguir")
-	@Min(value = 6, message = "Digite uma senha com mais de 6 caracteres")
+	@Size(min = 6, message = "Digite uma senha com minimo 6 caracteres")
 	private String senha;
 	private boolean ativo;
+	@Enumerated
+	private Permissao permissao;
 	@ManyToOne
 	private DadosUsuario dadosUsuario;
 	

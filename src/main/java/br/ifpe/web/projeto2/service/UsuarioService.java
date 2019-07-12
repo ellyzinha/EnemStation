@@ -64,24 +64,30 @@ public class UsuarioService {
         usuarioDao.updateSenha(senha, id_usuario);
     }
 	
-	//Verificando EMail no banco
-	public LoginGmail findByLoginGmail(String email) {
-		return loginGmailDAO.findByLoginEmail(email);
-	}
+	
 
 	public InternetAddress findUsuarioByEmail() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	//Verificando se o email já existe no banco e salvando
 	
- /**	public void loginGmail(LoginGmail lg) {
-		if(this.findByLoginGmail(lg.email != null)) {
+	//VERIFICANDO EMAIL DA NO BANCO
+	public LoginGmail findByLoginGmail(String email) {
+		return loginGmailDAO.findByLoginEmail(email);
+	}
+	
+	//VERIFICANDO SE O EMAIL DA API JÁ EXISTE NO BANCO, CASO NÃO ESTEJA SALVA
+	public LoginGmail loginGmail(LoginGmail lg) {
+		
+		
+		if(this.findByLoginGmail(lg.email) != null){
+			return lg;
 			
 		}
 		loginGmailDAO.save(lg);
-	} **/
+		return lg;
+	}
 	
 	
 	

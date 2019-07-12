@@ -2,11 +2,12 @@ package br.ifpe.web.projeto2.Model;
 
 public enum Permissao {
 	
-	ADMIN("administrador"),PADRAO("Usuario padrão");
+ADMIN("Administrador"), PADRAO("Usuário padrão");
 	
 	public String texto;
 	
-	Permissao(String t){
+	Permissao(String t) {
 		texto = t;
 	}
+
 }
