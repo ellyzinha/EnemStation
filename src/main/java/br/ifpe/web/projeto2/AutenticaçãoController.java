@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.ifpe.web.projeto2.DAO.UsuarioDAO;
 import br.ifpe.web.projeto2.Model.Usuario;
 import br.ifpe.web.projeto2.service.UsuarioService;
 
@@ -20,12 +19,10 @@ import br.ifpe.web.projeto2.service.UsuarioService;
 public class AutenticaçãoController {
 	
 	@Autowired
-	private UsuarioDAO usuarioRep;
-	@Autowired
 	private UsuarioService usuarioService;
 	
-	//Efetuar Login
-	@GetMapping("/ind")
+	//EFETUAR LOGIN
+	@GetMapping("/")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("usuario", new Usuario());
@@ -35,21 +32,32 @@ public class AutenticaçãoController {
 	@PostMapping("/efetuarLogin")
 	public String efetuarLogin(Usuario usuario, RedirectAttributes ra, HttpSession session) throws br.ifpe.web.projeto2.service.ServiceException {
 		Usuario usuarioLogado;
+		
+		
 		try {
 			usuarioLogado = this.usuarioService.efetuarLogin(usuario.getEmail(),usuario.getSenha());
 			session.setAttribute("usuarioLogado", usuarioLogado);
-		} catch (ServiceException e) {
+			if(this.usuarioService.findByPermissao(usuarioLogado.getEmail())!=null){
+				return "adicionar_materiais";
+			}	
+			
+		} catch (Exception e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
-			return "redirect:/ind";
+			return "redirect:/";
 		}
-		
 		return "redirect:/perfil";
 	}
 	
+	@GetMapping("/acesso-negado")
+	public String acessoNegado() {
+		return "acesso-negado";
+	}
+
+
 	@PostMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/ind";
+		return "redirect:/";
 	}
 	
 	

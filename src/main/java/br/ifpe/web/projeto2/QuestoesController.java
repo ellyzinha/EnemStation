@@ -1,5 +1,7 @@
 package br.ifpe.web.projeto2;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.web.projeto2.DAO.AlternativaDAO;
+import br.ifpe.web.projeto2.DAO.AssuntoDAO;
 import br.ifpe.web.projeto2.DAO.DificuldadeDAO;
+import br.ifpe.web.projeto2.DAO.DisciplinaDAO;
 import br.ifpe.web.projeto2.DAO.QuestoesDAO;
 import br.ifpe.web.projeto2.Model.Questoes;
 import br.ifpe.web.projeto2.service.QuestoesService;
@@ -24,10 +30,19 @@ public class QuestoesController {
 	
 	@Autowired
 	private DificuldadeDAO dificuldadeRep;
+	
 	@Autowired
 	private AlternativaDAO alternativasRep;
+	
 	@Autowired
 	private QuestoesDAO questoesRep;
+	
+	@Autowired
+	private AssuntoDAO assuntoRep;
+	
+	@Autowired
+	private DisciplinaDAO disciplinaRep;
+	
 	@Autowired
 	private QuestoesService questoesService;
 	
@@ -76,3 +91,4 @@ public class QuestoesController {
 	
 
 }
+

@@ -2,8 +2,11 @@ package br.ifpe.web.projeto2;
 
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,18 +29,24 @@ public class HomeController {
 		mv.addObject("dadosUsuario", new DadosUsuario());
 		return mv;
 	}
-	
+	/*
 	@PostMapping("add_dadosPessoais")
 	public String add_dadosPessoais(@ModelAttribute DadosUsuario dadosUsuario) {
+		dadosUsuarioRep.save(dadosUsuario);
+		return "redirect:/dados_pessoais";
+	} */
+	
+	@PostMapping("add_dadosPessoais")
+	public String add_dadosPessoais(@Valid @ModelAttribute DadosUsuario dadosUsuario, BindingResult br) {
+		if(br.hasErrors()) {
+			ModelAndView mv = new ModelAndView("informacoes_pessoais");
+			return "redirect:/dados_pessoais";
+		}
 		dadosUsuarioRep.save(dadosUsuario);
 		return "redirect:/dados_pessoais";
 	}
 	
 	
-	@GetMapping("/adicionar_materiais")
-	public String adicionar_materiais() {
-		return "adicionar_materiais";
-	}
 	
 	@GetMapping("/adicionar_questoes")
 	public String adicionar_questoes() {

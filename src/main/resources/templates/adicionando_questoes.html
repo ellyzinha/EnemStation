@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 
   <meta charset="utf-8">
@@ -16,12 +16,16 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Tema CSS -->
-  <link href="css/freelancer.min.css" rel="stylesheet">
+  <link href="css/freelancer.css" rel="stylesheet">
 
+  <!-- Bootstrap temas-->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body id="page-top"  style="background-color: rgb(251, 253, 253);">
-
+<body>
+<div class="container">
   <!-- Menu de navegação -->
   <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
       <div class="container">
@@ -33,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="adm.html">Perfil de Administrador</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/administrador}">Perfil de Administrador</a>
             </li>
           </ul>
         </div>
@@ -42,13 +46,56 @@
   <!---formulario----->
   <br><br><br><br><br><br>
   <h1 class="font-weight-normal" align="center" >Disciplina de Português</h1>
-<main role="main">
+	<form th:action="@{/salvarQuestoes}"  method="post" id="formQuestoes" th:object="${questoes}" >
+	<input type="hidden" id="idQuestoes" th:field="*{id}" />
+	<label>Titulo</label> <input class="form-control" 
+	required="required" type="text" name="titulo"
+	th:field="*{titulo}" placeholder="Informe o titulo" />
+	<span class="error" th:if="${#fields.hasErrors('titulo')}"
+										th:errors="*{titulo}"></span>
+	<label>Imagem</label> <input class="form-control"  type="text" name="imagem"
+	th:field="*{imagem}" placeholder="Link da imagem" />  <span class="error" th:if="${#fields.hasErrors('imagem')}"
+										th:errors="*{imagem}"></span>
+	<label>Enunciado:</label> <input class="form-control" 
+	required="required" type="text"  name="enunciado"
+	th:field="*{enunciado}" placeholder="Enunciado..." /> <span class="error" th:if="${#fields.hasErrors('enunciado')}"
+										th:errors="*{enunciado}"></span><br>
+	<label>Dificuldade:</label> <select th:field="*{dificuldade}" required="required">
+								<option value="">Selecione uma dificuldade...</option>
+								<option th:each="dif : ${listaDificuldade}"
+								th:text="${dif.descricao}" th:value="${dif.id}"></option>
+							</select> <span class="error" th:if="${#fields.hasErrors('dificuldade')}"
+										th:errors="*{dificuldade}"></span><br>
+	<label>Alternativas:</label> <select th:field="*{alternativas}" required="required">
+								<option value="">Selecione uma alternativa...</option>
+								<option th:each="alt : ${listaAlternativas}"
+								th:text="${alt.descricao}" th:value="${alt.id}"></option>
+							</select> <span class="error" th:if="${#fields.hasErrors('alternativas')}"
+										th:errors="*{alternativas}"></span><br>
+	<label>Assunto:</label> <select th:field="*{assunto}" required="required">
+								<option value="">Selecione uma alternativa...</option>
+								<option th:each="ass : ${listaAssunto}"
+								th:text="${ass.descricao}" th:value="${ass.id}"></option>
+							</select> <span class="error" th:if="${#fields.hasErrors('assunto')}"
+										th:errors="*{assunto}"></span><br>
+	<center> <button type="submit" class="btn btn-primary"> Salvar </button> </center> <br>
+	 <div th:if="${mensagem}">
+		<div class="alert alert-success" th:text="${mensagem}"></div>
+	</div>
+	<div th:if="${mensagemErro}">
+		<div class="alert alert-danger" th:text="${mensagemErro}"></div>
+	</div>
+	
+
+</form>  
+</div>
+<!--   
   <div class="container" style="border: 2px solid black; background-color: white; border-radius: 25px;">
   <form class="form-horizontal">
 <fieldset>
 
 
-<!-- Multiple Radios (inline) -->
+
 <div class="form-group" align="center">
   <br>
   <label class="col-md-4 control-label" for="radios"><h3 class="font-weight-light">Nivel da Questão</h3></label>
@@ -65,10 +112,10 @@
       <input type="radio" name="radios" id="radios-2" value="dificil">
       Difícil
     </label>
-  </div>
+  </div> 
 </div>
 
-<!-- Textarea -->
+
     
             <div class="panel panel-default">
                 <div class="panel-body"> 
@@ -89,7 +136,7 @@
 </div>
  
 
-<!-- Button -->
+
 <div class="form-group" align="center">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
@@ -99,8 +146,7 @@
 
 </fieldset>
 </form>
- </div>
-</main>
+ </div> -->
 <br><br>
  <!-- Footer -->
  <footer class="footer text-center">

@@ -1,5 +1,7 @@
 package br.ifpe.web.projeto2.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -22,10 +24,10 @@ public class QuestoesService {
 		
 	    if (this.findQuestoesByEnunciado(questoes.getEnunciado()) != null) {
 	        throw new EnunciadoExistsException
-	          ("Já existe questão com este enunciado: " + questoes.getEnunciado());
+	          ("JÃ¡ existe questÃ£o com este enunciado: " + questoes.getEnunciado());
 	    } else if(this.findQuestoesByTitulo(questoes.getTitulo()) != null) {
 	    	throw new TituloExistsException
-	          ("Já existe questão com este titulo: " + questoes.getTitulo());
+	          ("JÃ¡ existe questÃ£o com este titulo: " + questoes.getTitulo());
 	    }
 //	    usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 	 
@@ -43,5 +45,12 @@ public class QuestoesService {
 	public Questoes findQuestoesByTitulo(String titulo) {
 		return questoesDAO.findByTitulo(titulo);
 	}
-
+	
+	public Questoes findById(Integer id) {
+		return questoesDAO.findById(id).orElse(null);
+	}
+	
+	public List<Questoes> listarTodos() {
+		return questoesDAO.findAll();
+	}
 }

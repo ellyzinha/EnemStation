@@ -27,8 +27,11 @@ import br.ifpe.web.projeto2.service.UsuarioService;
 public class EsquecerSenhaController {
 	
 	@Autowired private UsuarioService usuarioService;
+	
 	@Autowired private SenhaTokenDAO tokenDAO;
+	
 	@Autowired private EmailService emailService;
+	
 	
 	@ModelAttribute("esquecerSenhaForm")
 	public EsquecerSenhaDto esquecerSenhaDto() {

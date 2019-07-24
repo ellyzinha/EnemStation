@@ -1,45 +1,81 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Modificação de Senha</title>
+	<title>Recuperar senha</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+	<link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
 
-    <!-- use the font -->
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            font-size: 48px;
-        }
-    </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	
 </head>
-<body style="margin: 0; padding: 0;">
 
-<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
-    <tr>
-        <td align="center" bgcolor="#401E37" style="padding: 40px 0 30px 0;">
-            <p>Enem Station</p>
-        </td>
-    </tr>
-    <tr>
-        <td bgcolor="#223F59" style="padding: 40px 30px 40px 30px;">
-            <p th:text="${usuario.nome}"></p>
-            <p>
-                Você pediu para modificar a senha
-                <a th:href="${resetUrl}">Modifique sua senha</a>
-            </p>
-            <p>Obrigado</p>
-        </td>
-    </tr>
-    <tr>
-        <td bgcolor="#401E37" style="padding: 30px 30px 30px 30px;">
-            <p th:text="${signature}"></p>
-        </td>
-    </tr>
-</table>
+<body class="bg-light" style="background-color: #F8F8FF;">
 
+	<div style="font-family: Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif;">
+    <table class="body bg-light" style="width: 100%;">
+      <tr>
+        <td></td>
+        <td bgcolor="#FFFFFF">
+        <!--corpo do card-->
+          <div style="padding: 15px; max-width: 700px;margin: 0 auto;display: block; border-radius: 0px;padding: 0px; border: 1px solid lightseagreen;">
+          <!--corpo da logo-->
+            <table style="width: 100%;background: #9370DB;">
+              <tr>
+                <td></td> 
+                <td>
+                  <div>
+                  <!--elemento dentro no corpa da logo-->
+                    <table width="100%">
+                      <tr>
+                        <td rowspan="2" style="text-align:center;padding:0% 40%;">
+                        <a href="https://localhost:8090/"><img style="float:left; " width="200" src="https://i.ibb.co/XbBnMqn/logoroxo.png" alt="logoroxo" border="0"></a>
+						
+							
+						
+						</td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+                <td></td>
+              </tr>
+            </table>
+            <table style="padding: 10px;font-size:14px; width:100%;">
+              <tr>
+                <td style="padding:10px;font-size:14px; width:100%;">
+
+                <p style="font-family:'Russo One', sans-serif; font-size: 30pt; text-align: center;">Alteração de Senha</p>
+                    <p style="font-family:'Open Sans Condensed', sans-serif; font-size: 20pt;" th:text="|Olá ${usuario.nome}!|"></p>
+
+                    <div style="text-align: center; border: 1px solid lightseagreen; margin: 5% 10% 5% 10%;">
+
+                    <p style="font-family:'Open Sans Condensed', sans-serif; font-size: 20pt;"><br/> Recebemos uma solicitação de redefinição de sua senha do enem station. </p>
+                    <p><a class="btn btn-primary" href="[URL]" style="width: 30%;" th:href="${resetUrl}">Clique Aqui</a></p>
+                     <p> </p>
+                     
+                    <p style="font-family:'Open Sans Condensed', sans-serif; font-size: 20pt;">Se você ignorar essa mensagem, sua senha não será alterada.</p>
+                    </div>
+                              <!-- /Callout Panel -->
+                  <!-- FOOTER -->
+                 </td>
+              </tr>
+			  <tr> 
+			  <td>
+				 <div align="center" style="font-size:12px; margin-top:20px; padding:5px; width:100%; background:#eee;">
+                    © 2018 <a href="http://baapkasam.com" target="_blank" style="color:#333; text-decoration: none;">Enem Station</a>
+                  </div>
+                </td>
+			  </tr>
+             
+            </table>
+          </div>
 </body>
 </html>

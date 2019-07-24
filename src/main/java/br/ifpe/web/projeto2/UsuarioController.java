@@ -33,7 +33,14 @@ public class UsuarioController {
 		return mv;
 	} 
 	
-	
+	@GetMapping("material_disciplina")
+	public String material() { 
+		return "materialPorDisciplina";
+	}
+	@GetMapping("lista_material")
+	public String listaMaterial() { 
+		return "listaMaterial";
+	}
 	
 	//Efetuar o cadastro
 	@PostMapping("/addUsuario")
@@ -44,7 +51,7 @@ public class UsuarioController {
 			try {
 				usuario.setAtivo(true);
 				usuarioService.criarUsuario(usuario);
-				ra.addFlashAttribute("mensagem", "Usuário [" + usuario.getNome() + "] criado com sucesso");
+				ra.addFlashAttribute("mensagemSucesso", "Usuário [" + usuario.getNome() + "] criado com sucesso");
 			} catch (Exception e) {
 				ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + e.getMessage());
 			}
@@ -52,16 +59,16 @@ public class UsuarioController {
 		return "redirect:/cad";
 	}
 	
-	//Salvando informações do gmail
 	
-@RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
-	@ResponseBody
+	//SALVANDO INFORMAÇÕES DO GMAIL
+	@RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
 	public String salvarGmail(@RequestParam String nome, @RequestParam String email) {
 		LoginGmail lg = new LoginGmail();
-		lg.email=email;
-		lg.nome=nome;
+		email=lg.getEmail();
+		nome=lg.getNome();
+		//lg.email=email;
+		//lg.nome=nome;
 		usuarioService.loginGmail(lg);
-		
 		return "redirect:/perfil";
 	} 
 	

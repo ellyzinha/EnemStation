@@ -30,11 +30,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Funcionalidades</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/}">Home</a>
             </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
-            </li>
+            
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
             </li>
@@ -118,6 +116,49 @@
   <script src="js/freelancer.min.js"></script>
 
 </div>
+  <!--modal de login-->
+  <div class="modal" tabindex="-1" role="dialog" id="modal-login">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:rgb(43, 5, 78);">
+        <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
+        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 5% 10% 5% 15%">
+        <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
+               
+                  <form th:action="@{/efetuarLogin}"  method="post" >
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        <input type="email" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input name="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                      </div>
+                      <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
+                      
+                      <div th:if="${mensagem}">
+								<div class="alert alert-success" th:text="${mensagem}"></div>
+							</div>
+							<div th:if="${mensagemErro}">
+								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
+							</div>
+                    </form>
+                    Esqueceu senha? <a th:href="@{/esquecer_senha}">Recuperar</a>
+
+      </div>
+      <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
+        <button type="button" class="btn btn-info" th:href="@{/cad}">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+
+  
+  </div>
+
 <!-- Footer -->
 <footer class="footer text-center">
     <div class="container">
@@ -144,6 +185,8 @@
       </div>
     </div>
   </footer>
+  
+  
 
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">

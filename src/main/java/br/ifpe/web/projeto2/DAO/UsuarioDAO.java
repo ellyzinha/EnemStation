@@ -13,7 +13,11 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	
 	@Query("select u from Usuario u where u.email = :email")
 	public Usuario findByEmail(String email);
-
+	
+	//VERIFICANDO PERMISSAO DO USUÁRIO
+	@Query("select permissao from Usuario where email = :email ")
+	public Integer findByPermissao(String email);
+	
 	@Query("select u from Usuario u where u.nome like %:nome% or u.email like %:email%")
 	public Usuario findByNomeEmailAprox(String nome, String email); 
 	

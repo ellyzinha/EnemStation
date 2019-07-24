@@ -94,7 +94,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{ind}">Home</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
@@ -121,12 +121,9 @@
         <span class="bg-light">OU</span>
 </p>
 
- <!-- Erro -->
-   <div class="alert alert-success" th:if="${mensagem}"
-							th:text="${mensagem}">
-						</div>
-						<div class="alert alert-danger" th:if="${mensagemErro}"
-							th:text="${mensagemErro}"></div>
+
+	
+	
 	<form th:action="@{/addUsuario}" method="post">
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
@@ -148,6 +145,7 @@
 		</div>
 		
         <input class="form-control" id="senha" required="required" type="password" size="16" name="senha" placeholder="Informe a senha">
+    	
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -165,6 +163,13 @@
     <p class="text-center"><label for="nao_cadastrado"> Já é cadastrado?</label>
       <a href="" data-toggle="modal" data-target="#modal-login" style="font-size: 15pt;" id="nao_cadastrado">Entrar</a>
     	</p>
+    	
+    	 <!-- Mensagem de Erro e sucesso -->
+   <div class="alert alert-success" th:if="${mensagemSucesso}"
+							th:text="${mensagemSucesso}">
+						</div>
+	<div class="alert alert-danger" th:if="${mensagemErro}"
+	th:text="${mensagemErro}"></div>
 </form>
 </article>
 </div> <!-- card.// -->
@@ -204,7 +209,7 @@
 								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
 							</div>
                     </form>
-                    Esqueceu senha? <a th:href="@{/esquecer_senha}" th:text="#{message.resetPassword}">Recuperar</a>
+                    Esqueceu senha? <a th:href="@{/esquecer_senha}" >Recuperar</a>
 
       </div>
       <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">

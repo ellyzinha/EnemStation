@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,7 +77,7 @@
           <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
           <a class="mdl-navigation__link" href="questoes.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Gerenciar Questões</a>
           <a class="mdl-navigation__link" href="questoes.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Adicionar Questões</a>
-          <a class="mdl-navigation__link" href="adicionar_materiais.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Adicionar Materiais</a>
+          <a class="mdl-navigation__link" th:href="@{adicionar_materiais}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Adicionar Materiais</a>
            <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Sair</a>
           <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
