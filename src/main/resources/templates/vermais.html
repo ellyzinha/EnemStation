@@ -57,7 +57,7 @@
 		<div class="card">
 		<form method="get" id="formProd" th:object="${questoes}">
 		<div id="tit" class="card-header">
-		<input type="text" id="nome" name="nome" size="50" th:field="*{titulo}" readonly>
+		<input type="text" id="nome" name="nome" size="50" th:field="*{texto}" readonly>
 			</div>
 				<div class="card-body">
 					<div class="pergunta_pre">
@@ -81,9 +81,9 @@
 								<label class="check btn-block" onclick>
 																										
 										<span class="letra">
-												
+												<!--
 												<input value="*{alternativas.resposta}" type="radio" class="icheckbox" name="resposta"  readonly>
-												<span th:field="*{alternativas.descricao}"></span>
+												<span th:field="*{alternativas.descricao}"></span> -->
 										</span>                                                                
 										
 								</label>

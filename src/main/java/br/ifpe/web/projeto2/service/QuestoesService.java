@@ -25,10 +25,10 @@ public class QuestoesService {
 		
 	    if (this.findQuestoesByEnunciado(questoes.getEnunciado()) != null) {
 	        throw new EnunciadoExistsException
-	          ("JÃ¡ existe questÃ£o com este enunciado: " + questoes.getEnunciado());
-	    } else if(this.findQuestoesByTitulo(questoes.getTitulo()) != null) {
-	    	throw new TituloExistsException
-	          ("JÃ¡ existe questÃ£o com este titulo: " + questoes.getTitulo());
+	          ("Já existe questão com este enunciado: " + questoes.getEnunciado());
+	//    } else if(this.findQuestoesByTitulo(questoes.getTitulo()) != null) {
+	    //	throw new TituloExistsException
+	  //        ("Já existe questão com este titulo: " + questoes.getTitulo());
 	    }
 //	    usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
 	 
@@ -37,14 +37,6 @@ public class QuestoesService {
 	
 	public Questoes findQuestoesByEnunciado(String enunciado) {
 		return questoesDAO.findByEnunciado(enunciado);
-	}
-	
-	public Object findQuestoesByEnunciadoAprox(String titulo, String enunciado) {
-		return questoesDAO.findByEnunciadoAprox(titulo, enunciado);
-	}
-	
-	public Questoes findQuestoesByTitulo(String titulo) {
-		return questoesDAO.findByTitulo(titulo);
 	}
 	
 	public Questoes findById(Integer id) {

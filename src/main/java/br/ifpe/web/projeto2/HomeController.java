@@ -74,11 +74,6 @@ public class HomeController {
 		return "perfil";
 	}
 	
-	@GetMapping("/questoes")
-	public String questoes() {
-		return "questoes";
-	}
-	
 	@GetMapping("/questoesport")
 	public String questoesport() {
 		return "questoesport";

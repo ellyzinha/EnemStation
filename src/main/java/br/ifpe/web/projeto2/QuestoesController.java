@@ -84,7 +84,7 @@ public class QuestoesController {
 		} else {
 			try {
 				questoesService.criarQuestao(questoes);
-				ra.addFlashAttribute("mensagem", "QuestÃ£o [" + questoes.getTitulo() + "] criada com sucesso");
+				ra.addFlashAttribute("mensagem", "Questão criada com sucesso");
 			} catch (Exception e) {
 				ra.addFlashAttribute("mensagemErro", "NÃ£o foi possÃ­vel criar questÃ£o. " + e.getMessage());
 			}
@@ -106,14 +106,14 @@ public class QuestoesController {
 		List<Questoes> listaQuestoes;
 		if (nomePesquisa == null || nomePesquisa.trim().isEmpty()) {
 			ra.addFlashAttribute("mensagem", "QuestÃ£o nÃ£o encontrada");
-			listaQuestoes = this.questoesRep.findAll(Sort.by("titulo"));	
+			listaQuestoes = this.questoesRep.findAll(Sort.by("texto"));	
 		} else {
-			listaQuestoes = this.questoesRep.findByTituloContainingIgnoreCase(nomePesquisa);
+			listaQuestoes = this.questoesRep.findByTexto(nomePesquisa);
 			//listaQuestoes = this.questoesRep.findByAssunto(nomePesquisa);
 		}
 		
 		mv.addObject("listaQuestoes", listaQuestoes);
-		//mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
+		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
 		return mv;
 	}
 	
@@ -129,8 +129,8 @@ public class QuestoesController {
 	@GetMapping("/vermais")
 	public ModelAndView verMais(Questoes questoes) {
 		ModelAndView mv = new ModelAndView("/vermais");		
-		mv.addObject("listaQuestoes", this.questoesRep.findAll(Sort.by("titulo")));
-		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
+		mv.addObject("listaQuestoes", this.questoesRep.findAll(Sort.by("texto")));
+		//mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
 		// Caso seja passado o Id do produto, esta chamada será para edição do produto
 		//if (produto != null && produto.getId() != null) {
 			questoes = this.questoesRep.getOne(questoes.getId());

@@ -53,50 +53,49 @@
 	</div>
 </section>
 	<div class="container">
-	<!--  
-	<div class="search-box">
+		<div class="search-box">
 			<form th:action="@{/questao}" method="post" th:object="${questoes}">
-			
-					<input type="text" name="nomePesquisa"
-					id="nomePesquisa" placeholder="Pesquisar questão..."
+					<input type="text" name="nomePesquisa" id="nomePesquisa" placeholder="Pesquisar questão..."
 					class="search-txt" />
 					
 					<button type="submit" class="btn btn-default btn-sm">
 						<a class="search-btn"><i class="fas fa-search"></i></a>
 					</button> 
-					<select th:field="*{assunto}">
-						<option value="">Filtrar por assunto...</option>
-						<option th:each="ass : ${listaAssunto}"
-							th:text="${ass.descricao} +' ('+ ${ass.disciplina.descricao}+')'" th:value="${ass.id}"></option>
-					</select>  -->
-					<!--  
+					   <input style="color: white;" type="radio" value="assunto" name="assunto">Filtrar por assunto 
+					 
+				<!--	<select th:field="*{assunto}">
+						<option value="assunto">Filtrar por assunto</option>
+						
+					</select>
+					<!-- 
 					<select th:field="*{disciplina}" required="required">
 						<option value="">Filtrar por disciplina...</option>
 						<option th:each="disc : ${listaDisciplina}"
 							th:text="${disc.descricao}" th:value="${disc.id}"></option>
-					</select> 
-					
+					</select>
+					-->
 			
-		</form> 
-		</div> -->
+		</form>
+		</div>
 		
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Titulo</th>
+					<th>Texto</th>
 					<th>Enunciado</th>
 					<th>Dificuldade</th>
-					<th>Assunto</th>
-					<th>Disciplina</th>
+				<!--	<th>Assunto</th>
+					<th>Disciplina</th> -->
+					<th> Ver questão</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="quest : ${listaQuestoes}">
-					<td th:text="${quest.titulo}"></td>
+					<td th:text="${quest.texto}"></td>
 					<td th:text="${quest.enunciado}"></td>
 					<td th:text="${quest.dificuldade.descricao}"></td>
-					<td th:text="${quest.assunto.descricao}"></td>
-					<td th:text="${quest.assunto.disciplina.descricao}"></td>
+				<!--	<td th:text="${quest.assunto.descricao}"></td>
+					<td th:text="${quest.assunto.disciplina.descricao}"></td> -->
 					<td><a class="btn btn-warning"
 						th:href="|/vermais?id=${quest.id}|">Conferir</a></td>
 					<!--  |/produtosForm?id=${prod.id}|
