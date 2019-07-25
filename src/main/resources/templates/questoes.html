@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Tela de Questões - Enem Station</title>
@@ -21,6 +22,7 @@
 	<link href="css/searchbox.css" rel="stylesheet">
 </head>
 <body>
+<th:block th:fragment="navBar" th:if="${session.usuarioLogado}">
  <!-- Menu de navegação -->
  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
 		<div class="container">
@@ -51,12 +53,39 @@
 		</div>
 	</div>
 </section>
+<!--  
 <div class="search-box">
 		<input type="text" class="search-txt" placeholder="Pesquisar questão...">
 		<a class="search-btn">
 			<i class="fas fa-search"></i>
 		</a>
 	</div>
+-->	
+
+		<div class="search-box">
+			<form th:action="@{/questao}" method="post" th:object="${questoes}">
+					<input type="text" name="nomePesquisa" id="nomePesquisa" placeholder="Pesquisar questão..."
+					class="search-txt" />
+					
+					<button type="submit" class="btn btn-default btn-sm">
+						<a class="search-btn"><i class="fas fa-search"></i></a>
+					</button> 
+					   <input style="color: white;" type="radio" value="assunto" name="assunto">Filtrar por assunto 
+					 
+				<!--	<select th:field="*{assunto}">
+						<option value="assunto">Filtrar por assunto</option>
+						
+					</select>
+					<!-- 
+					<select th:field="*{disciplina}" required="required">
+						<option value="">Filtrar por disciplina...</option>
+						<option th:each="disc : ${listaDisciplina}"
+							th:text="${disc.descricao}" th:value="${disc.id}"></option>
+					</select>
+					-->
+			
+		</form>
+		</div>
 
 <div class="container">
     <h1>Escolha a disciplina</h1>
@@ -68,7 +97,7 @@
               <img src="img/disciplinas/portugues.jpg" alt="Avatar">
               </div>
               <div class="cardcontainer text-center" title="Character herpa derpa do">
-                <a th:href="@{/questoesport}" style="color: white">Português</a>
+                <a th:href="@{questoesport}" style="color: white">Português</a>
               </div>
             </div>
 	    </div>
