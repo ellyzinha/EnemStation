@@ -89,6 +89,10 @@ public class UsuarioService {
 		return lg;
 	}
 	
+	public Integer findByPermissao(String email) {
+		return usuarioDao.findByPermissao(email);
+	}
+	
 	
 	
 

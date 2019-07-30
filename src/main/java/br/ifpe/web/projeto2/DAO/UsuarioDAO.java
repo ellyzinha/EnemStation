@@ -23,5 +23,8 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	@Modifying
     @Query("update Usuario u set u.senha = :senha where u.id_usuario = :id_usuario")
     void updateSenha(@Param("senha") String senha, @Param("id_usuario") Integer id_usuario);
+	
+	@Query("select permissao from Usuario where email = :email")
+	public Integer findByPermissao(String email);
 
 }

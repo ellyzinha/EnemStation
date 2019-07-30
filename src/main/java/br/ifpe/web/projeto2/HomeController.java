@@ -20,39 +20,15 @@ public class HomeController {
 	private DadosUsuarioDAO dadosUsuarioRep;
 
 	
-	@GetMapping("dados_pessoais")
-	public ModelAndView dados_pessoais() {
-		ModelAndView mv = new ModelAndView("informacoes_pessoais");
-		mv.addObject("dadosUsuario", new DadosUsuario());
-		return mv;
-	}
-	
-	@PostMapping("add_dadosPessoais")
-	public String add_dadosPessoais(@ModelAttribute DadosUsuario dadosUsuario) {
-		dadosUsuarioRep.save(dadosUsuario);
-		return "redirect:/dados_pessoais";
-	}
 	
 	
-	@GetMapping("/adicionar_materiais")
-	public String adicionar_materiais() {
-		return "adicionar_materiais";
-	}
-	
-	@GetMapping("/adicionar_questoes")
-	public String adicionar_questoes() {
-		return "adicionar_questoes";
-	}
 	
 	@GetMapping("/administrador")
 	public String administrador() {
 		return "adm";
 	}
 	
-	@GetMapping("/editar_perfil")
-	public String editar_perfil() {
-		return "editar_perfil";
-	}
+	
 	
 	@GetMapping("/editar_plano")
 	public String editar_plano() {
@@ -60,15 +36,7 @@ public class HomeController {
 	}
 	
 	
-	@GetMapping("/perfil")
-	public String perfil() {
-		return "perfil";
-	}
-	
-	@GetMapping("/questoes")
-	public String questoes() {
-		return "questoes";
-	}
+		
 	
 	 
 		

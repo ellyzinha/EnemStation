@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -37,12 +38,20 @@ public class Usuario {
 	private Permissao permissao;
 	@ManyToOne
 	private DadosUsuario dadosUsuario;
+	@Lob
+	private byte[] foto;
 	
 	
 	
 	
 	
 	
+	public byte[] getFoto() {
+		return foto;
+	}
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
 	public Permissao getPermissao() {
 		return permissao;
 	}

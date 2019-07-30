@@ -41,7 +41,7 @@ public class QuestoesController {
 	//Exibir formulário de adicionar questões
 	@GetMapping("/adicionando_questoes")
 	public ModelAndView exibirFormQuestoes(Questoes questoes, Alternativa alternativa) {
-		ModelAndView mv = new ModelAndView("adicionando_questoes");		
+		ModelAndView mv = new ModelAndView("Questoes/adicionando_questoes");		
 		mv.addObject("listaDificuldade", this.dificuldadeRep.findAll(Sort.by("descricao")));
 		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
 		mv.addObject("questoes", questoes);
@@ -54,7 +54,7 @@ public class QuestoesController {
 	//Exibir página de questões
 	@GetMapping("/exibir_questoes")
 	public ModelAndView questoes (Questoes questoes) {
-		ModelAndView mv = new ModelAndView("listarQuestoes");
+		ModelAndView mv = new ModelAndView("Questoes/listarQuestoes");
 		mv.addObject("exibirQuestao", this.questoesRep.findAll());
 		mv.addObject("exibirAlternativa", this.alternativaRep.findAll());
 		return mv;
@@ -63,7 +63,7 @@ public class QuestoesController {
 	//Exibir formulário de adicionar assuntos
 	@GetMapping("/exibir_assuntos")
 	public ModelAndView exibirAssuntos (Assunto assunto) {
-		ModelAndView mv = new ModelAndView("adicionar_assunto");
+		ModelAndView mv = new ModelAndView("Administrador/adicionar_assunto");
 		mv.addObject("assunto", assunto);
 		mv.addObject("listar",this.assuntoRep.findAll());
 		return mv;

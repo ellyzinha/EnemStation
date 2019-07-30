@@ -24,17 +24,14 @@
   <link href="css/freelancer.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="css/plano.css">
-  
-  <link rel="shortcut icon" href="img/logoazul.png" >
 
 </head>
 
 <body id="page-top">
-
 	<th:block th:if="${session.usuarioLogado}">
 
   <!-- Page Wrapper -->
- <div id="wrapper">
+  <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -44,7 +41,8 @@
        <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
-        <div class="sidebar-brand-text mx-3">Meu Perfil</div>
+        <div class="sidebar-brand-text mx-3">Meu Perfil <br> <span th:text="|${session.usuarioLogado.nome} (${session.usuarioLogado.permissao})|"></span></div>
+        
       </a>
 
       <!-- Divider -->
@@ -70,9 +68,15 @@
           <i class="fas fa-pencil-alt"></i>
           <span>Questões</span></a>
       </li>
+      
+       <li class="nav-item active">
+        <a class="nav-link" th:if="${session.usuarioLogado.permissao.name()} == ' ADMIN'" th:href="@{/questoes}">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Adicionar Questões</span></a>
+      </li>
 
       <li class="nav-item active">
-            <a class="nav-link" th:href="@{/material_disciplina}">
+            <a class="nav-link" th:href="@{/questoes}">
               <i class="fas fa-book"></i>
               <span>Materiais</span></a>
           </li>
@@ -121,7 +125,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" th:href="@{editar_perfil}">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Editar Perfil
                 </a>

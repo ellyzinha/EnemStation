@@ -28,7 +28,7 @@ public class UsuarioController {
 	//Exibir página de cadastro
 	 @GetMapping("/cad")
 	public ModelAndView cadastrar(Usuario usuario) {
-		ModelAndView mv = new ModelAndView("/cadastro");
+		ModelAndView mv = new ModelAndView("Home/cadastro");
 		mv.addObject("usuario", new Usuario());
 		return mv;
 	} 

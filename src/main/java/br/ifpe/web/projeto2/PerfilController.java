@@ -37,14 +37,14 @@ public class PerfilController {
 	
 	@GetMapping("/perfil")
 	public ModelAndView exibirPerfil() {
-		ModelAndView mv = new ModelAndView("/perfil");		
+		ModelAndView mv = new ModelAndView("Usuario/perfil");		
 		mv.addObject("listaUsuarios", this.usuarioRep.findAll(Sort.by("nome")));
 		return mv;
 	}
 	
 	@GetMapping("/editar_perfil")
 	public ModelAndView exibirEditarPerfil(Usuario usuario) {
-		ModelAndView mv = new ModelAndView("/editar_perfil");		
+		ModelAndView mv = new ModelAndView("Usuario/editar_perfil");		
 		mv.addObject("listaUsuarios", this.usuarioRep.findAll(Sort.by("nome")));
 		if (usuario != null && usuario.getId_usuario() != null) {
 			usuario = this.usuarioRep.getOne(usuario.getId_usuario());
@@ -106,7 +106,7 @@ public class PerfilController {
 	
 	@GetMapping("dados_pessoais")
 	public ModelAndView dados_pessoais(DadosUsuario dadosUsuario, Usuario usuario) {
-		ModelAndView mv = new ModelAndView("informacoes_pessoais");
+		ModelAndView mv = new ModelAndView("Usuario/informacoes_pessoais");
 		if (dadosUsuario != null && dadosUsuario.getUsuario() != null) {
 			dadosUsuario = this.dadosUsuarioRep.getOneUsuarioId();
 			return exibirPerfil();
