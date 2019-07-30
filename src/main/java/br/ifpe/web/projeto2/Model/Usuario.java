@@ -5,15 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
-import org.apache.tomcat.util.codec.binary.Base64;
 
 
 
@@ -39,23 +35,20 @@ public class Usuario {
 	@Size(min = 6, message = "Digite uma senha com minimo 6 caracteres")
 	private String senha;
 	private boolean ativo;
-	@Lob
-	private byte[]foto;
 	
 	private Integer permissao;
 	
-	//@OneToOne
-	//private DadosUsuario dadosUsuario;
+	@ManyToOne
+	private DadosUsuario dadosUsuario;
 	
 	
-	/*
+	
 	public DadosUsuario getDadosUsuario() {
 		return dadosUsuario;
 	}
 	public void setDadosUsuario(DadosUsuario dadosUsuario) {
 		this.dadosUsuario = dadosUsuario;
 	}
-	*/
 	public boolean isAtivo() {
 		return ativo;
 	}
@@ -92,12 +85,12 @@ public class Usuario {
 	public void setPermissao(Integer permissao) {
 		this.permissao = permissao;
 	}
-	public String getFotoImagem() {
-		return Base64.encodeBase64String(this.foto);
-	}
-	public void setFoto(byte[] foto) {
-		this.foto = foto;
-	}
+	
+	
+	
+	
+	
+	
 	
 	
 }

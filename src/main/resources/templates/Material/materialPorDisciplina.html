@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="httP://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="img/logoazul.png" >
+
+  <title>Material - Enem Station</title>
+
+  <!-- Fontes para esse tema -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+
+  <!-- Tema CSS -->
+  <link href="css/freelancer.min.css" rel="stylesheet">
+  
+  
+   <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/plano.css">
+
+
+</head>
+
+<body id="page-top"  style="background-color: rgb(251, 253, 253);">
+
+ <!-- Page Wrapper -->
+  <div id="wrapper">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+   <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/ind}">
+       <!-- <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div> -->
+        <div class="sidebar-brand-text mx-3">Meu Perfil</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+
+
+
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/perfil}">
+          <i class="fas fa-home"></i>
+          <span>Home</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/questoes}">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Questões</span></a>
+      </li>
+	 <li class="nav-item active">
+            <a class="nav-link" th:href="@{/perfil}">
+              <i class="fas fa-book"></i>
+              <span>Meu Plano</span></a>
+      </li>
+          <li class="nav-item active">
+                <a class="nav-link" th:href="@{/ind}">
+                  <i class="fas fa-chart-bar"></i>
+                  <span>Desempenho</span></a>
+              </li>
+                      
+              
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+    
+
+    </ul>
+    
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content" >
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style="background-color: #00FA9A;">
+          
+          <h1 style="margin: 40%; font-family: 'Arvo', serif; color: black; ">Materiais</h1>
+
+        </nav>
+	</div>
+        <!-- Begin Page Content -->
+        
+        
+<div class="container" style="padding-bottom: 50%;">
+
+<div class="card bg-light">
+<!-- CORPO DA PÁGINA -->
+<article class="card-body">
+
+<div class="container">
+    <h3>Selecione a disciplina na qual deseja ver os materiais!</h3>
+    <div class="row">
+        <div class="col-sm py fixed" th:each="cont : ${listarDisciplinas}" style="padding: 2%;">
+           <div class="card text-white bg-primary" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title" th:text="${cont.descricao}"></h3>
+                    <p class="card-text" >teet</p>
+                    <a th:href="@{/lista_material}" class="btn btn-outline-secondary">Listar</a>
+                </div>
+            </div>
+        </div>
+        <!-- 
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Matematica</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-secondary">Visualizar</a>
+                </div>
+            </div>
+        </div>
+       <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Fisica</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-secondary">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Quimica</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-secondary">Visualizar</a>
+                </div>
+            </div>
+        </div>
+       <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Historia</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-secondary">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Geografia</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-light">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Biologia</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-light">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Literatura</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-light">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Espanhol</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-light">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Inglês</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-light">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Filosofia</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-light">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 py-2">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h3 class="card-title">Sociologia</h3>
+                    <p class="card-text">100 Materiais disponivel</p>
+                    <a th:href="@{lista_material}" class="btn btn-outline-light">Visualizar</a>
+                </div>
+            </div>
+        </div>
+        -->
+        
+        
+    </div>
+</div>
+
+
+
+</article>
+
+
+<!-- FIM DO CORPO DA PÁGINA -->
+</div> <!-- card.// -->
+
+<br><br>
+
+</div> 
+</div>
+
+  </div>
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Selecione Logout se desejar sair da conta</div>
+        <div class="modal-footer">
+        <form th:action="@{/logout}" method="post">
+          <button class="btn btn-info" type="submit">Sair</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>

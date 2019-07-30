@@ -28,19 +28,11 @@ public class UsuarioController {
 	//Exibir página de cadastro
 	 @GetMapping("/cad")
 	public ModelAndView cadastrar(Usuario usuario) {
-		ModelAndView mv = new ModelAndView("/cadastro");
+		ModelAndView mv = new ModelAndView("Home/cadastro");
 		mv.addObject("usuario", new Usuario());
 		return mv;
 	} 
-	
-	@GetMapping("material_disciplina")
-	public String material() { 
-		return "materialPorDisciplina";
-	}
-	@GetMapping("lista_material")
-	public String listaMaterial() { 
-		return "listaMaterial";
-	}
+
 	
 	//Efetuar o cadastro
 	@PostMapping("/addUsuario")
@@ -69,7 +61,7 @@ public class UsuarioController {
 		//lg.email=email;
 		//lg.nome=nome;
 		usuarioService.loginGmail(lg);
-		return "redirect:/perfil";
+		return "redirect:Usuario/perfil";
 	} 
 	
 	

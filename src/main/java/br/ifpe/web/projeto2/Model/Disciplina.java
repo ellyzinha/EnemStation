@@ -16,7 +16,9 @@ public class Disciplina {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String descricao;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "disciplina")
 	private Collection <Assunto> assunto;
 	

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
     <!-- Menu de navegação -->
   <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.html">Enem Station</a>
+        <a class="navbar-brand js-scroll-trigger" th:href="@{/ind}">Enem Station</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -30,16 +30,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Funcionalidades</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/}">Home</a>
             </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
-            </li>
+            
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="cadastro.html">Cadastro</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/cad}">Cadastro</a>
             </li>
           </ul>
         </div>
@@ -57,17 +55,38 @@
                         <div class="card-header">
                             <h3 class="mb-0">Modificar Senha</h3>
                         </div>
+                        <div th:if="${error}">
+                                <div class="alert alert-danger">
+                                    <span th:text="${error}"></span>
+                                </div>
+                            </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off">
-                                <div class="form-group">
-                                    <label for="inputResetPasswordEmail">Nova Senha</label>
-                                    <input type="password" class="form-control" id="inputResetPasswordEmail" required="">
-                                </div>
-                                <div class="form-group">
+                            <form class="form" role="form" autocomplete="off" th:action="@{/modificar_senha}" th:object="${modificarSenhaForm}" method="post">
+                            <p class="error-message"
+                                   th:if="${#fields.hasGlobalErrors()}"
+                                   th:each="error : ${#fields.errors('global')}"
+                                   th:text="${error}">Validation error</p>
+                                   
+                                   <input type="hidden" name="token" th:value="${token}"/>
+                                   
+                                <div class="form-group" th:classappend="${#fields.hasErrors('senha')}? 'has-error':''">
+                                    <label for="inputResetPasswordEmail">Nova Senha</label> 
+                                    <input th:field="*{senha}" type="password"
+									required="required" class="form-control"
+									id="inputResetPasswordEmail">
+									<p class="error-message"
+                                       th:each="error: ${#fields.errors('senha')}"
+                                       th:text="${error}">Validation error</p>
+							</div>
+                                <div class="form-group" th:classappend="${#fields.hasErrors('confirmarSenha')}? 'has-error':''">
                                     <label for="inputResetPasswordEmail">Confirmar Senha</label>
-                                    <input type="password" class="form-control" id="inputResetPasswordEmail" required="">
+                                    <input th:field="*{confirmarSenha}" type="password" class="form-control" id="inputResetPasswordEmail" required="required">
                                 </div>
+                                <p class="error-message"
+                                       th:each="error: ${#fields.errors('confirmarSenha')}"
+                                       th:text="${error}">Validation error</p>
                                 <div class="form-group">
+                                
                                     <button type="submit" class="btn btn-success btn-lg float-center">Salvar</button>
                                 </div>
                             </form>
@@ -76,40 +95,10 @@
                     <!-- /form card reset password -->
                 </div>
     </div>
-    <!--modal de login-->
-<div class="modal" tabindex="-1" role="dialog" id="modal-login">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color:rgb(43, 5, 78);">
-            <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
-            <button type="button" class="btn btn-light"  data-dismiss="modal" aria-label="Close" style="background-color: white;">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" style="padding: 5% 10% 5% 15%">
-            <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
-                   
-                      <form>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">E-mail</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Senha</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-                          </div>
-                          <a href=""></a>
-                          <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
-                        </form>
-                        Esqueceu senha? <a href="esquecer_senha.html">Recuperar</a>
     
-          </div>
-          <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
-            <a href="cadastro.html" class="btn btn-info">Cadastrar</a>
-          </div>
-        </div>
-      </div>
-</div>
+    
+    <!--modal de login-->
+
 
     
   <!-- Bootstrap core JavaScript -->
@@ -127,6 +116,49 @@
   <script src="js/freelancer.min.js"></script>
 
 </div>
+  <!--modal de login-->
+  <div class="modal" tabindex="-1" role="dialog" id="modal-login">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:rgb(43, 5, 78);">
+        <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
+        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 5% 10% 5% 15%">
+        <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
+               
+                  <form th:action="@{/efetuarLogin}"  method="post" >
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        <input type="email" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input name="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                      </div>
+                      <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
+                      
+                      <div th:if="${mensagem}">
+								<div class="alert alert-success" th:text="${mensagem}"></div>
+							</div>
+							<div th:if="${mensagemErro}">
+								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
+							</div>
+                    </form>
+                    Esqueceu senha? <a th:href="@{/esquecer_senha}">Recuperar</a>
+
+      </div>
+      <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
+        <button type="button" class="btn btn-info" th:href="@{/cad}">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+
+  
+  </div>
+
 <!-- Footer -->
 <footer class="footer text-center">
     <div class="container">
@@ -153,6 +185,8 @@
       </div>
     </div>
   </footer>
+  
+  
 
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">

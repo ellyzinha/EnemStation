@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
+      <script src="vendor/codigo.json"></script>
 
 	<title>Informações pessoais</title>
 
@@ -16,6 +17,14 @@
 
     <!-- Tema CSS -->
     <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+   
+   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+   
 
  <style>
 
@@ -41,8 +50,8 @@
  </style>
 
 </head>
-<body style="background-image: url('images/plano_fundo_infor_pessoais.jpg');">
-  <!-- Menu de navegação -->
+<body id="page-top" style="background-image: url('images/plano_fundo_infor_pessoais.jpg');">
+  <!-- Menu de navegação 
   <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
@@ -65,128 +74,251 @@
         </div>
       </div>
     </nav>
-  
- <br>
+    <br><br><br><br><br><br>
+    <th:block th:if="${session.usuarioLogado}"> 
+-->
+  <!-- Page Wrapper -->
+  <div id="wrapper" >
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/perfil}">
+       <!-- <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div> -->
+        <div class="sidebar-brand-text mx-3">Meu Perfil</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+
+
+
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/ind}">
+          <i class="fas fa-home"></i>
+          <span>Home</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/questoes}">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Questões</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="fas fa-book"></i>
+              <span>Materiais</span></a>
+          </li>
+
+          <li class="nav-item active">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-chart-bar"></i>
+                  <span>Desempenho</span></a>
+              </li>
+              
+              
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+    
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" >
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" >
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto" >
+
+            <!--Divider-->
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="|${session.usuarioLogado.nome}|"></span>
+                <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiasajo6RFSTR2RkHQrezDFvJ9QY85uHTkci7cpPof5hZSvuiq7g">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Editar Perfil
+                </a>
+                <a class="dropdown-item" th:href="@{/dados_pessoais}">
+                  <i class="fa fa-address-card fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Dados Pessoais
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Sair
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
 <!--aviso-->
-  <br>
   <div class="container" id="aviso">
+  
+ 
     <div class=" col-12 col-md-12">
-      <p class="display-10 font-italic" id="paragrafo">Está quase lá, preencha o formulario a seguir para aproveita todas as nossas ferramentas.<b> Nenhuma das suas informações seram publicadas!</b> </p>
+      <p class="display-10 font-italic" id="paragrafo">Está quase lá, preencha o formulario a seguir para aproveitar todas as nossas ferramentas.<b> Nenhuma das suas informações serão publicadas!</b> </p>
     </div>
   </div>
 
    <!--formulario-->
-  <div class="container" id="formulario">
+  <div class="container" id="formulario" style="background-color:white">
     <div>
     <div class="form-row">
       <div class="col-md-11 mb-11">
-        <br><h1>informações pessoais</h1><br> 
+        <br><h1 style="color:black" >Informações Pessoais</h1><br> 
       </div>
     </div>
     
-   <form th:action="@{/evento/add}" th:object="${evento}" method="post">
-   
-   <input type="hidden" th:field="*{codigo}"/>
+   <form th:action="@{/add_dadosPessoais}" th:object="${dadosUsuario}" method="post">
+   <input type="hidden" th:field="*{id_usuario}"/>
     <div class="form-row">
       <div class="col-md-6 mb-2">
-        <label for="estado">Estado</label>
-        <select class="form-control" id="estado">
-                  <option>Acre</option> 
-                  <option>Alagoas</option> 
-                  <option>Amapá</option> 
-                  <option>Amazonas</option> 
-                  <option>Bahia</option>
-                  <option>Ceará</option>
-                  <option>Distrito Federal</option>
-                  <option>Espírito Santo</option>
-                  <option>Goiás</option>   
-                  <option>Maranhão</option>
-                  <option>Mato Grosso</option>
-                  <option>Mato Grosso do Sul</option>
-                  <option>Minas Gerais</option>
-                  <option>Pará</option>
-                  <option>Paraíba</option>
-                  <option>Paraná</option>
-                  <option>Pernambuco</option>
-                  <option>Piauí</option>
-                  <option>Rio de Janeiro</option>
-                  <option>Rio Grande do Norte</option>
-                  <option>Rio Grande do Sul</option>
-                  <option>Rondônia</option>
-                  <option>Roraima</option>
-                  <option>Santa Catarina</option>
-                  <option>São Paulo</option>
-                  <option>Sergipe</option>
-                  <option>Tocantins</option>
-
-                </select>
-        
+        <label style="color:black" for="estado">Estado</label>
+        <select style="color:black" th:field="*{estado}" class="form-control" id="estado" name="estado" onchange="buscaCidades(this.value)" required="required">
+            <option value="">Selecione o Estado</option>
+            <option value="AC">Acre</option> 
+            <option value="AL">Alagoas</option> 
+            <option value="AM">Amazonas</option> 
+            <option value="AP">Amapá</option> 
+            <option value="BA">Bahia</option> 
+            <option value="CE">Ceará</option> 
+            <option value="DF">Distrito Federal</option> 
+            <option value="ES">Espírito Santo</option> 
+            <option value="GO">Goiás</option> 
+            <option value="MA">Maranhão</option> 
+            <option value="MT">Mato Grosso</option> 
+            <option value="MS">Mato Grosso do Sul</option> 
+            <option value="MG">Minas Gerais</option> 
+            <option value="PA">Pará</option> 
+            <option value="PB">Paraíba</option> 
+            <option value="PR">Paraná</option> 
+            <option value="PE">Pernambuco</option> 
+            <option value="PI">Piauí</option> 
+            <option value="RJ">Rio de Janeiro</option> 
+            <option value="RN">Rio Grande do Norte</option> 
+            <option value="RO">Rondônia</option> 
+            <option value="RS">Rio Grande do Sul</option> 
+            <option value="RR">Roraima</option> 
+            <option value="SC">Santa Catarina</option> 
+            <option value="SE">Sergipe</option> 
+            <option value="SP">São Paulo</option> 
+            <option value="TO">Tocantins</option> 
+         </select>
       </div>
       <div class="col-md-6 mb-2">
-        <label for="cidade">Cidade</label>
-        <select class="form-control" id="cidade">
-                  <option>Recife</option> 
-                  <option>Boa Viagem</option> 
-                  <option>Jaboatão dos Guararapes</option> 
-                  <option>Cabo de santa Gostinho</option> 
-                  <option>Sitoria de Santo Antão </option>   
+        <label style="color:black" for="cidade">Cidade</label>
+        <select style="color:black" th:field="*{cidade}" class="form-control" id="cidade" name="cidade" required="required">   
         </select>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-6 mb-2">
-        <label for="masculino">Sexo</label>
-          <br><label for="masculino">Masculino:</label> <input type="radio" th:field="*{quant_max_convidados}"  id="masculino" name="sexo" value="masculino">
-
-           <label for="feminino">Feminino:</label> <input type="radio" th:field="*{quant_max_convidados}"  id="feminino" name="sexo" value="feminino">
+        <label style="color:black" for="masculino">Sexo</label>
+          <br>
+          <input type="radio" th:field="*{sexo}"  id="masculino" name="sexo" value="masculino" required="required">
+          <label style="color:black" for="masculino">Masculino</label>
+			<br>
+			<input type="radio" th:field="*{sexo}"  id="feminino" name="sexo" value="feminino" required="required">
+           <label style="color:black" for="feminino">Feminino</label>
       </div>
       <div class="col-md-6 mb-2">
-        <label for="nascimento">Data de Nascimento</label>
-        <input type="date" th:field="*{duracao_horas}" class="form-control" id="nascimento">
+        <label style="color:black" for="nascimento">Data de Nascimento</label>
+        <input style="color:black" type="date" th:field="*{dataNascimento}" class="form-control" id="nascimento" required="required">
       </div>
     </div>
       <div class="form-row">
       <div class="col-md-6 mb-2">
-        <label for="escolaridade">Escolaridade</label>
-        <select class="form-control" id="escolaridade">
-          <option>Ensino fundamental</option>
-          <option>Ensino médio</option>
-          <option>Ensino superior</option>
+        <label  style="color:black" for="escolaridade">Escolaridade</label>
+        <select style="color:black" th:field="*{escolaridade}" class="form-control" id="escolaridade" required="required">
+        <option value=""> Selecione uma opção</option>
+          <option value="Fundamental Incompleto">Ensino fundamental incompleto</option>
+          <option value="Fundamental Completo">Ensino fundamental completo</option>
+          <option value="Médio Incompleto">Ensino médio incompleto</option>
+          <option value="Médio Completo">Ensino médio completo</option>
+          <option value="Superior Completo(ou gradiação)">Ensino superior completo(ou graduação)</option>
+          <option value="Pós-graduação">Pós-graduação</option>
         </select>
       </div>
       <div class="col-md-6 mb-2">
-        <label for="instituicao">Instituição</label>
+        <label style="color:black" for="instituicao">Instituição de Ensino</label>
         <div class="input-group">
-        <input type="input" th:field="*{duracao_horas}" class="form-control" id="instituicao">
+        <input type="text" th:field="*{instituicao}" class="form-control" id="instituicao" th:errorclass="fieldError" required="required">
       </div>
     </div>
   </div>
   <div class="form-row">
       <div class="col-md-6 mb-2">
-        <label for="tipo_instituicao">Tipo de instituição de Ensino</label>
-        <select class="form-control" id="tipo_instituicao">
-          <option>Púbblico</option>
-          <option>Privado</option>
+        <label style="color:black" for="tipo_instituicao">Tipo da instituição de Ensino</label>
+        <select style="color:black" th:field="*{tipoInstituicao}" class="form-control" id="tipo_instituicao" required="required">
+        <option style="color:black" value=""> Selecione uma opção</option>
+          <option value="publico">Público</option>
+          <option value="privado">Privado</option>
         </select>
       </div>
       <div class="col-md-6 mb-2">
-        <label for="processo">Qual processo seletivo irá fazer</label>
-          <select class="form-control" id="processo">
-            <option>Vestibular</option>
-            <option>Concurso</option>
+        <label style="color:black" for="processo">Além do Enem, pretende realizar outro tipo de prova?</label>
+          <select style="color:black" th:field="*{provas}" class="form-control" id="processo" required="required">
+          <option style="color:black" value=""> Selecione uma opção</option>
+            <option value="Vestibular">Vestibular</option>
+            <option value="Concurso">Concurso</option>
+            <option value="Apenas Enem">Apenas o Enem</option>
+            <option value="Outro">Outro</option>
           </select>
       </div>
   </div>
   <div class="form-row">
     <div class="col-md-8 mb-4">
-      <label for="sim">Já particiou do Enem (Exame Nascional do Ensino Medio)</label><br>
-      <label for="sim">Sim</label>
-      <input type="radio" name="enem" id="sim" >
-      <label for="nao">Não</label>
-      <input type="radio" name="enem" id="nao">
+      <label style="color:black">Já realizou o Enem anos passados?</label><br>
+     <input type="radio" name="enem" id="sim" value="sim" th:field="*{enem}" required="required">
+      <label style="color:black" for="sim">Sim</label><br>
+      <input type="radio" name="enem" id="nao" value="não" th:field="*{enem}" required="required">
+      <label style="color:black" for="nao">Não</label>
     </div>
+     <div class="col-md-6 mb-2">
+      	<label style="color:black">Curso Pretendido:</label>
+      	<div class="input-group">
+      	<input type="text" th:field="*{cursoPretendido}" class="form-control" id="cursoPretendido" required="required">
+      	</div>
+      </div>
   </div>
-  
   <button class="btn btn-success" type="submit" style=" margin: 0% 15% 2% 0%;  padding: 1% 5% 1% 5%; position: relative;">Salvar</button>
   <div class="form-row">
   <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger">
@@ -197,7 +329,7 @@
 
 </div>
 </div>
-<!--aviso ou anucios-->
+<!--aviso ou anucios
 <div class="container">
   <div class="row" style='margin: -62% 0% 50% 87%; background-color: white; width: 30%; height: 50%; border-radius: 20px;'>
     <div class="col-md-4 mb-4">
@@ -208,11 +340,11 @@
     </div>
     
   </div>
-  </div>
+  </div> -->
 
 
 
-
+<br><br><br>
 
   <!-- Footer -->
   <footer class="footer text-center">

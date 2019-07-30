@@ -24,7 +24,7 @@ public class AutenticaçãoController {
 	//EFETUAR LOGIN
 	@GetMapping("/")
 	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView("/index");
+		ModelAndView mv = new ModelAndView("Home/index");
 		mv.addObject("usuario", new Usuario());
 		return mv;
 	}
@@ -38,11 +38,11 @@ public class AutenticaçãoController {
 			usuarioLogado = this.usuarioService.efetuarLogin(usuario.getEmail(),usuario.getSenha());
 			session.setAttribute("usuarioLogado", usuarioLogado);
 			if(this.usuarioService.findByPermissao(usuarioLogado.getEmail())!=null){
-				return "adicionar_materiais";
+				return "redirect:/adicionar_materiais";
 			}	
 			
 		} catch (Exception e) {
-			ra.addFlashAttribute("mensagemErro", e.getMessage());
+			ra.addFlashAttribute("mensagemErroModal", e.getMessage());
 			return "redirect:/";
 		}
 		return "redirect:/perfil";

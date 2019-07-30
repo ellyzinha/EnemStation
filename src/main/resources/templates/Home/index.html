@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="img/logoazul.png" >
+
+  <title>Enem Station</title>
+
+  <!-- Fontes para esse tema -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Tema CSS -->
+  <link href="css/freelancer.css" rel="stylesheet">
+
+  <!-- Bootstrap temas-->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <style>
+  .how-section1{
+      margin-top:-15%;
+      padding: 10%;
+  }
+  .how-section1 h4{
+      color: #3931af;
+      font-weight: bold;
+      font-size: 30px;
+  }
+  .how-section1 .subheading{
+      color: #47097900;
+      font-size: 20px;
+  }
+  .how-section1 .row
+  {
+      margin-top: 10%;
+  }
+  .how-img 
+  {
+      text-align: center;
+  }
+  .how-img img{
+      width: 40%;
+  }
+  </style>
+
+
+</head>
+
+<body id="page-top">
+
+  <!-- Menu de navegação -->
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Funcionalidades</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/cad}">Cadastro</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center" style="background-color:  rgb(43, 5, 78);">
+    <div class="container d-flex align-items-center flex-column">
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar mb-5" src="img/logoazul.png" alt="">
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-uppercase mb-0">O que é o Enem Station?</h1>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+
+    </div>
+  </header>
+
+  <!-- Portfolio Section -->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"></h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <div class="how-section1">
+        <div class="row">
+            <div class="col-md-6 how-img">
+                <img src="img/img4.png" class="rounded-circle img-fluid" alt=""/>
+            </div>
+            <div class="col-md-6">
+                <h4>Planos de Estudo</h4>
+            <h5>Organize seu plano de estudo para uma maior produtividade, escolha o dia da semana, o horário, a disciplina e o assunto.</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Questões do Enem</h4>
+                            <h5>Resolva questões apenas do Enem, para praticar o que foi estudado e obter um ótimo resultado no dia da prova.</h5>
+            </div>
+            <div class="col-md-6 how-img">
+                <img src="img/img1.png" class="rounded-circle img-fluid" alt=""/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 how-img">
+                 <img src="img/img2.png" class="rounded-circle img-fluid" alt=""/>
+            </div>
+            <div class="col-md-6">
+                <h4>Materiais de Estudo</h4>
+                            <h5>Acesse materiais para o enem, pdfs, apostilas, videos. Milhares de materiais disponíveis para você.</h5>
+            </div>
+        </div>
+    </div>
+
+      <!-- /.row -->
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="page-section text-white mb-0" id="about" style="background-color:  rgb(43, 5, 78);">
+    <div class="container">
+
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">Sobre</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+        <div class="col-lg-4 ml-auto">
+          <p class="lead">Sabe-se que um grande problema para estudar é a organização e tempo, com o sistema Enem Station irá ser gerado um plano de estudos personalizável e exclusivo de cada usuário que contenha as disciplinas a ser estudada.</p>
+        </div>
+        <div class="col-lg-4 mr-auto">
+          <p class="lead">Depois de criar seu Plano de Estudo, o estudante poderá praticar o que foi estudado fazendo questões do Enem, para que ele teste seus conhecimentos.</p>
+        </div>
+      </div>
+
+      <!-- About Section Button -->
+      <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-light" th:href="@{/cad}">
+          <i class="fas fa-user-plus"></i>
+          Faça seu Cadastro
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  
+
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Enem Station 2019</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+ 
+
+  <!--modal de login-->
+  <div class="modal" tabindex="-1" role="dialog" id="modal-login">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:rgb(43, 5, 78);">
+        <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
+        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 5% 10% 5% 15%">
+        <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
+               
+                  <form th:action="@{/efetuarLogin}" th:object="${usuario}" method="post" >
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        <input th:field="*{email}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="informe seu e-mail">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input th:field="*{senha}" type="password" class="form-control" id="exampleInputPassword1" placeholder="digite sua senha">
+                      </div>
+                      <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
+                      
+                      <div th:if="${mensagem}">
+								<div class="alert alert-success" th:text="${mensagem}"></div>
+							</div>
+							<div th:if="${mensagemErro}">
+								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
+							</div>
+							<div th:if="${mensagemErroModal}">
+								<div class="alert alert-danger" th:text="${mensagemErroModal}"></div>
+							</div>
+                    </form>
+                    Esqueceu senha? <a th:href="@{/esquecer_senha}">Recuperar</a>
+
+      </div>
+      <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
+        <a type="button" class="btn btn-primary" th:href="@{/cad}">Cadastrar</a>
+        </div> 
+      
+      </div>
+    </div>
+  </div>
+ </div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>

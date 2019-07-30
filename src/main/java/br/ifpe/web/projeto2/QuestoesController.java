@@ -58,7 +58,7 @@ public class QuestoesController {
 	
 	@GetMapping("/questoes")
 	public ModelAndView exibirQuestoes(Questoes questoes) {
-		ModelAndView mv = new ModelAndView("questoes");		
+		ModelAndView mv = new ModelAndView("Questao/questoes");		
 		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
 		mv.addObject("questoes", questoes);
 		return mv;
@@ -94,14 +94,14 @@ public class QuestoesController {
 	
 	@GetMapping("/adm-questoes")
 	public ModelAndView exibirQuestoes() {
-		ModelAndView mv = new ModelAndView("/adm-questoes");		
+		ModelAndView mv = new ModelAndView("Administrador/adm-questoes");		
 		mv.addObject("listaQuestoes", this.questoesRep.findAll(Sort.by("titulo")));
 		return mv;
 	}
 	
 	@PostMapping("/questao")
 	public ModelAndView pesquisarQuestoes(@RequestParam(required=false) String nomePesquisa, RedirectAttributes ra) {
-		ModelAndView mv = new ModelAndView("/questao-achada");		
+		ModelAndView mv = new ModelAndView("Questao/questao-achada");		
 		
 		List<Questoes> listaQuestoes;
 		if (nomePesquisa == null || nomePesquisa.trim().isEmpty()) {
@@ -119,7 +119,7 @@ public class QuestoesController {
 	
 	@GetMapping("/questao-achada")
 	public ModelAndView exibirQuestaoAchada(Questoes questoes) {
-		ModelAndView mv = new ModelAndView("/questao-achada");		
+		ModelAndView mv = new ModelAndView("Questao/questao-achada");		
 		mv.addObject("listaQuestoes", this.questoesRep.findAll(Sort.by("titulo")));
 		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
 		mv.addObject("questoes", questoes);
@@ -128,7 +128,7 @@ public class QuestoesController {
 	
 	@GetMapping("/vermais")
 	public ModelAndView verMais(Questoes questoes) {
-		ModelAndView mv = new ModelAndView("/vermais");		
+		ModelAndView mv = new ModelAndView("Questao/vermais");		
 		mv.addObject("listaQuestoes", this.questoesRep.findAll(Sort.by("texto")));
 		//mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
 		// Caso seja passado o Id do produto, esta chamada será para edição do produto
@@ -144,7 +144,7 @@ public class QuestoesController {
 	@GetMapping("edit/{id}")
 	public ModelAndView exibirEdicao(@PathVariable("id") Integer id) {
 		Questoes questoes = questoesService.findById(id);
-		ModelAndView mv = new ModelAndView("questao-achada");
+		ModelAndView mv = new ModelAndView("Questao/questao-achada");
 		mv.addObject("listaQuestoes", questoesService.listarTodos());
 		mv.addObject("questoes", questoes);
 		return mv;
