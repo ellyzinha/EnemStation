@@ -3,8 +3,6 @@ package br.ifpe.web.projeto2.Model;
 import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,30 +12,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class DadosUsuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_usuario;
-	
 	private String estado;
-	
 	private String cidade;
-	
 	private String sexo;
-	
-	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dataNascimento;
-	
 	private String escolaridade;
-	
 	private String cursoPretendido;
-	
 	private String instituicao;
-	
 	private String tipoInstituicao;
-	
 	private String provas;
-	
 	private String enem;
-	
 	
 	public Integer getId_usuario() {
 		return id_usuario;

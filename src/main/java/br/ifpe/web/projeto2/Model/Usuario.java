@@ -2,12 +2,14 @@ package br.ifpe.web.projeto2.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -17,32 +19,36 @@ import javax.validation.constraints.Size;
 @Entity @Table(name="usuario")
 public class Usuario {
 	
-	@Id 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id_usuario;
-	
 	@Column(nullable = false)
 	@NotBlank(message = "Campo obrigatório, Insira um nome")
 	private String nome;
-	
 	@NotBlank(message = "Insira um email válido")
 	@Email
 	@Column(nullable = false)
 	private String email;
-	
 	@Column(nullable = false)
 	@NotBlank(message = "Insira uma senha para prosseguir")
 	@Size(min = 6, message = "Digite uma senha com minimo 6 caracteres")
 	private String senha;
 	private boolean ativo;
-	
-	private Integer permissao;
-	
+	@Enumerated
+	private Permissao permissao;
 	@ManyToOne
 	private DadosUsuario dadosUsuario;
 	
 	
 	
+	
+	
+	
+	public Permissao getPermissao() {
+		return permissao;
+	}
+	public void setPermissao(Permissao permissao) {
+		this.permissao = permissao;
+	}
 	public DadosUsuario getDadosUsuario() {
 		return dadosUsuario;
 	}
@@ -79,14 +85,6 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Integer getPermissao() {
-		return permissao;
-	}
-	public void setPermissao(Integer permissao) {
-		this.permissao = permissao;
-	}
-	
-	
 	
 	
 	

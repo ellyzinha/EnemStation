@@ -2,6 +2,7 @@ package br.ifpe.web.projeto2.service;
 
 
 
+import javax.mail.internet.InternetAddress;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,23 +26,17 @@ public class UsuarioService {
 	private LoginGmailDAO loginGmailDAO;
 	
 	
-	public Usuario efetuarLogin(String email, String senha) throws Exception {
+	public Usuario efetuarLogin(String email, String senha) throws ServiceException {
 		Usuario usuario = this.usuarioDao.efetuarLogin(email, senha);
 		if (usuario == null) {
-			throw new Exception("Login/senha não encontrados");
+			throw new ServiceException("Login/senha não encontrados");
 		}
 		if (!usuario.isAtivo()) {
-			throw new Exception("Usuário [" + usuario.getNome() + "] está bloqueado");
+			throw new ServiceException("Usuário [" + usuario.getNome() + "] está bloqueado");
 		}
 		return usuario;
 	}
 	
-	//VERIFICAR PERMISSAO DO USUARIO
-	public Integer findByPermissao(String email) {
-		return usuarioDao.findByPermissao(email);
-	}
-
-
 	public Usuario findUsuarioByEmail(String email) {
 		return usuarioDao.findByEmail(email);
 	}
@@ -69,7 +64,13 @@ public class UsuarioService {
         usuarioDao.updateSenha(senha, id_usuario);
     }
 	
+	
 
+	public InternetAddress findUsuarioByEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 	//VERIFICANDO EMAIL DA NO BANCO
 	public LoginGmail findByLoginGmail(String email) {

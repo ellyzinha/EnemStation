@@ -14,30 +14,39 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
-@Table(name="questoes")
+@Table(name = "tb_questoes")
 public class Questoes {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_questoes")
 	private Integer id;
 	@Column(nullable=false, length=10000)
+	@NotBlank
 	private String texto;
+	@Column(nullable = true, length = 1000)
 	private byte[] imagem;
 	@Column(nullable=false, length=5000)
+	@NotBlank
 	private String enunciado;
 	@Column(length=5000)
 	private String comentario;
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_dificuldade")
 	private Dificuldade dificuldade;
-	@OneToOne
-	private Grafico grafico;
-	@OneToMany(targetEntity=Alternativa.class, fetch=FetchType.EAGER)
-    @JoinColumn(name="id_questao")
+	@OneToMany(mappedBy = "questoes",targetEntity=Alternativa.class, fetch=FetchType.LAZY)
+    @Cascade(CascadeType.ALL)
 	private List<Alternativa> alternativa;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "questoes")
 	private Collection <Assunto> assunto;
+	
+	
+	
 	
 	public String getTexto() {
 		return texto;
@@ -87,12 +96,6 @@ public class Questoes {
 	}
 	public void setDificuldade(Dificuldade dificuldade) {
 		this.dificuldade = dificuldade;
-	}
-	public Grafico getGrafico() {
-		return grafico;
-	}
-	public void setGrafico(Grafico grafico) {
-		this.grafico = grafico;
 	}
 	
 	public Collection<Assunto> getAssunto() {

@@ -23,6 +23,10 @@
 
 <!-- Tema CSS -->
 <link href="css/freelancer.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 
 
 <!-- Custom fonts for this template -->
@@ -80,18 +84,14 @@
 				th:href="@{/ind}"> <i class="fas fa-home"></i> <span>Home</span></a>
 			</li>
 
-			<!-- Nav Item - Tables -->
-			<li class="nav-item active"><a class="nav-link"
-				th:href="@{/questoes}"> <i class="fas fa-pencil-alt"></i> <span>Adicionar
-						Questões</span></a></li>
 
 			<!-- Nav Item - Tables -->
 			<li class="nav-item active"><a class="nav-link"
-				th:href="@{/questoes}"> <i class="fas fa-pencil-alt"></i> <span>Adicionar
+				th:href="@{/exibir_assuntos}"> <i class="fas fa-pencil-alt"></i> <span>Adicionar
 						Assuntos</span></a></li>
 
 			<li class="nav-item active"><a class="nav-link"
-				th:href="@{/questoes}"> <i class="fas fa-book"></i> <span>Adicionar
+				th:href="@{/adicionar_materiais}"> <i class="fas fa-book"></i> <span>Adicionar
 						Materiais</span></a></li>
 
 
@@ -136,14 +136,14 @@
 
 					<div class="card bg-light">
 						<article class="card-body mx-auto" style="max-width: 600px;">
-							<h4 class="card-title mt-3 text-center">Adicionar Questão</h4>
-							<!-- Erro -->
+							<h4 class="card-title mt-3 text-center">Aadicionar Questão</h4>
 							<div class="alert alert-success" th:if="${mensagem}"
 								th:text="${mensagem}"></div>
-							<div class="alert alert-danger" th:if="${mensagemErro}"
-								th:text="${mensagemErro}"></div>
+
+							<!-- Formulário para adicionar questões e alternativas -->
 							<form th:action="@{/salvarQuestoes}" th:object="${questoes}"
 								method="post">
+
 								<div class="form-group input-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text">Imagem</span>
@@ -152,83 +152,33 @@
 										placeholder="Imagem da Questão" type="file"
 										th:field="*{imagem}">
 								</div>
-
+								
+								
 								<div class="form-group input-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text">Texto</span>
 									</div>
-									<textarea class="form-control" required="required" rows="5"
+									<textarea class="form-control" rows="5"
 										cols="50" th:field="*{texto}"></textarea>
 								</div>
 								<!-- form-group// -->
+								
+								<div class="alert alert-danger" th:if="${mensagemCampo}">
+    								<div th:if="${mensagemCampo}" th:text="${mensagemCampo}"></div>
+    							</div>
 
 								<div class="form-group input-group">
 									<div class="input-group-prepend">
 										<span class="input-group-text">Enunciado</span>
 									</div>
-									<textarea class="form-control" required="required" rows="5"
+									<textarea class="form-control"  rows="5"
 										cols="50" th:field="*{enunciado}"></textarea>
 								</div>
 								<!-- form-group// -->
 								
-					<!-- Alternativas -->
-
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"><input type="checkbox"
-											class="form-control"></span>
-									</div>
-									<textarea class="form-control" required="required" rows="2"
-										cols="50"></textarea>
-								</div>
-								<!-- form-group// -->
-								
-								
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"><input type="checkbox"
-											class="form-control"></span>
-									</div>
-									<textarea class="form-control" required="required" rows="2"
-										cols="50"></textarea>
-								</div>
-								<!-- form-group// -->
-								
-								
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"><input type="checkbox"
-											class="form-control"></span>
-									</div>
-									<textarea class="form-control" required="required" rows="2"
-										cols="50"></textarea>
-								</div>
-								<!-- form-group// -->
-								
-								
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"><input type="checkbox"
-											class="form-control"></span>
-									</div>
-									<textarea class="form-control" required="required" rows="2"
-										cols="50"></textarea>
-								</div>
-								<!-- form-group// -->
-								
-								
-								<div class="form-group input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text"><input type="checkbox"
-											class="form-control"></span>
-									</div>
-									<textarea class="form-control" required="required" rows="2"
-										cols="50"></textarea>
-								</div>
-								<!-- form-group// -->
-
-					<!-- Fim das alternativas -->
-
+								<div class="alert alert-danger" th:if="${mensagemCampo}">
+    								<div th:if="${mensagemCampo}" th:text="${mensagemCampo}"></div>
+    							</div>
 
 
 								<div class="form-group input-group">
@@ -255,16 +205,83 @@
 									</select>
 								</div>
 								<!-- form-group// -->
+								<br> <br>
+								
+								
+								<!-- Alternativas -->
+								
+								<h4 class="card-title mt-3 text-center">Adicionar
+									Alternativas</h4>
 
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+									<input type="hidden" th:field="*{alternativa[0].id}">
+										<span class="input-group-text"><input type="checkbox" value="certa"
+											class="form-control" th:field="*{alternativa[0].resposta}" th:value="${certa.Certa}" ></span>
+									</div>
+
+									<textarea class="form-control" rows="2"
+										cols="50" th:field="*{alternativa[0].descricao}"></textarea>
+								</div>
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+									<input type="hidden" th:field="*{alternativa[1].id}">
+										<span class="input-group-text"><input type="checkbox" value="certa"
+											class="form-control" th:field="*{alternativa[1].resposta}" th:value="${certa.Certa}" ></span>
+									</div>
+
+									<textarea class="form-control"  rows="2"
+										cols="50" th:field="*{alternativa[1].descricao}"></textarea>
+								</div>
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+									<input type="hidden" th:field="*{alternativa[2].id}">
+										<span class="input-group-text"><input type="checkbox" value="certa"
+											class="form-control" th:field="*{alternativa[2].resposta}" th:value="${certa.Certa}" ></span>
+									</div>
+
+									<textarea class="form-control" rows="2"
+										cols="50" th:field="*{alternativa[2].descricao}"></textarea>
+								</div>
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+									<input type="hidden" th:field="*{alternativa[3].id}">
+										<span class="input-group-text"><input type="checkbox" value="certa"
+											class="form-control" th:field="*{alternativa[3].resposta}" th:value="${certa.Certa}" ></span>
+									</div>
+
+									<textarea class="form-control"  rows="2"
+										cols="50" th:field="*{alternativa[3].descricao}"></textarea>
+								</div>
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+									<input type="hidden" th:field="*{alternativa[4].id}">
+										<span class="input-group-text"><input type="checkbox" value="certa"
+											class="form-control" th:field="*{alternativa[4].resposta}" th:value="${certa.Certa}" ></span>
+									</div>
+
+									<textarea class="form-control"  rows="2"
+										cols="50" th:field="*{alternativa[4].descricao}"></textarea>
+								</div>
+								
 								<div class="form-group">
 									<button type="submit" class="btn btn-secondary btn-block">
 										Adicionar</button>
 								</div>
 								<!-- form-group// -->
+
+								<!-- Fim das alternativas -->
+
+
+
 							</form>
 
-							<br>
-							<br>
+							<br> <br>
 
 
 
@@ -275,100 +292,71 @@
 				</div>
 				<!--container end.//-->
 				<!-- End of Main Content -->
+				<br> <br>
+
+
 
 
 			</div>
-			<!-- End of Content Wrapper -->
 
 		</div>
+		<!-- End of Content Wrapper -->
 
-		<!-- End of Page Wrapper -->
+	</div>
 
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
 
-		<!-- Logout Modal-->
-		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header" align="center">
-						<h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
-						<button class="close" type="button" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">Selecione Logout se desejar sair da
-						conta</div>
-					<div class="modal-footer">
-						<form th:action="@{/logout}" method="post">
-							<button class="btn btn-info" type="submit">Sair</button>
-						</form>
-					</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					<h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Selecione Logout se desejar sair da
+					conta</div>
+				<div class="modal-footer">
+					<form th:action="@{/logout}" method="post">
+						<button class="btn btn-info" type="submit">Sair</button>
+					</form>
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+	<div class="scroll-to-top d-lg-none position-fixed ">
+		<a class="js-scroll-trigger d-block text-center text-white rounded"
+			href="#page-top"> <i class="fa fa-chevron-up"></i>
+		</a>
+	</div>
 
 
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-		<br>
-		<br>
+	<!-- Plugin JavaScript -->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+	<!-- Contact Form JavaScript -->
+	<script src="js/jqBootstrapValidation.js"></script>
+	<script src="js/contact_me.js"></script>
 
-		<!-- Footer -->
-		<footer class="footer text-center">
-			<div class="container">
-
-				<!-- Footer Social Icons -->
-
-				<section class="py-4 text-center">
-					<a class="btn btn-outline-light btn-social mx-1" href="#"> <i
-						class="fab fa-fw fa-facebook-f"></i>
-					</a> <a class="btn btn-outline-light btn-social mx-1" href="#"> <i
-						class="fab fa-fw fa-twitter"></i>
-					</a> <a class="btn btn-outline-light btn-social mx-1" href="#"> <i
-						class="fab fa-fw fa-linkedin-in"></i>
-					</a> <a class="btn btn-outline-light btn-social mx-1" href="#"> <i
-						class="fab fa-fw fa-dribbble"></i>
-					</a>
-				</section>
-
-
-
-			</div>
-		</footer>
-
-		<!-- Copyright Section -->
-		<section class="copyright py-4 text-center text-white">
-			<div class="container">
-				<small>Copyright &copy; Enem Station 2019</small>
-			</div>
-		</section>
-
-		<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-		<div class="scroll-to-top d-lg-none position-fixed ">
-			<a class="js-scroll-trigger d-block text-center text-white rounded"
-				href="#page-top"> <i class="fa fa-chevron-up"></i>
-			</a>
-		</div>
-
-
-		<!-- Bootstrap core JavaScript -->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-		<!-- Plugin JavaScript -->
-		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-		<!-- Contact Form JavaScript -->
-		<script src="js/jqBootstrapValidation.js"></script>
-		<script src="js/contact_me.js"></script>
-
-		<!-- Custom scripts for this template -->
-		<script src="js/freelancer.min.js"></script>
+	<!-- Custom scripts for this template -->
+	<script src="js/freelancer.min.js"></script>
 </body>
 
 </html>

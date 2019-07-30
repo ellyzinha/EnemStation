@@ -1,5 +1,6 @@
 package br.ifpe.web.projeto2.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,13 +8,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 
 @Entity
+@Table(name = "tb_assunto")
 public class Assunto {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_assunto")
 	private Integer id;
+	@Column(nullable = false)
+	@NotBlank
 	private String descricao;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_questoes")
@@ -21,6 +28,9 @@ public class Assunto {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_disciplina")
 	private Disciplina disciplina;
+	
+	
+	
 	
 	public Integer getId() {
 		return id;

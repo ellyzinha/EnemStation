@@ -19,29 +19,8 @@
 
 </head>
 <body id="page-top" style="background-color: rgb(239, 245, 243);">
-<!-- menu -->
-   <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.html">Enem Station</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" 
-        style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/}">Home</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-<!------ CORPO DE RECUPERA SENHA ---------->
+   
+<!------ Include the above in your HEAD tag ---------->
 <div class="container" style=" padding: 10% 0% 10% 0%; ">
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -78,8 +57,6 @@
                     <!-- /form card reset password -->
                 </div>
     </div>
-    
- 
      
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -96,74 +73,6 @@
   <script src="js/freelancer.min.js"></script>
 
 </div>
- <!--modal de login-->
-  <div class="modal" tabindex="-1" role="dialog" id="modal-login">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color:rgb(43, 5, 78);">
-        <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
-        <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 5% 10% 5% 15%">
-        <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
-               
-                  <form th:action="@{/efetuarLogin}"  method="post" >
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">E-mail</label>
-                        <input type="email" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
-                        <input name="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-                      </div>
-                      <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
-                      
-                      <div th:if="${mensagem}">
-								<div class="alert alert-success" th:text="${mensagem}"></div>
-							</div>
-							<div th:if="${mensagemErro}">
-								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
-							</div>
-                    </form>
-                    Esqueceu senha? <a th:href="@{/esquecer_senha}">Recuperar</a>
-
-      </div>
-      <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
-        <button type="button" class="btn btn-info" th:href="@{/cad}">Cadastrar</button>
-      </div>
-    </div>
-  </div>
-
-  
-  </div>
-   <!--- RODAPÉ --->
-     <footer class="footer text-center">
-    <div class="container">
-
-        <!-- Footer Social Icons -->
-
-        <section class="py-4 text-center">
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-facebook-f"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-twitter"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-linkedin-in"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-dribbble"></i>
-          </a>
-        </section>
-
-        
-
-      </div>
-    </div>
-  </footer>
 
 
   

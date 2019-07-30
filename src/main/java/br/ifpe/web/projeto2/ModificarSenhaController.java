@@ -39,9 +39,9 @@ public class ModificarSenhaController {
 		
 		SenhaToken resetToken = tokenDAO.findByToken(token);
 		if(resetToken == null) {
-			 model.addAttribute("error","Não foi possível encontrar o token de redefinição de senha.");
+			 model.addAttribute("error", "Could not find password reset token.");
         } else if (resetToken.isExpired()){
-            model.addAttribute("error", "Tokin expirado, porfavor tente recuperar novamente.");
+            model.addAttribute("error", "Token has expired, please request a new password reset.");
         } else {
             model.addAttribute("token", resetToken.getToken());
         }
