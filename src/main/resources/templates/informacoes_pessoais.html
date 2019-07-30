@@ -20,26 +20,25 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-   
-   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-
-   
-
+    <!-- Custom styles for this template -->
+  	<link href="css/sb-admin-2.min.css" rel="stylesheet">
+		<!-- Custom styles for this page -->
+   	<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  	<link rel="stylesheet" href="css/styles.css">	 
+	<link href="css/freelancer.min.css" rel="stylesheet">
  <style>
 
     #aviso{
-      background-color: white;
       border-radius: 20px; 
       margin-top: 7%;
       }
     #paragrafo{
       text-shadow: 1px 2px black;
       font-size: 200%;
+      color:grey;
      
     }
     #formulario{
-      background-color: white; 
       border-radius: 20px; 
       font-size: 20px; 
       margin-left: 1%; 
@@ -51,32 +50,7 @@
 
 </head>
 <body id="page-top" style="background-image: url('images/plano_fundo_infor_pessoais.jpg');">
-  <!-- Menu de navegação 
-  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Funcionalidades</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <br><br><br><br><br><br>
-    <th:block th:if="${session.usuarioLogado}"> 
--->
+<th:block th:fragment="navBar" th:if="${session.usuarioLogado}">
   <!-- Page Wrapper -->
   <div id="wrapper" >
 
@@ -93,9 +67,6 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
-
-
-
 
       
       <!-- Divider -->
@@ -116,7 +87,7 @@
       </li>
 
       <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link" th:href="@{/material_disciplina}">
               <i class="fas fa-book"></i>
               <span>Materiais</span></a>
           </li>
@@ -164,10 +135,10 @@
                 <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiasajo6RFSTR2RkHQrezDFvJ9QY85uHTkci7cpPof5hZSvuiq7g">
               </a>
               <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+              <div  class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" th:href="@{/perfil}">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Editar Perfil
+                  Perfil
                 </a>
                 <a class="dropdown-item" th:href="@{/dados_pessoais}">
                   <i class="fa fa-address-card fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -189,26 +160,44 @@
 
         </nav>
         <!-- End of Topbar -->
-<!--aviso-->
-  <div class="container" id="aviso">
+   		 <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3" align="center" >
+              <h6 class="m-0 font-weight-bold text-info">Informações Pessoais</h6>
+        	</div>
+		<div class="card-body">
+        
+       
+	<!--aviso
+  	<div class="container" id="aviso">
   
  
     <div class=" col-12 col-md-12">
-      <p class="display-10 font-italic" id="paragrafo">Está quase lá, preencha o formulario a seguir para aproveitar todas as nossas ferramentas.<b> Nenhuma das suas informações serão publicadas!</b> </p>
+      <p class="display-10 font-italic" id="paragrafo">Preencha os dados a seguir para aproveitar todas as nossas ferramentas.<b> Nenhuma das suas informações serão publicadas!</b> </p>
     </div>
-  </div>
+  </div> -->
 
    <!--formulario-->
   <div class="container" id="formulario" style="background-color:white">
     <div>
-    <div class="form-row">
-      <div class="col-md-11 mb-11">
-        <br><h1 style="color:black" >Informações Pessoais</h1><br> 
-      </div>
+    <div class=" col-12 col-md-12">
+      <p class="display-10 font-italic" id="paragrafo">Preencha os dados a seguir para aproveitar todas as nossas ferramentas.<b> Nenhuma das suas informações serão publicadas!</b> </p>
     </div>
+  </div>
     
    <form th:action="@{/add_dadosPessoais}" th:object="${dadosUsuario}" method="post">
-   <input type="hidden" th:field="*{id_usuario}"/>
+  	<input type="hidden" th:field="*{id_usuario}"/>
+     <!-- 
+   <input type="hidden" name="idUsuario" th:value="${session.usuarioLogado.id_usuario}" th:field="*{usuario}"> ${session.usuarioLogado.dados_usuario_id_usuario}
+    -->
+    <span style="display: none;"> <!-- Com o disply none apenas no option, só esconde no IE, com o span, esconde nos demais navegadores -->
+    <select th:field="*{usuario}" class="hidden" name="usuario" id="usuario">
+    	<option style="display: none;" th:value="${session.usuarioLogado.id_usuario}"></option>
+    </select>
+    </span>
     <div class="form-row">
       <div class="col-md-6 mb-2">
         <label style="color:black" for="estado">Estado</label>
@@ -319,7 +308,13 @@
       	</div>
       </div>
   </div>
-  <button class="btn btn-success" type="submit" style=" margin: 0% 15% 2% 0%;  padding: 1% 5% 1% 5%; position: relative;">Salvar</button>
+  <button class="btn btn-info" type="submit" style=" margin: 0% 15% 2% 0%;  padding: 1% 5% 1% 5%; position: relative;">Salvar</button>
+  <center><div th:if="${mensagemSucesso}">
+								<div class="alert alert-success" th:text="${mensagemSucesso}"></div>
+							</div>
+						<div th:if="${mensagemErro}">
+								<div class="alert alert-danger" th:text="${mensagemErro}"></div>
+							</div> </center>
   <div class="form-row">
   <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger">
       <p th:each="err : ${#fields.allErrors()}" th:text="${err}"></p>
@@ -328,59 +323,42 @@
 </form>
 
 </div>
-</div>
-<!--aviso ou anucios
-<div class="container">
-  <div class="row" style='margin: -62% 0% 50% 87%; background-color: white; width: 30%; height: 50%; border-radius: 20px;'>
-    <div class="col-md-4 mb-4">
-      <br>
-      <img src="images/aviso.jpg" width="300px">
-      <p style="width: 300%;">80% das pessoas que organiza seu tempo, são aprovadas em grades universidades.</p>
-     
-    </div>
-    
-  </div>
-  </div> -->
+              </div>
+            </div>
+          </div>
 
-
-
-<br><br><br>
-
-  <!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container">
-
-        <!-- Footer Social Icons -->
-
-        <section class="py-4 text-center">
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-facebook-f"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-twitter"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-linkedin-in"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-dribbble"></i>
-          </a>
-        </section>
-
-        
+        </div>
+        <!-- /.container-fluid -->
 
       </div>
-    </div>
-  </footer>
+      <!-- End of Main Content -->
 
-  <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; Enem Station 2019</small>
-    </div>
-  </section>
 
- 
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+ <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Selecione Logout se desejar sair da conta</div>
+        <div class="modal-footer">
+        <form th:action="@{/logout}" method="post">
+          <button class="btn btn-info" type="submit">Sair</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
  
    <!-- Bootstrap core JavaScript -->
@@ -396,5 +374,12 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
+  
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
 </body>
 </html>

@@ -1,209 +1,374 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="httP://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-  <title>Enem Station</title>
+<title>Enem Station</title>
 
-  <!-- Fontes para esse tema -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<!-- Fontes para esse tema -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
 
-  <!-- Tema CSS -->
-  <link href="css/freelancer.css" rel="stylesheet">
+<!-- Tema CSS -->
+<link href="css/freelancer.min.css" rel="stylesheet">
 
-  <!-- Bootstrap temas-->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Custom fonts for this template -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+<!-- Custom styles for this page -->
+<link href="vendor/datatables/dataTables.bootstrap4.min.css"
+	rel="stylesheet">
+<link href="css/freelancer.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/plano.css">
+
 </head>
 
-<body>
-<div class="container">
-  <!-- Menu de navegação -->
-  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/administrador}">Perfil de Administrador</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  <!---formulario----->
-  <br><br><br><br><br><br>
-  <h1 class="font-weight-normal" align="center" >Disciplina de Português</h1>
-	<form th:action="@{/salvarQuestoes}"  method="post" id="formQuestoes" th:object="${questoes}" >
-	<input type="hidden" id="idQuestoes" th:field="*{id}" />
-	<label>Titulo</label> <input class="form-control" 
-	required="required" type="text" name="titulo"
-	th:field="*{titulo}" placeholder="Informe o titulo" />
-	<span class="error" th:if="${#fields.hasErrors('titulo')}"
-										th:errors="*{titulo}"></span>
-	<label>Imagem</label> <input class="form-control"  type="text" name="imagem"
-	th:field="*{imagem}" placeholder="Link da imagem" />  <span class="error" th:if="${#fields.hasErrors('imagem')}"
-										th:errors="*{imagem}"></span>
-	<label>Enunciado:</label> <input class="form-control" 
-	required="required" type="text"  name="enunciado"
-	th:field="*{enunciado}" placeholder="Enunciado..." /> <span class="error" th:if="${#fields.hasErrors('enunciado')}"
-										th:errors="*{enunciado}"></span><br>
-	<label>Dificuldade:</label> <select th:field="*{dificuldade}" required="required">
-								<option value="">Selecione uma dificuldade...</option>
-								<option th:each="dif : ${listaDificuldade}"
-								th:text="${dif.descricao}" th:value="${dif.id}"></option>
-							</select> <span class="error" th:if="${#fields.hasErrors('dificuldade')}"
-										th:errors="*{dificuldade}"></span><br>
-	<label>Alternativas:</label> <select th:field="*{alternativas}" required="required">
-								<option value="">Selecione uma alternativa...</option>
-								<option th:each="alt : ${listaAlternativas}"
-								th:text="${alt.descricao}" th:value="${alt.id}"></option>
-							</select> <span class="error" th:if="${#fields.hasErrors('alternativas')}"
-										th:errors="*{alternativas}"></span><br>
-	<label>Assunto:</label> <select th:field="*{assunto}" required="required">
-								<option value="">Selecione uma alternativa...</option>
-								<option th:each="ass : ${listaAssunto}"
-								th:text="${ass.descricao}" th:value="${ass.id}"></option>
-							</select> <span class="error" th:if="${#fields.hasErrors('assunto')}"
-										th:errors="*{assunto}"></span><br>
-	<center> <button type="submit" class="btn btn-primary"> Salvar </button> </center> <br>
-	 <div th:if="${mensagem}">
-		<div class="alert alert-success" th:text="${mensagem}"></div>
-	</div>
-	<div th:if="${mensagemErro}">
-		<div class="alert alert-danger" th:text="${mensagemErro}"></div>
-	</div>
-	
+<body id="page-top" style="background-color: rgb(251, 253, 253);">
 
-</form>  
-</div>
-<!--   
-  <div class="container" style="border: 2px solid black; background-color: white; border-radius: 25px;">
-  <form class="form-horizontal">
-<fieldset>
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Menu de navegação -->
+
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
+
+			<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
+				th:href="@{/ind}"> <!-- <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div> -->
+				<div class="sidebar-brand-text mx-3">Administrador</div>
+			</a>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
 
 
 
-<div class="form-group" align="center">
-  <br>
-  <label class="col-md-4 control-label" for="radios"><h3 class="font-weight-light">Nivel da Questão</h3></label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="radios-0">
-      <input type="radio" name="radios" id="radios-0" value="facil" checked="checked">
-      Fácil
-    </label> 
-    <label class="radio-inline" for="radios-1">
-      <input type="radio" name="radios" id="radios-1" value="medio">
-      Médio
-    </label> 
-    <label class="radio-inline" for="radios-2">
-      <input type="radio" name="radios" id="radios-2" value="dificil">
-      Difícil
-    </label>
-  </div> 
-</div>
 
 
-    
-            <div class="panel panel-default">
-                <div class="panel-body"> 
-                <h3 class="font-weight-light" align="center">Questão</h3>               
-                    <form accept-charset="UTF-8" action="" method="POST">
-                        <textarea class="form-control counted" name="message" placeholder="Coloque sua questão aqui" rows="3" style="text-align: center;"></textarea>
-                    </form>
-                </div>
-        
-        </div>
-        <div class="form-group" align="center">
-  <label class="col-md-4 control-label" for="filebutton">
-    <br>
-    <h3 class="font-weight-light">Adicionar Imagem</h3></label>
-  <div class="col-md-4">
-    <input id="filebutton" name="filebutton" class="input-file" type="file">
-  </div>
-</div>
- 
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+
+			<!-- Nav Item - Charts -->
+			<li class="nav-item active"><a class="nav-link"
+				th:href="@{/ind}"> <i class="fas fa-home"></i> <span>Home</span></a>
+			</li>
+
+			<!-- Nav Item - Tables -->
+			<li class="nav-item active"><a class="nav-link"
+				th:href="@{/questoes}"> <i class="fas fa-pencil-alt"></i> <span>Adicionar
+						Questões</span></a></li>
+
+			<!-- Nav Item - Tables -->
+			<li class="nav-item active"><a class="nav-link"
+				th:href="@{/questoes}"> <i class="fas fa-pencil-alt"></i> <span>Adicionar
+						Assuntos</span></a></li>
+
+			<li class="nav-item active"><a class="nav-link"
+				th:href="@{/questoes}"> <i class="fas fa-book"></i> <span>Adicionar
+						Materiais</span></a></li>
 
 
-<div class="form-group" align="center">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-success btn-lg" style=" width: 200px;">Postar</button>
-  </div>
-</div>
 
-</fieldset>
-</form>
- </div> -->
-<br><br>
- <!-- Footer -->
- <footer class="footer text-center">
-    <div class="container">
-
-        <!-- Footer Social Icons -->
-
-        <section class="py-4 text-center">
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-facebook-f"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-twitter"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-linkedin-in"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-dribbble"></i>
-          </a>
-        </section>
-
-        
-
-      </div>
-    </div>
-  </footer>
-
-  <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; Enem Station 2019</small>
-    </div>
-  </section>
-
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-  <div class="scroll-to-top d-lg-none position-fixed ">
-    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-      <i class="fa fa-chevron-up"></i>
-    </a>
-  </div>
+			<!-- Divider -->
+			<hr class="sidebar-divider d-none d-md-block">
 
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		</ul>
 
-  <!-- Contact Form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
 
-  <!-- Custom scripts for this template -->
-  <script src="js/freelancer.min.js"></script>
+			<!-- Main Content -->
+			<div id="content">
 
+				<!-- Topbar -->
+				<nav
+					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<!-- Sidebar Toggle (Topbar) -->
+					<button id="sidebarToggleTop"
+						class="btn btn-link d-md-none rounded-circle mr-3">
+						<i class="fa fa-bars"></i>
+					</button>
+
+					<!-- Topbar Navbar -->
+					<ul class="navbar-nav ml-auto">
+
+						<!--Divider-->
+						<div class="topbar-divider d-none d-sm-block"></div>
+
+
+					</ul>
+
+				</nav>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container">
+
+					<div class="card bg-light">
+						<article class="card-body mx-auto" style="max-width: 600px;">
+							<h4 class="card-title mt-3 text-center">Adicionar Questão</h4>
+							<!-- Erro -->
+							<div class="alert alert-success" th:if="${mensagem}"
+								th:text="${mensagem}"></div>
+							<div class="alert alert-danger" th:if="${mensagemErro}"
+								th:text="${mensagemErro}"></div>
+							<form th:action="@{/salvarQuestoes}" th:object="${questoes}"
+								method="post">
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Imagem</span>
+									</div>
+									<input name="imagem" class="form-control"
+										placeholder="Imagem da Questão" type="file"
+										th:field="*{imagem}">
+								</div>
+
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Texto</span>
+									</div>
+									<textarea class="form-control" required="required" rows="5"
+										cols="50" th:field="*{texto}"></textarea>
+								</div>
+								<!-- form-group// -->
+
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Enunciado</span>
+									</div>
+									<textarea class="form-control" required="required" rows="5"
+										cols="50" th:field="*{enunciado}"></textarea>
+								</div>
+								<!-- form-group// -->
+								
+					<!-- Alternativas -->
+
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><input type="checkbox"
+											class="form-control"></span>
+									</div>
+									<textarea class="form-control" required="required" rows="2"
+										cols="50"></textarea>
+								</div>
+								<!-- form-group// -->
+								
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><input type="checkbox"
+											class="form-control"></span>
+									</div>
+									<textarea class="form-control" required="required" rows="2"
+										cols="50"></textarea>
+								</div>
+								<!-- form-group// -->
+								
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><input type="checkbox"
+											class="form-control"></span>
+									</div>
+									<textarea class="form-control" required="required" rows="2"
+										cols="50"></textarea>
+								</div>
+								<!-- form-group// -->
+								
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><input type="checkbox"
+											class="form-control"></span>
+									</div>
+									<textarea class="form-control" required="required" rows="2"
+										cols="50"></textarea>
+								</div>
+								<!-- form-group// -->
+								
+								
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><input type="checkbox"
+											class="form-control"></span>
+									</div>
+									<textarea class="form-control" required="required" rows="2"
+										cols="50"></textarea>
+								</div>
+								<!-- form-group// -->
+
+					<!-- Fim das alternativas -->
+
+
+
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Dificuldade </span>
+									</div>
+									<select class="form-control" th:field="*{dificuldade}">
+										<option value="">Selecione uma opção</option>
+										<option th:each="dificuldade : ${listaDificuldade}"
+											th:value="${dificuldade.id}"
+											th:text="${dificuldade.descricao}">
+									</select>
+								</div>
+								<!-- form-group// -->
+
+								<div class="form-group input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Assunto </span>
+									</div>
+									<select class="form-control" th:field="*{assunto}">
+										<option value="">Selecione uma opção</option>
+										<option th:each="assunto : ${listaAssunto}"
+											th:value="${assunto.id}" th:text="${assunto.descricao}">
+									</select>
+								</div>
+								<!-- form-group// -->
+
+								<div class="form-group">
+									<button type="submit" class="btn btn-secondary btn-block">
+										Adicionar</button>
+								</div>
+								<!-- form-group// -->
+							</form>
+
+							<br>
+							<br>
+
+
+
+						</article>
+					</div>
+					<!-- card.// -->
+
+				</div>
+				<!--container end.//-->
+				<!-- End of Main Content -->
+
+
+			</div>
+			<!-- End of Content Wrapper -->
+
+		</div>
+
+		<!-- End of Page Wrapper -->
+
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fas fa-angle-up"></i>
+		</a>
+
+		<!-- Logout Modal-->
+		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header" align="center">
+						<h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+						<button class="close" type="button" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Selecione Logout se desejar sair da
+						conta</div>
+					<div class="modal-footer">
+						<form th:action="@{/logout}" method="post">
+							<button class="btn btn-info" type="submit">Sair</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<br>
+		<br>
+
+
+		<!-- Footer -->
+		<footer class="footer text-center">
+			<div class="container">
+
+				<!-- Footer Social Icons -->
+
+				<section class="py-4 text-center">
+					<a class="btn btn-outline-light btn-social mx-1" href="#"> <i
+						class="fab fa-fw fa-facebook-f"></i>
+					</a> <a class="btn btn-outline-light btn-social mx-1" href="#"> <i
+						class="fab fa-fw fa-twitter"></i>
+					</a> <a class="btn btn-outline-light btn-social mx-1" href="#"> <i
+						class="fab fa-fw fa-linkedin-in"></i>
+					</a> <a class="btn btn-outline-light btn-social mx-1" href="#"> <i
+						class="fab fa-fw fa-dribbble"></i>
+					</a>
+				</section>
+
+
+
+			</div>
+		</footer>
+
+		<!-- Copyright Section -->
+		<section class="copyright py-4 text-center text-white">
+			<div class="container">
+				<small>Copyright &copy; Enem Station 2019</small>
+			</div>
+		</section>
+
+		<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+		<div class="scroll-to-top d-lg-none position-fixed ">
+			<a class="js-scroll-trigger d-block text-center text-white rounded"
+				href="#page-top"> <i class="fa fa-chevron-up"></i>
+			</a>
+		</div>
+
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+		<!-- Contact Form JavaScript -->
+		<script src="js/jqBootstrapValidation.js"></script>
+		<script src="js/contact_me.js"></script>
+
+		<!-- Custom scripts for this template -->
+		<script src="js/freelancer.min.js"></script>
 </body>
 
 </html>

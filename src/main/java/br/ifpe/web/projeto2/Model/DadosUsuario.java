@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -37,6 +38,9 @@ public class DadosUsuario {
 	private String provas;
 	
 	private String enem;
+	
+	@OneToOne
+	private Usuario usuario;
 	
 	
 	public Integer getId_usuario() {
@@ -105,6 +109,13 @@ public class DadosUsuario {
 	public void setEnem(String enem) {
 		this.enem = enem;
 	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 
 	
 }
