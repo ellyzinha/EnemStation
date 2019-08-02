@@ -17,10 +17,7 @@
     <!-- Tema CSS -->
     <link href="css/freelancer.min.css" rel="stylesheet">
     
-    <!--cadastro vai gmail-->
-      	<meta name="google-signin-scope" content="profile email">
-	    <meta name="google-signin-client_id" content="147795751659-rdepgu1q5kck7dk7rtblo4dk2i7emh16.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+    
 
 <script src="vendor/jquery/jquery.min.js"></script>
     
@@ -33,51 +30,125 @@
 			}
 		}
 		
-		//login via gmail
 		
-		function onSignIn(response) {
-            // Conseguindo as informações do seu usuário:
-            var perfil = response.getBasicProfile();
+       //MEDIDOR DE SENHA
+        $(function (){
+   $('#senha').keyup(function (e){
+       var senha = $(this).val();        
+       if(senha == ''){
+         $('#senhaBarra').hide();
+       }else{
+         var fSenha = forcaSenha(senha);
+         var texto = "";
+         $('#senhaForca').css('width', fSenha+'%');
+         $('#senhaForca').removeClass();
+         $('#senhaForca').addClass('progress-bar');
+         if(fSenha <= 40){
+             texto = 'Fraca';
+             $('#senhaForca').addClass('progress-bar bg-danger');
+             $('#desativar').attr("disabled", true);
+         }
+         
+         if(fSenha > 40 && fSenha <= 70){
+             texto = 'Media';
+             $('#senhaForca').addClass('progress-bar bg-warning');
+             $('#desativar').attr("disabled", true);
+         }
+         
+         if(fSenha > 70 && fSenha <= 90){
+             texto = 'Boa';
+             $('#senhaForca').addClass('progress-bar bg-info');
+             $('#desativar').attr("disabled", false);
+         }
+         
+         if(fSenha > 90){
+             texto = 'Muito boa';
+             $('#senhaForca').addClass('progress-bar bg-success');
+             $('#desativar').attr("disabled", false);
+         }
+         
+         $('#senhaForca').text(texto);
+       
+         $('#senhaBarra').show();
+       }
+     });
+ });
+     
+ function forcaSenha(senha){
+     var forca = 0;
+     
+     var regLetrasMa     = /[A-Z]/;
+     var regLetrasMi     = /[a-z]/;
+     var regNumero       = /[0-9]/;
+     var regEspecial     = /[!@#$%&*?]/;
+     
+     var tam         = false;
+     var tamM        = false;
+     var letrasMa    = false;
+     var letrasMi    = false;
+     var numero      = false;
+     var especial    = false;
+
+//     console.clear();
+//     console.log('senha: '+senha);
+
+     if(senha.length >= 6) tam = true;
+     if(senha.length >= 10) tamM = true;
+     if(regLetrasMa.exec(senha)) letrasMa = true;
+     if(regLetrasMi.exec(senha)) letrasMi = true;
+     if(regNumero.exec(senha)) numero = true;
+     if(regEspecial.exec(senha)) especial = true;
+     
+     if(tam) forca += 10;
+     if(tamM) forca += 10;
+     if(letrasMa) forca += 10;
+     if(letrasMi) forca += 10;
+     if(letrasMa && letrasMi) forca += 20;
+     if(numero) forca += 20;
+     if(especial) forca += 20;
+         
+//     console.log('força: '+forca);
+     
+     return forca;
+ }
  
-            // Conseguindo o ID do Usuário
-            var userID = perfil.getId();
- 
-            // Conseguindo o Nome do Usuário
-            var userName = perfil.getName();
- 
-            // Conseguindo o E-mail do Usuário
-            var userEmail = perfil.getEmail();
- 
-            // Conseguindo a URL da Foto do Perfil
-            var userPicture = perfil.getImageUrl();
- 
-            jQuery(document).ready(
-            	function($){
-            		
-            		$.post("/loginGmail", {
-            			
-            			nome: userName,
-            			email: userEmail
-            		}, function(data){
-            			
-            			var json = JSON.parse(data);
-            			
-            		}).done(function() {
-            		}).fail(function(xhr, textStatus, errorThrown){
-            		}).complete(function(){
-            			
-            		});
-            		
-            	});
-            
- 			
-            // Recebendo o TOKEN que você usará nas demais requisições à API:
-            var LoR = response.getAuthResponse().id_token;
-            console.log("~ le Tolkien: " + LoR);
-        };
-        
-		
 	</script>
+	
+	
+	<script>
+	//MOSTRA SENHA
+    $(document).ready(function(){
+  $('#showPassword').on('click', function(){
+	
+    var passwordField = $('#senha');
+    
+    var passwordFieldType = passwordField.attr('type');
+    if(passwordFieldType == 'password')
+    {
+        passwordField.attr('type', 'text');
+    } else {    	
+        passwordField.attr('type', 'password');
+    }
+  });
+  
+  $('#showPassword1').on('click', function(){
+		
+	    var passwordField = $('#senha_repetida');
+	    
+	    var passwordFieldType = passwordField.attr('type');
+	    if(passwordFieldType == 'password')
+	    {
+	        passwordField.attr('type', 'text');
+	    } else {    	
+	        passwordField.attr('type', 'password');
+	    }
+	  });
+  
+  
+});
+	
+    
+</script>
     
 
 
@@ -110,12 +181,14 @@
 <div class="container">
 
 <div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
+<article class="card-body mx-auto " style="width: 400px;">
 	<h4 class="card-title mt-3 text-center">CADASTRE-SE</h4>
 	<p class="text-center">Aproveite todas nossas ferramentas</p>
 	<p>
 	
-	 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR"></div>
+	<a class="btn btn-danger btn-block"  th:href="@{/loginGmail}">Login &nbsp; <i class="fab fa-google-plus-g"> </i></a>
+	
+	
 	<p align="center" class="divider-text">
 	
 	
@@ -130,34 +203,60 @@
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input class="form-control" required="required" placeholder="Nome completo" name="nome" type="text">
+        <input class="form-control" placeholder="Informe seu nome" name="nome" type="text">
     </div> 
  
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		 </div>
-        <input name="email" required="required" class="form-control" placeholder="E-mail" type="email">
+        <input name="email" class="form-control" placeholder="informe seu E-mail" type="email">
     </div> 
   
     <div class="form-group input-group">
     	<div class="input-group-prepend">
+    	
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
 		
-        <input class="form-control" id="senha" required="required" type="password" size="16" name="senha" placeholder="Informe a senha">
+        <input class="form-control" id="senha"  type="password" size="16" name="senha" placeholder="Crie uma senha">
+        
+    	<div class="input-group-prepend">
+    	
+		    <span class="input-group-text" id="showPassword" value="show"> <i class="fa fa-eye" id="olho"></i> </span>
+		</div>
+    </div> <!-- form-group// -->
+    
+    <div class="form-group input-group" id="senhaBarra" style="display: none;">
+    
+    	<div id="senhaForca" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+        </div>
+		
+      
+        
     	
     </div> <!-- form-group// -->
+    
+    
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" required="required" type="password" size="16" id="senha_repetida" name="senhaRepetida" placeholder="Informe a senha" oninput="javascript:validaSenha(this, document.getElementById('senha'))">
+        <input class="form-control"  type="password" size="16" id="senha_repetida" name="senhaRepetida"  placeholder="Repetir senha" oninput="javascript:validaSenha(this, document.getElementById('senha'))">
+		<div class="input-group-prepend">
+    	
+		    <span class="input-group-text" id="showPassword1" value="show"> <i class="fa fa-eye" id="olho"></i> </span>
+		</div>
+
 </div> <!-- form-group// --> 
                                
     <div class="form-group">
-        <button type="submit" class="btn btn-secondary btn-block"> Criar Conta </button>
-    </div> <!-- form-group// -->    
+        <button type="submit" class="btn btn-secondary btn-block" id="desativar"> Criar Conta </button>
+    </div> <!-- form-group// -->
+    
+     <div th:if="${mensagem}">
+		<div class="alert alert-success" th:text="${mensagem}"></div>
+	</div>    
     
    
       
@@ -169,8 +268,9 @@
    <div class="alert alert-success" th:if="${mensagemSucesso}"
 							th:text="${mensagemSucesso}">
 						</div>
-	<div class="alert alert-danger" th:if="${mensagemErro}"
-	th:text="${mensagemErro}"></div>
+		 <div class="alert alert-danger" th:if="${Errors}">
+    			<div th:if="${Errors}" th:each="lista : ${Errors}" th:text="${lista.getDefaultMessage()}"></div>
+    		</div>
 </form>
 </article>
 </div> <!-- card.// -->
@@ -201,11 +301,9 @@
                         <label for="exampleInputPassword1">Senha</label>
                         <input th:field="*{senha}" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                       </div>
-                      <button type="submit" class="btn btn-primary"> Entrar</button> <button type="button" class="btn btn-danger">Gmail</button>
+                      <button type="submit" class="btn btn-primary"> Entrar</button> <a class="btn btn-danger" th:href="@{/loginGmail}"> Gmail</a>
                       
-                      <div th:if="${mensagem}">
-								<div class="alert alert-success" th:text="${mensagem}"></div>
-							</div>
+                     
 							<div th:if="${mensagemErroModal}">
 								<div class="alert alert-danger" th:text="${mensagemErroModal}"></div>
 							</div>

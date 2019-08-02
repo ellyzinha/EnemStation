@@ -41,7 +41,7 @@
        <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
-        <div class="sidebar-brand-text mx-3">Meu Perfil <br> <span th:text="|${session.usuarioLogado.nome} (${session.usuarioLogado.permissao})|"></span></div>
+        <div class="sidebar-brand-text mx-3">Meu Perfil <br> <span></span></div>
         
       </a>
 
@@ -70,7 +70,7 @@
       </li>
       
        <li class="nav-item active">
-        <a class="nav-link" th:if="${session.usuarioLogado.permissao.name()} == ' ADMIN'" th:href="@{/questoes}">
+        <a class="nav-link" th:href="@{/questoes}">
           <i class="fas fa-pencil-alt"></i>
           <span>Adicionar Questões</span></a>
       </li>

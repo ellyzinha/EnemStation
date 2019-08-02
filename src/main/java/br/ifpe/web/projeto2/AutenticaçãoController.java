@@ -37,13 +37,13 @@ public class AutenticaçãoController {
 		try {
 			usuarioLogado = this.usuarioService.efetuarLogin(usuario.getEmail(),usuario.getSenha());
 			session.setAttribute("usuarioLogado", usuarioLogado);
-			if(this.usuarioService.findByPermissao(usuarioLogado.getEmail())!=null){
+			if(this.usuarioService.findByPermissao(usuarioLogado.getEmail()) == 1){
 				return "redirect:/adicionar_materiais";
 			}	
 			
 		} catch (Exception e) {
 			ra.addFlashAttribute("mensagemErroModal", e.getMessage());
-			return "redirect:/";
+			return "Home/index";
 		}
 		return "redirect:/perfil";
 	}

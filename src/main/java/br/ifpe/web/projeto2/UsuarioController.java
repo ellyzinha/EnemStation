@@ -1,10 +1,12 @@
 package br.ifpe.web.projeto2;
 
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,14 +40,14 @@ public class UsuarioController {
 	
 	//Efetuar o cadastro
 	@PostMapping("/addUsuario")
-	public String addUsuario(@Valid @ModelAttribute Usuario usuario, Errors errors, RedirectAttributes ra) {
-		if (errors.hasErrors()) {
-			ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + errors.getFieldErrors());
+	public String addUsuario(@Valid @ModelAttribute Usuario usuario, BindingResult br, RedirectAttributes ra) throws Exception{
+		if (br.hasErrors()) {
+			ra.addFlashAttribute("Errors",br.getAllErrors());
 		} else {
 			try {
 				usuario.setAtivo(true);
 				usuarioService.criarUsuario(usuario);
-				ra.addFlashAttribute("mensagem", "Usuário [" + usuario.getNome() + "] criado com sucesso");
+				ra.addFlashAttribute("mensagem", "Usuário: " + usuario.getNome() + ", cadastrado com sucesso!");
 			} catch (Exception e) {
 				ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + e.getMessage());
 			}
@@ -57,15 +59,24 @@ public class UsuarioController {
 	
 @RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
 	@ResponseBody
-	public String salvarGmail(@RequestParam String nome, @RequestParam String email) {
-		LoginGmail lg = new LoginGmail();
-		lg.email=email;
-		lg.nome=nome;
-		usuarioService.loginGmail(lg);
+	public String salvarGmail(@RequestParam String nome, @RequestParam String email,HttpSession session) {
+		LoginGmail usuarioLogado = new LoginGmail();
+		usuarioLogado.email=email;
+		usuarioLogado.nome=nome;
+		
+		usuarioLogado =usuarioService.loginGmail(usuarioLogado);
+		
+		session.setAttribute("usuarioLogado",usuarioLogado);
 		
 		return "redirect:/perfil";
 	} 
 	
+
+	@GetMapping("/loginGmail")
+	public String gmail() {
+		return "Usuario/login_gmail";
+	}
+
 	
 	
 	
