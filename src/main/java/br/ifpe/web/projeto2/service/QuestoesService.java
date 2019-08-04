@@ -1,5 +1,7 @@
 package br.ifpe.web.projeto2.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -58,7 +60,14 @@ public class QuestoesService {
 		disciplinaDAO.save(disciplina);
 	}
 	
-	
+	//BUSCANDO TODOS OS DISCIPLINAS
+		public List<Disciplina> listarDisciplinas(){
+			return disciplinaDAO.findAll();
+		}
+		
+		public List<Questoes> listarQuestoes(){
+			return questoesDAO.findAll();
+		}
 
 	public Questoes findQuestoesByEnunciado(String enunciado, String texto) {
 		return questoesDAO.findByEnunciadoTexto(enunciado, texto);

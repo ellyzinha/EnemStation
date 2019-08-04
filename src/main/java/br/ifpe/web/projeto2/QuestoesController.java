@@ -1,5 +1,7 @@
 package br.ifpe.web.projeto2;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -51,12 +54,21 @@ public class QuestoesController {
 		return mv;
 	}
 	
-	//Exibir página de questões
+	/*Exibir página de questões
 	@GetMapping("/exibir_questoes")
 	public ModelAndView questoes (Questoes questoes) {
-		ModelAndView mv = new ModelAndView("Questoes/listarQuestoes");
+		ModelAndView mv = new ModelAndView("Questao/listarQuestoes");
 		mv.addObject("exibirQuestao", this.questoesRep.findAll());
 		mv.addObject("exibirAlternativa", this.alternativaRep.findAll());
+		return mv;
+	}*/ 
+	
+	@GetMapping("/questoes")
+	public ModelAndView exibirQuestoes(Questoes questoes) {
+		ModelAndView mv = new ModelAndView("Questao/questoes");		
+		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
+		mv.addObject("listaDisciplinas", this.questoesService.listarDisciplinas());
+		mv.addObject("questoes", questoes);
 		return mv;
 	}
 	
@@ -123,7 +135,54 @@ public class QuestoesController {
 		return "redirect:/exibir_assuntos";
 	}
 	
+	@PostMapping("/questao")
+	public ModelAndView pesquisarQuestoes(@RequestParam(required=false) String nomePesquisa, RedirectAttributes ra) {
+		ModelAndView mv = new ModelAndView("Questao/questao-achada");		
+		
+		List<Questoes> listaQuestoes;
+		if (nomePesquisa == null || nomePesquisa.trim().isEmpty()) {
+			ra.addFlashAttribute("mensagem", "QuestÃ£o nÃ£o encontrada");
+			listaQuestoes = this.questoesRep.findAll(Sort.by("texto"));	
+		} else {
+			listaQuestoes = this.questoesRep.findByTexto(nomePesquisa);
+			//listaQuestoes = this.questoesRep.findByAssunto(nomePesquisa);
+		}
+		
+		mv.addObject("listaQuestoes", listaQuestoes);
+		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
+		return mv;
+	}
 	
+	@GetMapping("/questao-achada")
+	public ModelAndView exibirQuestaoAchada(Questoes questoes) {
+		ModelAndView mv = new ModelAndView("Questao/questao-achada");		
+		mv.addObject("listaQuestoes", this.questoesRep.findAll(Sort.by("titulo")));
+		mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
+		mv.addObject("questoes", questoes);
+		return mv;
+	}
+	
+	@GetMapping("/vermais")
+	public ModelAndView verMais(Questoes questoes) {
+		ModelAndView mv = new ModelAndView("/vermais");		
+		mv.addObject("listaQuestoes", this.questoesRep.findAll(Sort.by("texto")));
+		//mv.addObject("listaAssunto", this.assuntoRep.findAll(Sort.by("descricao")));
+		// Caso seja passado o Id do produto, esta chamada será para edição do produto
+		//if (produto != null && produto.getId() != null) {
+			questoes = this.questoesRep.getOne(questoes.getId());
+		//} else { // Caso contrário, será uma adição de novo produto
+		//	produto = new Produto();
+		//}
+		mv.addObject("questoes", questoes);
+		return mv;
+	}
+	
+	@GetMapping("/listaQuestoes")
+	public ModelAndView exibirMaterial() {
+		ModelAndView mv=  new ModelAndView("Questao/listaQuestoes");
+		mv.addObject("listarQuestoes",questoesService.listarQuestoes());
+		return mv;
+	}
 	
 
 }
