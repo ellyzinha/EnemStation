@@ -24,7 +24,6 @@ import org.hibernate.annotations.CascadeType;
 public class Questoes {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_questoes")
 	private Integer id;
 	@Column(nullable=false, length=10000)
 	@NotBlank

@@ -17,7 +17,6 @@ import javax.validation.constraints.NotBlank;
 public class Dificuldade {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_dificuldade")
 	private Integer id;
 	@Column(nullable = false)
 	@NotBlank

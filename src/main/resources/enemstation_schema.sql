@@ -7,16 +7,16 @@ CREATE TABLE usuario
   senha varchar(255) NOT NULL, PRIMARY KEY (id_usuario)
 );
 
-DROP TABLE IF EXISTS disciplina;
-CREATE TABLE disciplina
+DROP TABLE IF EXISTS tb_disciplina;
+CREATE TABLE tb_disciplina
 (
   id int(11) NOT NULL AUTO_INCREMENT,
   descricao varchar(100) NULL, caminho_imagem varchar(100) NOT NULL,
  PRIMARY KEY (ID)
 );
 
-DROP TABLE IF EXISTS dificuldade;
-CREATE TABLE dificuldade
+DROP TABLE IF EXISTS tb_dificuldade;
+CREATE TABLE tb_dificuldade
 (
   id int(11) NOT NULL AUTO_INCREMENT,
   descricao varchar(255) NOT NULL,
@@ -38,25 +38,25 @@ CREATE TABLE login_gmail
   nome varchar(50) NULL, PRIMARY KEY(id)
 );
 
-DROP TABLE IF EXISTS questoes;
-CREATE TABLE questoes
-(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  comentario varchar(5000) NULL, enunciado varchar(5000) NOT NULL, 
-  imagem tinyblob NULL, texto varchar(10000) NOT NULL, 
-  id_dificuldade int(11) NOT NULL, grafico_id int(11) NULL,
-  PRIMARY KEY (id), CONSTRAINT FK_DIFICULDADE FOREIGN KEY(id_dificuldade) REFERENCES dificuldade(id) ON DELETE NO ACTION ON UPDATE NO ACTION, 
-  CONSTRAINT FK_QUESTOES_GRAFICO FOREIGN KEY(grafico_id) REFERENCES questoes_grafico(id) ON DELETE SET NULL ON UPDATE SET NULL
-);
-
-DROP TABLE IF EXISTS assunto;
-CREATE TABLE assunto
+DROP TABLE IF EXISTS tb_assunto;
+CREATE TABLE tb_assunto
 (
   id int(11) NOT NULL AUTO_INCREMENT,
   descricao varchar(100) NULL, id_disciplina int(11) NOT NULL, 
   id_questoes int(11) NULL, PRIMARY KEY (ID), 
-  CONSTRAINT FK_DISCIPLINA FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) ON DELETE NO ACTION ON UPDATE NO ACTION, 
-  CONSTRAINT FK_QUESTOES FOREIGN KEY(id_questoes) REFERENCES questoes(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT FK_DISCIPLINA FOREIGN KEY(id_disciplina) REFERENCES tb_disciplina(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+DROP TABLE IF EXISTS tb_questoes;
+CREATE TABLE tb_questoes
+(
+  id int(255) NOT NULL AUTO_INCREMENT,
+  comentario varchar(5000) NULL, enunciado varchar(5000) NOT NULL, 
+  imagem tinyblob NULL, texto varchar(10000) NULL, 
+  id_dificuldade int(11) NOT NULL, grafico_id int(11) NULL, id_assunto int(11) NULL,
+  PRIMARY KEY (id), CONSTRAINT FK_DIFICULDADE FOREIGN KEY(id_dificuldade) REFERENCES tb_dificuldade(id) ON DELETE NO ACTION ON UPDATE NO ACTION, 
+  CONSTRAINT FK_QUESTOES_GRAFICO FOREIGN KEY(grafico_id) REFERENCES questoes_grafico(id) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT FK_ASSUNTO FOREIGN KEY(id_assunto) REFERENCES tb_assunto(id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 DROP TABLE IF EXISTS dados_usuario;
@@ -78,7 +78,7 @@ CREATE TABLE material
   codigo int(11) AUTO_INCREMENT, caminho_arquivo varchar(255) NULL,
   link varchar(50), titulo varchar(20), id_disciplina int(11) NULL,
   PRIMARY KEY(codigo), CONSTRAINT FK_DISCIPLINA_MAT FOREIGN KEY(id_disciplina)
-  REFERENCES disciplina(id) ON DELETE SET NULL ON UPDATE SET NULL
+  REFERENCES tb_disciplina(id) ON DELETE SET NULL ON UPDATE SET NULL
 );
 
 DROP TABLE IF EXISTS senha_token;
@@ -93,8 +93,8 @@ CREATE TABLE senha_token
 DROP TABLE IF EXISTS tb_alternativas;
 CREATE TABLE tb_alternativas
 (
-  id int(11) AUTO_INCREMENT, descricao varchar(255) NOT NULL,
+  id int(255) AUTO_INCREMENT, descricao varchar(255) NOT NULL,
   resposta int(11) NULL, id_questoes int(11) NULL, PRIMARY KEY(id),
-  CONSTRAINT FK_QUESTOES_ALT FOREIGN KEY(id_questoes) REFERENCES questoes(id)
+  CONSTRAINT FK_QUESTOES_ALT FOREIGN KEY(id_questoes) REFERENCES tb_questoes(id)
   ON DELETE SET NULL ON UPDATE SET NULL
 );

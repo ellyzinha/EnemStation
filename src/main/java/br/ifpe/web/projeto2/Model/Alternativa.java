@@ -23,7 +23,6 @@ import org.hibernate.annotations.FetchMode;
 public class Alternativa {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_alternativas")
 	private Integer id;
 	@Column(nullable = false)
 	@NotBlank

@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @Table(name = "tb_resposta")
 public class Resposta {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_resposta")
 	private Integer id;
 	@ManyToOne
 	private Usuario usuario;
