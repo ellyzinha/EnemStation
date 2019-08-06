@@ -32,7 +32,12 @@ public class HomeController {
 	
 	@GetMapping("/editar_plano")
 	public String editar_plano() {
-		return "editar-plano";
+		return "Usuario/editar-plano";
+	}
+	
+	@GetMapping("/desempenho")
+	public String exibirDesempenho() {
+		return "Usuario/desempenho";
 	}
 	
 	
