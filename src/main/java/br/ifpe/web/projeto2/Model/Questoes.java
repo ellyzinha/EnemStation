@@ -25,24 +25,32 @@ public class Questoes {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	@Column(nullable=false, length=10000)
 	@NotBlank
 	private String texto;
+	
 	@Column(nullable = true, length = 1000)
 	private byte[] imagem;
+	
 	@Column(nullable=false, length=5000)
 	@NotBlank
 	private String enunciado;
+	
 	@Column(length=5000)
 	private String comentario;
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_dificuldade")
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_dificuldade")
 	private Dificuldade dificuldade;
-	@OneToMany(mappedBy = "questoes",targetEntity=Alternativa.class, fetch=FetchType.LAZY)
-    @Cascade(CascadeType.ALL)
+	
+	@OneToMany(mappedBy = "questoes", targetEntity = Alternativa.class, 
+			fetch = FetchType.LAZY)
 	private List<Alternativa> alternativa;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "questoes")
-	private Collection <Assunto> assunto;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_assunto")
+	private Assunto assunto;
 	
 	
 	
@@ -97,10 +105,10 @@ public class Questoes {
 		this.dificuldade = dificuldade;
 	}
 	
-	public Collection<Assunto> getAssunto() {
+	public Assunto getAssunto() {
 		return assunto;
 	}
-	public void setAssunto(Collection<Assunto> assunto) {
+	public void setAssunto(Assunto assunto) {
 		this.assunto = assunto;
 	}
 	

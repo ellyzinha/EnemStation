@@ -3,6 +3,7 @@ package br.ifpe.web.projeto2.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -68,6 +69,14 @@ public class QuestoesService {
 		public List<Questoes> listarQuestoes(){
 			return questoesDAO.findAll();
 		}
+		
+		public List<Alternativa> listarAlternativas(){
+			return alternativaDAO.findAll();
+		}
+		
+//		public Alternativa exibirAlt() {
+//			//return alternativaDAO.IdQuestaoAlternativa(questoes);
+//		}
 
 	public Questoes findQuestoesByEnunciado(String enunciado, String texto) {
 		return questoesDAO.findByEnunciadoTexto(enunciado, texto);

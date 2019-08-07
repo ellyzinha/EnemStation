@@ -1,5 +1,6 @@
 package br.ifpe.web.projeto2.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -18,12 +21,16 @@ public class Assunto {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	@Column(nullable = false)
 	@NotBlank
 	private String descricao;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_questoes")
+	
+	
+	@OneToOne(mappedBy = "assunto", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
 	private Questoes questoes;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_disciplina")
 	private Disciplina disciplina;

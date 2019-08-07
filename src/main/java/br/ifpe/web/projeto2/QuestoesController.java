@@ -180,7 +180,9 @@ public class QuestoesController {
 	@GetMapping("/listaQuestoes")
 	public ModelAndView exibirMaterial() {
 		ModelAndView mv=  new ModelAndView("Questao/listarQuestoes");
-		mv.addObject("listarQuestoes",questoesService.listarQuestoes());
+		List<Questoes> questoes = questoesService.listarQuestoes();
+	//	mv.addObject("listarQuestoes",questoesService.listarQuestoes());
+	//	mv.addObject("listarAlternativas", questoesService.listarAlternativas());
 		return mv;
 	}
 	

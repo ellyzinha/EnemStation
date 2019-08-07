@@ -2,6 +2,7 @@ package br.ifpe.web.projeto2.Model;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -18,11 +20,14 @@ public class Dificuldade {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	@Column(nullable = false)
 	@NotBlank
 	private String descricao;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "dificuldade")
-	private Collection<Questoes> questoes;
+	
+	@OneToOne(mappedBy = "dificuldade", cascade = CascadeType.ALL,
+      fetch = FetchType.LAZY, optional = false)
+	private Questoes questoes;
 	
 	
 	
@@ -39,10 +44,10 @@ public class Dificuldade {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Collection<Questoes> getQuestoes() {
+	public Questoes getQuestoes() {
 		return questoes;
 	}
-	public void setQuestoes(Collection<Questoes> questoes) {
+	public void setQuestoes(Questoes questoes) {
 		this.questoes = questoes;
 	}
 	

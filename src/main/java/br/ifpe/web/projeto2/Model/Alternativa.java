@@ -29,11 +29,9 @@ public class Alternativa {
 	private String descricao;
 	@Enumerated
 	private Correta resposta;
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_questoes")
-	@Fetch(FetchMode.JOIN)
+	@ManyToOne
+	@JoinColumn(name="questoes_id")
 	private Questoes questoes;
-	
 	
 	
 	public Questoes getQuestoes() {
