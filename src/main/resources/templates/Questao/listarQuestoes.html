@@ -35,25 +35,25 @@
 				</div>
 			<div class="card-body">
 				<div class="respostas">
-								<label class="check btn-block" onclick th:each="alt : ${listarAlternativas}">
+								<label class="check btn-block" onclick>
 										<span class="letra">
 												<input type="radio" class="icheckbox" name="resposta" value="0" onchange="">
-												<p th:text="${alt.descricao}"></p>
+												<p th:text="${questao.alternativa[0].descricao}"></p>
 										</span>                                                                
 								</label>
 								
-								<!--
+								
 							<label class="check btn-block" onclick> 
 							<span class="letra">
 									<input type="radio" class="icheckbox" name="resposta" value="1" onchange=""> 
-				
+									<p th:text="${questao.alternativa[1].descricao}"></p>
 								</span>
 							</label>
 						
 						<label class="check btn-block" onclick> 
 							<span class="letra">
 									<input type="radio" class="icheckbox" name="resposta" value="2" onchange=""> 
-									c) engaja-se na denúncia do passado de opressão e injustiças.
+									<p th:text="${questao.alternativa[2].descricao}"></p>
 								</span>
 								
 						</label>
@@ -61,14 +61,14 @@
 						<label class="check btn-block" onclick> 
 							<span class="letra">
 									<input type="radio" class="icheckbox" name="resposta" value="3" onchange=""> 
-									d) sofre uma perda de identidade e de noção de pertencimento.
+									<p th:text="${questao.alternativa[3].descricao}"></p>
 								</span>
 						 
 						</label>
 								<label class="check btn-block" onclick> 
 							<span class="letra">
 									<input type="radio" class="icheckbox" name="resposta" value="4" onchange=""> 
-									e) acredita esporadicamente na utopia de uma sociedade igualitária.
+									<p th:text="${questao.alternativa[4].descricao}"></p>
 								</span> 
 							-->	
 								<br><br>

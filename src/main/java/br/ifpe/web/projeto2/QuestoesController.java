@@ -181,7 +181,7 @@ public class QuestoesController {
 	public ModelAndView exibirMaterial() {
 		ModelAndView mv=  new ModelAndView("Questao/listarQuestoes");
 		List<Questoes> questoes = questoesService.listarQuestoes();
-	//	mv.addObject("listarQuestoes",questoesService.listarQuestoes());
+		mv.addObject("listarQuestoes",questoesService.listarQuestoes());
 	//	mv.addObject("listarAlternativas", questoesService.listarAlternativas());
 		return mv;
 	}
