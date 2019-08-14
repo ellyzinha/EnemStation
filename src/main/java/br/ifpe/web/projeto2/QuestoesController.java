@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import br.ifpe.web.projeto2.DAO.AlternativaDAO;
 import br.ifpe.web.projeto2.DAO.AssuntoDAO;
 import br.ifpe.web.projeto2.DAO.DificuldadeDAO;
 import br.ifpe.web.projeto2.DAO.QuestoesDAO;
@@ -24,6 +21,7 @@ import br.ifpe.web.projeto2.Model.Alternativa;
 import br.ifpe.web.projeto2.Model.Assunto;
 import br.ifpe.web.projeto2.Model.Correta;
 import br.ifpe.web.projeto2.Model.Questoes;
+import br.ifpe.web.projeto2.Model.Resposta;
 import br.ifpe.web.projeto2.service.QuestoesService;
 
 @Controller
@@ -38,8 +36,6 @@ public class QuestoesController {
 	private QuestoesService questoesService;
 	@Autowired
 	private AssuntoDAO assuntoRep;
-	@Autowired
-	private AlternativaDAO alternativaRep;
 	
 	//Exibir formulário de adicionar questões
 	@GetMapping("/adicionando_questoes")
@@ -53,15 +49,6 @@ public class QuestoesController {
 		mv.addObject("errada",Correta.Errada);
 		return mv;
 	}
-	
-	/*Exibir página de questões
-	@GetMapping("/exibir_questoes")
-	public ModelAndView questoes (Questoes questoes) {
-		ModelAndView mv = new ModelAndView("Questao/listarQuestoes");
-		mv.addObject("exibirQuestao", this.questoesRep.findAll());
-		mv.addObject("exibirAlternativa", this.alternativaRep.findAll());
-		return mv;
-	}*/ 
 	
 	@GetMapping("/questoes")
 	public ModelAndView exibirQuestoes(Questoes questoes) {
@@ -80,24 +67,6 @@ public class QuestoesController {
 		mv.addObject("listar",this.assuntoRep.findAll());
 		return mv;
 	}
-	
-	
-	
-	//Método para salvar alternativas
-//	@PostMapping("/salvarAlternativa")
-//	public String salvarAlternativa(@Valid @ModelAttribute Alternativa alternativa, Errors errors, RedirectAttributes ra) {
-//		if(errors.hasErrors()) {
-//			ra.addFlashAttribute("mensagemErro", "Não foi possível criar alternativas: " + errors.getFieldError());
-//		}else {
-//			try {
-//				questoesService.criarAlternativa(alternativa);
-//				ra.addFlashAttribute("mensagem", "Alternativas criadas com sucesso");
-//			}catch(Exception e) {
-//				ra.addFlashAttribute("mensagemErro","Não foi possível criar alternativas " + e.getMessage());
-//			}
-//		}
-//		return "redirect:/adicionando_questoes";
-//	}
 	
 	
 	//Método para salvar questões
@@ -134,6 +103,9 @@ public class QuestoesController {
 		}
 		return "redirect:/exibir_assuntos";
 	}
+	
+	
+	
 	
 	@PostMapping("/questao")
 	public ModelAndView pesquisarQuestoes(@RequestParam(required=false) String nomePesquisa, RedirectAttributes ra) {
@@ -177,13 +149,23 @@ public class QuestoesController {
 		return mv;
 	}
 	
+	//Exibir questões para o usuário responder
+	
 	@GetMapping("/listaQuestoes")
-	public ModelAndView exibirMaterial() {
-		ModelAndView mv=  new ModelAndView("Questao/listarQuestoes");
-		List<Questoes> questoes = questoesService.listarQuestoes();
+	public ModelAndView exibirMaterial(Resposta resposta) {
+		ModelAndView mv=  new ModelAndView("Questao/ExibirQuestoes");
+	//	List<Questoes> questoes = questoesService.listarQuestoes();
 		mv.addObject("listarQuestoes",questoesService.listarQuestoes());
-	//	mv.addObject("listarAlternativas", questoesService.listarAlternativas());
+		mv.addObject("resposta",resposta);
+	
 		return mv;
+	}
+	
+	// Salvar resposta do usuário
+	@PostMapping("/salvarResposta")
+	public String salvarResposta(@ModelAttribute Resposta resposta) {
+		questoesService.salvarResposta(resposta);
+		return "redirect:/listaQuestoes";
 	}
 	
 
