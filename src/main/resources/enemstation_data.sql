@@ -1,17 +1,17 @@
 insert into tb_disciplina (id, descricao, caminho_imagem)
-values (1, 'Portugu√™s', 'img/disciplinas/portugues.jpg');
+values (1, 'PortuguÍs', 'img/disciplinas/portugues.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
-values (2, 'Matem√°tica', 'img/disciplinas/matematica.jpg');
+values (2, 'Matem·tica', 'img/disciplinas/matematica.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
 values (3, 'Biologia', 'img/disciplinas/biologia.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
-values (4, 'F√≠sica', 'img/disciplinas/fisica.jpg');
+values (4, 'FÌsica', 'img/disciplinas/fisica.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
-values (5, 'Qu√≠mica', 'img/disciplinas/quimica.jpg');
+values (5, 'QuÌmica', 'img/disciplinas/quimica.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
 values (6, 'Geografia', 'img/disciplinas/geografia.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
-values (7, 'Hist√≥ria', 'img/disciplinas/historia.jpg');
+values (7, 'HistÛria', 'img/disciplinas/historia.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
 values (8, 'Filosofia', 'img/disciplinas/filosofia.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
@@ -19,121 +19,121 @@ values (9, 'Sociologia', 'img/disciplinas/sociologia.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
 values (10, 'Espanhol', 'img/disciplinas/espanhol.png');
 insert into tb_disciplina (id, descricao, caminho_imagem)
-values (11, 'Ingl√™s', 'img/disciplinas/ingles.jpg');
+values (11, 'InglÍs', 'img/disciplinas/ingles.jpg');
 insert into tb_disciplina (id, descricao, caminho_imagem)
 values (12, 'Literatura', 'img/disciplinas/literatura.jpg');
 
 
 insert into tb_dificuldade (id, descricao)
-values (1, 'F√°cil');
+values (1, 'F·cil');
 insert into tb_dificuldade (id, descricao)
-values (2, 'M√©dio');
+values (2, 'MÈdio');
 insert into tb_dificuldade (id, descricao)
-values (3, 'Dif√≠cil');
+values (3, 'DifÌcil');
 
 
 insert into tb_assunto (id, descricao, id_disciplina)
-values (1, 'Interpreta√ß√£o de texto', 1);
+values (1, 'InterpretaÁ„o de texto', 1);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (2, 'Varia√ß√£o Lingu√≠stica', 1);
+values (2, 'VariaÁ„o LinguÌstica', 1);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (3, 'Lingu√≠stica', 1);
+values (3, 'LinguÌstica', 1);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (4, 'Gram√°tica', 1);
+values (4, 'Gram·tica', 1);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (5, 'G√™neros textuais', 1);
+values (5, 'GÍneros textuais', 1);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (6, 'Logaritmo', 2);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (7, 'Trigonometria', 2);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (8, 'An√°lise combinat√≥ria', 2);
+values (8, 'An·lise combinatÛria', 2);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (9, 'Porcentagem', 2);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (10, 'Progress√£o Aritm√©tica', 2);
+values (10, 'Progress„o AritmÈtica', 2);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (11, 'Ecologia', 3);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (12, 'Gen√©tica', 3);
+values (12, 'GenÈtica', 3);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (13, 'Evolu√ß√£o', 3);
+values (13, 'EvoluÁ„o', 3);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (14, 'Fisiologia', 3);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (15, 'Citologia', 3);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (16, 'Mec√¢nica', 4);
+values (16, 'Mec‚nica', 4);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (17, 'Eletricidade', 4);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (18, 'Ondulat√≥ria', 4);
+values (18, 'OndulatÛria', 4);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (19, 'Termologia', 4);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (20, '√ìptica', 4);
+values (20, '”ptica', 4);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (21, 'Qu√≠mica org√¢nica', 5);
+values (21, 'QuÌmica org‚nica', 5);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (22, 'Rea√ß√µes inorg√¢nicas', 5);
+values (22, 'ReaÁıes inorg‚nicas', 5);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (23, 'Eletroqu√≠mica', 5);
+values (23, 'EletroquÌmica', 5);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (24, 'Termoqu√≠mica', 5);
+values (24, 'TermoquÌmica', 5);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (25, 'Cinem√°tica', 5);
+values (25, 'Cinem·tica', 5);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (26, 'Agropecu√°ria', 6);
+values (26, 'Agropecu·ria', 6);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (27, 'Urbaniza√ß√£o', 6);
+values (27, 'UrbanizaÁ„o', 6);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (28, 'Hidrografia', 6);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (29, 'Geologia e relevo', 6);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (30, 'Popula√ß√£o', 6);
+values (30, 'PopulaÁ„o', 6);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (31, 'Segundo Reinado', 7);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (32, 'Era Vargas', 7);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (33, 'Antiguidade Cl√°ssica ‚Äì Roma', 7);
+values (33, 'Antiguidade Cl·ssica ñ Roma', 7);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (34, 'Independ√™ncia do Brasil', 7);
+values (34, 'IndependÍncia do Brasil', 7);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (35, 'Regime Militar', 7);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (36, 'Filosofia Tem√°tica', 8);
+values (36, 'Filosofia Tem·tica', 8);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (37, 'Filosofia Moderna', 8);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (38, 'Filosofia Antiga', 8);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (39, 'Filosofia Contempor√¢nea', 8);
+values (39, 'Filosofia Contempor‚nea', 8);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (40, '√âtica', 8);
+values (40, '…tica', 8);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (41, 'Sociologia Tem√°tica', 9);
+values (41, 'Sociologia Tem·tica', 9);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (42, 'Diversidade Cultural e Estratifica√ß√£o Social', 9);
+values (42, 'Diversidade Cultural e EstratificaÁ„o Social', 9);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (43, 'Teorias Sociol√≥gicas', 9);
+values (43, 'Teorias SociolÛgicas', 9);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (44, 'Poder, Estado e Pol√≠tica', 9);
+values (44, 'Poder, Estado e PolÌtica', 9);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (45, 'Movimentos Sociais', 9);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (46, 'Gram√°tica', 10);
+values (46, 'Gram·tica', 10);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (47, 'Falsos Cognatos', 10);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (48, 'Interpreta√ß√£o Textual', 10);
+values (48, 'InterpretaÁ„o Textual', 10);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (49, 'Linguagem Verbal x Linguagem N√£o-Verbal ', 10);
+values (49, 'Linguagem Verbal x Linguagem N„o-Verbal ', 10);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (50, 'Vocabul√°rio', 10);
+values (50, 'Vocabul·rio', 10);
 insert into tb_assunto (id, descricao, id_disciplina)
-values (51, 'Interpreta√ß√£o Textual', 11);
+values (51, 'InterpretaÁ„o Textual', 11);
 insert into tb_assunto (id, descricao, id_disciplina)
 values (52, 'Simple past', 11);
 insert into tb_assunto (id, descricao, id_disciplina)
@@ -154,199 +154,199 @@ insert into tb_assunto (id, descricao, id_disciplina)
 values (60, 'Realismo', 12);
 
 insert into tb_questoes (id, comentario, enunciado, imagem, texto,
-id_dificuldade, grafico_id, id_assunto) values (1,NULL, "Para se entender o trecho como uma unidade de sentido, √©
-preciso que o leitor reconhe√ßa a liga√ß√£o entre seus
-elementos. Nesse texto, a coes√£o √© constru√≠da
+id_dificuldade, id_assunto) values (1,NULL, "Para se entender o trecho como uma unidade de sentido, È
+preciso que o leitor reconheÁa a ligaÁ„o entre seus
+elementos. Nesse texto, a coes„o È construÌda
 predominantemente pela retomada de um termo por outro e
-pelo uso da elipse. O fragmento do texto em que h√° coes√£o
-por elipse do sujeito √©: ", NULL, 
+pelo uso da elipse. O fragmento do texto em que h· coes„o
+por elipse do sujeito È: ", NULL, 
 " (Enem 2013) Gripado, penso entre espirros em como a
-palavra gripe nos chegou ap√≥s uma s√©rie de cont√°gios entre
-l√≠nguas. Partiu da It√°lia em 1743 a epidemia de gripe que
-disseminou pela Europa, al√©m do v√≠rus propriamente dito,
-dois voc√°bulos virais: o italiano influenza e o franc√™s grippe. O primeiro era um termo derivado do latim
-medieval influentia, que significava ‚Äúinflu√™ncia dos astros
-sobre os homens‚Äù. O segundo era apenas a forma nominal
-do verbo gripper, isto √©, ‚Äúagarrar‚Äù. Sup√µe-se que fizesse
-refer√™ncia ao modo violento como o v√≠rus se apossa do
-organismo infectado.",1,NULL,4), 
-(2, NULL, "Ao escrever um artigo de opini√£o, o produtor precisa criar
-uma base de orienta√ß√£o lingu√≠stica que permita alcan√ßar os
-leitores e convenc√™-los com rela√ß√£o ao ponto de vista
+palavra gripe nos chegou apÛs uma sÈrie de cont·gios entre
+lÌnguas. Partiu da It·lia em 1743 a epidemia de gripe que
+disseminou pela Europa, alÈm do vÌrus propriamente dito,
+dois voc·bulos virais: o italiano influenza e o francÍs grippe. O primeiro era um termo derivado do latim
+medieval influentia, que significava ìinfluÍncia dos astros
+sobre os homensî. O segundo era apenas a forma nominal
+do verbo gripper, isto È, ìagarrarî. Supıe-se que fizesse
+referÍncia ao modo violento como o vÌrus se apossa do
+organismo infectado.",1,4), 
+(2, NULL, "Ao escrever um artigo de opini„o, o produtor precisa criar
+uma base de orientaÁ„o linguÌstica que permita alcanÁar os
+leitores e convencÍ-los com relaÁ„o ao ponto de vista
 defendido. Diante disso, nesse texto, a escolha das formas
 verbais em destaque objetiva", NULL, "Novas tecnologias
-Atualmente, prevalece na m√≠dia um discurso de
-exalta√ß√£o das novas tecnologias, principalmente aquelas
-ligadas √†s atividades de telecomunica√ß√µes. Express√µes
-frequentes como ‚Äúo futuro j√° chegou‚Äù, ‚Äúmaravilhas
-tecnol√≥gicas‚Äù e ‚Äúconex√£o total com o mundo‚Äù ‚Äúfetichizam‚Äù
+Atualmente, prevalece na mÌdia um discurso de
+exaltaÁ„o das novas tecnologias, principalmente aquelas
+ligadas ‡s atividades de telecomunicaÁıes. Expressıes
+frequentes como ìo futuro j· chegouî, ìmaravilhas
+tecnolÛgicasî e ìconex„o total com o mundoî ìfetichizamî
 novos produtos, transformando-os em objetos do desejo, de
-consumo obrigat√≥rio. Por esse motivo carregamos hoje nos
-bolsos, bolsas e mochilas o ‚Äúfuturo‚Äù t√£o festejado.
-Todavia, n√£o podemos reduzir-nos a meras v√≠timas
-de um aparelho midi√°tico perverso, ou de um aparelho
-capitalista controlador. H√° pervers√£o, certamente, e
-controle, sem sombra de d√∫vida. Entretanto, desenvolvemos
-uma rela√ß√£o simbi√≥tica de depend√™ncia m√∫tua com os
-ve√≠culos de comunica√ß√£o, que se estreita a cada imagem
-compartilhada e a cada dossi√™ pessoal transformado em
-objeto p√∫blico de entretenimento.
-N√£o mais como aqueles acorrentados na caverna
-de Plat√£o, somos livres para nos aprisionar, por espont√¢nea
-vontade, a esta rela√ß√£o sadomasoquista com as estruturas
-midi√°ticas, na qual tanto controlamos quanto somos
-controlados.", 2,NULL,4),
+consumo obrigatÛrio. Por esse motivo carregamos hoje nos
+bolsos, bolsas e mochilas o ìfuturoî t„o festejado.
+Todavia, n„o podemos reduzir-nos a meras vÌtimas
+de um aparelho midi·tico perverso, ou de um aparelho
+capitalista controlador. H· pervers„o, certamente, e
+controle, sem sombra de d˙vida. Entretanto, desenvolvemos
+uma relaÁ„o simbiÛtica de dependÍncia m˙tua com os
+veÌculos de comunicaÁ„o, que se estreita a cada imagem
+compartilhada e a cada dossiÍ pessoal transformado em
+objeto p˙blico de entretenimento.
+N„o mais como aqueles acorrentados na caverna
+de Plat„o, somos livres para nos aprisionar, por espont‚nea
+vontade, a esta relaÁ„o sadomasoquista com as estruturas
+midi·ticas, na qual tanto controlamos quanto somos
+controlados.", 2,4),
 (3, NULL, 'Na piada, a quebra de expectativa contribui para produzir o
 efeito de humor. Esse efeito ocorre porque um dos
 personagens', NULL, 'Dois comprades viajavam de carro por uma
 estrada de fazenda quando um bicho cruzou a frente do
 carro.
 Um dos compadres falou:
-‚Äî Passou um largato ali!
+ó Passou um largato ali!
 O outro perguntou:
-‚Äî Lagarto ou largato?
+ó Lagarto ou largato?
 O primeiro respondeu:
-‚Äî Num sei n√£o, o bicho passou muito r√°pido.', 3, NULL,4),
-(4, NULL, 'As palavras e as express√µes s√£o mediadoras dos sentidos
-produzidos nos textos. Na fala de Hagar, a express√£o ‚Äú√© como se‚Äù ajuda a conduzir o conte√∫do 
-enunciado para o campo da', 'img/questoes/enem-2012-7.png', NULL, 2, NULL,4),
-(5, NULL, 'No texto, o autor desenvolve uma reflex√£o sobre diferentes possibilidades de uso da l√≠ngua e sobre os sentidos que esses usos podem produzir, 
-a exemplo das express√µes ‚Äúvoltou de ateu‚Äù, ‚Äúdisilimina esse‚Äù e ‚Äúeu n√£o sei a ler‚Äù. Com essa reflex√£o, o autor destaca', NULL, 'Cabeludinho
+ó Num sei n„o, o bicho passou muito r·pido.', 3,4),
+(4, NULL, 'As palavras e as expressıes s„o mediadoras dos sentidos
+produzidos nos textos. Na fala de Hagar, a express„o ìÈ como seî ajuda a conduzir o conte˙do 
+enunciado para o campo da', 'img/questoes/enem-2012-7.png', NULL, 2, 4),
+(5, NULL, 'No texto, o autor desenvolve uma reflex„o sobre diferentes possibilidades de uso da lÌngua e sobre os sentidos que esses usos podem produzir, 
+a exemplo das expressıes ìvoltou de ateuî, ìdisilimina esseî e ìeu n„o sei a lerî. Com essa reflex„o, o autor destaca', NULL, 'Cabeludinho
 
-Quando a V√≥ me recebeu nas f√©rias, ela me apresentou aos amigos: Este √© meu neto. Ele foi estudar no Rio e voltou de ateu. Ela disse que eu voltei de 
-ateu. Aquela preposi√ß√£o deslocada me fantasiava de ateu. Como quem dissesse no Carnaval: aquele menino est√° fantasiado de palha√ßo. 
-Minha av√≥ entendia de reg√™ncias verbais. Ela falava de s√©rio. Mas todo-mundo riu. 
-Porque aquela preposi√ß√£o deslocada podia fazer de uma informa√ß√£o um chiste. E fez. E mais: eu acho que buscar a beleza nas palavras √© uma 
+Quando a VÛ me recebeu nas fÈrias, ela me apresentou aos amigos: Este È meu neto. Ele foi estudar no Rio e voltou de ateu. Ela disse que eu voltei de 
+ateu. Aquela preposiÁ„o deslocada me fantasiava de ateu. Como quem dissesse no Carnaval: aquele menino est· fantasiado de palhaÁo. 
+Minha avÛ entendia de regÍncias verbais. Ela falava de sÈrio. Mas todo-mundo riu. 
+Porque aquela preposiÁ„o deslocada podia fazer de uma informaÁ„o um chiste. E fez. E mais: eu acho que buscar a beleza nas palavras È uma 
 solenidade de amor. E pode ser instrumento de rir. De outra feita, no meio da pelada um menino gritou: Disilimina esse, Cabeludinho. 
-Eu n√£o disiliminei ningu√©m. Mas aquele verbo novo trouxe um perfume de poesia √† nossa quadra. Aprendi nessas f√©rias a brincar de palavras mais do 
-que trabalhar com elas. Comecei a n√£o gostar de palavra engavetada. Aquela que n√£o pode mudar de lugar. Aprendi a gostar mais das palavras pelo que 
-elas entoam do que pelo que elas informam. Por depois ouvi um vaqueiro a cantar com saudade: Ai morena, n√£o me escreve / que eu n√£o sei aler. 
-Aquele a preposto ao verbo ler, ao meu ouvir, ampliava  a solid√£o do vaqueiro.', 3, NULL,4),
+Eu n„o disiliminei ninguÈm. Mas aquele verbo novo trouxe um perfume de poesia ‡ nossa quadra. Aprendi nessas fÈrias a brincar de palavras mais do 
+que trabalhar com elas. Comecei a n„o gostar de palavra engavetada. Aquela que n„o pode mudar de lugar. Aprendi a gostar mais das palavras pelo que 
+elas entoam do que pelo que elas informam. Por depois ouvi um vaqueiro a cantar com saudade: Ai morena, n„o me escreve / que eu n„o sei aler. 
+Aquele a preposto ao verbo ler, ao meu ouvir, ampliava  a solid„o do vaqueiro.', 3, 4),
 (6, NULL, 'Utilizando 0,26 como valor aproximado para tangente de
-15¬∫ e duas casas decimais nas opera√ß√µes, descobre-se que a
-√°rea da base desse pr√©dio ocupa na avenida um espa√ßo', 'http://s2.glbimg.com/wFmzcyoTJ-4YBRhZn5gLT4fJR0M=/0x0:290x389/290x389/s.glbimg.com/po/ek/f/original/2013/11/08/enem-prova-2013-136.png'
-, '(Enem 2013) As torres Puerta de Europa s√£o duas torres
-inclinadas uma contra a outra, constru√≠das numa avenida de
-Madri, na Espanha. A inclina√ß√£o das torres √© de 15¬∞ com a
-vertical e elas t√™m, cada uma, uma altura de 114 m (a altura
-√© indicada na figura como o segmento AB). Estas torres s√£o
-um bom exemplo de um prisma obl√≠quo de base quadrada e
-uma delas pode ser observada na imagem.', 3, NULL,7),
-(7, NULL, 'Suponha que o navegante tenha medido o √¢ngulo Œ±Œ± = 30¬∫ e, ao chegar ao ponto B, verificou que o barco havia percorrido a 
-dist√¢ncia AB = 2 000 m. Com base nesses dados e mantendo a mesma trajet√≥ria, a menor dist√¢ncia do barco at√© o ponto fixo P ser√°'
+15∫ e duas casas decimais nas operaÁıes, descobre-se que a
+·rea da base desse prÈdio ocupa na avenida um espaÁo', 'http://s2.glbimg.com/wFmzcyoTJ-4YBRhZn5gLT4fJR0M=/0x0:290x389/290x389/s.glbimg.com/po/ek/f/original/2013/11/08/enem-prova-2013-136.png'
+, '(Enem 2013) As torres Puerta de Europa s„o duas torres
+inclinadas uma contra a outra, construÌdas numa avenida de
+Madri, na Espanha. A inclinaÁ„o das torres È de 15∞ com a
+vertical e elas tÍm, cada uma, uma altura de 114 m (a altura
+È indicada na figura como o segmento AB). Estas torres s„o
+um bom exemplo de um prisma oblÌquo de base quadrada e
+uma delas pode ser observada na imagem.', 3,7),
+(7, NULL, 'Suponha que o navegante tenha medido o ‚ngulo aa = 30∫ e, ao chegar ao ponto B, verificou que o barco havia percorrido a 
+dist‚ncia AB = 2 000 m. Com base nesses dados e mantendo a mesma trajetÛria, a menor dist‚ncia do barco atÈ o ponto fixo P ser·'
 , 'http://s2.glbimg.com/GTotnU7Qw8dYHLL9Ua2ynlxC4Rs=/0x0:682x219/620x199/s.glbimg.com/po/ek/f/original/2013/10/09/questao_155_da_prova_do_enem_2011_.png'
-,'Para determinar a dist√¢ncia de um barco at√© a praia, um navegante utilizou o seguinte procedimento: a partir de um ponto A, mediu o √¢ngulo visual Œ±Œ± fazendo mira em um ponto fixo P da praia.
- Mantendo o barco no mesmo sentido, ele seguiu at√© um ponto B de modo que fosse poss√≠vel ver o mesmo ponto P da praia, no entanto sob um √¢ngulo visual 2Œ±Œ±. A figura ilustra essa situa√ß√£o:', 3, NULL,7),
- (8, NULL, 'Qual a altura aproximada em que se encontrava o bal√£o?', 'http://3.bp.blogspot.com/-Rm-PKfy3PVo/TlVASI-RRiI/AAAAAAAAADw/wgm4hIim4PI/s1600/160.jpg', 
- '(Enem 2010) Um bal√£o atmosf√©rico, lan√ßado em Bauru
-(343 quil√¥metros a Noroeste de S√£o Paulo), na noite do
-√∫ltimo domingo, caiu nesta segunda-feira em Cuiab√°
-Paulista, na regi√£o de Presidente Prudente, assustando
-agricultores da regi√£o. O artefato faz parte do programa
+,'Para determinar a dist‚ncia de um barco atÈ a praia, um navegante utilizou o seguinte procedimento: a partir de um ponto A, mediu o ‚ngulo visual aa fazendo mira em um ponto fixo P da praia.
+ Mantendo o barco no mesmo sentido, ele seguiu atÈ um ponto B de modo que fosse possÌvel ver o mesmo ponto P da praia, no entanto sob um ‚ngulo visual 2aa. A figura ilustra essa situaÁ„o:', 3, 7),
+ (8, NULL, 'Qual a altura aproximada em que se encontrava o bal„o?', 'http://3.bp.blogspot.com/-Rm-PKfy3PVo/TlVASI-RRiI/AAAAAAAAADw/wgm4hIim4PI/s1600/160.jpg', 
+ '(Enem 2010) Um bal„o atmosfÈrico, lanÁado em Bauru
+(343 quilÙmetros a Noroeste de S„o Paulo), na noite do
+˙ltimo domingo, caiu nesta segunda-feira em Cuiab·
+Paulista, na regi„o de Presidente Prudente, assustando
+agricultores da regi„o. O artefato faz parte do programa
 Projeto Hibiscus, desenvolvido por Brasil, Franca,
-Argentina, Inglaterra e It√°lia, para a medi√ß√£o do
-comportamento da camada de oz√¥nio, e sua descida se deu
-ap√≥s o cumprimento do tempo previsto de medi√ß√£o.
+Argentina, Inglaterra e It·lia, para a mediÁ„o do
+comportamento da camada de ozÙnio, e sua descida se deu
+apÛs o cumprimento do tempo previsto de mediÁ„o.
 
-Na data do acontecido, duas pessoas avistaram o bal√£o.
-Uma estava a 1,8 km da posi√ß√£o vertical do bal√£o e o
-avistou sob um √¢ngulo de 60¬∞; a outra estava a 5,5 km da
-posi√ß√£o vertical do bal√£o, alinhada com a primeira, e no
-mesmo sentido, conforme se v√™ na figura, e o avistou sob
-um √¢ngulo de 30¬∞.',2, NULL, 7),
+Na data do acontecido, duas pessoas avistaram o bal„o.
+Uma estava a 1,8 km da posiÁ„o vertical do bal„o e o
+avistou sob um ‚ngulo de 60∞; a outra estava a 5,5 km da
+posiÁ„o vertical do bal„o, alinhada com a primeira, e no
+mesmo sentido, conforme se vÍ na figura, e o avistou sob
+um ‚ngulo de 30∞.',2, 7),
 (9, NULL, 'O cientista deveria concluir que, periodicamente, S atinge o valor de', NULL,
-'Um sat√©lite de telecomunica√ß√µes, t minutos ap√≥s ter atingido sua √≥rbita, est√° a r quil√¥metros de dist√¢ncia do centro da Terra. Quando r assume seus valores m√°ximo e m√≠nimo, diz-se que o sat√©lite atingiu o apogeu e o perigeu, respectivamente. Suponha que, para esse sat√©lite, o valor de r em fun√ß√£o de t seja dado por 
+'Um satÈlite de telecomunicaÁıes, t minutos apÛs ter atingido sua Ûrbita, est· a r quilÙmetros de dist‚ncia do centro da Terra. Quando r assume seus valores m·ximo e mÌnimo, diz-se que o satÈlite atingiu o apogeu e o perigeu, respectivamente. Suponha que, para esse satÈlite, o valor de r em funÁ„o de t seja dado por 
 
-r(t)=58651+0,15‚ãÖcos(0,06t)
+r(t)=58651+0,15∑cos(0,06t)
 
-Um cientista monitora o movimento desse sateÃÅlite para controlar o seu afastamento do centro da Terra. Para isso, ele precisa calcular a soma dos valores de r, no apogeu e no perigeu, representada por S.',1, NULL, 7),
-(10, NULL, 'Ent√£o, o ponto Q percorrer√°, no eixo x, uma dist√¢ncia dada
+Um cientista monitora o movimento desse sate¥lite para controlar o seu afastamento do centro da Terra. Para isso, ele precisa calcular a soma dos valores de r, no apogeu e no perigeu, representada por S.',1, 7),
+(10, NULL, 'Ent„o, o ponto Q percorrer·, no eixo x, uma dist‚ncia dada
 por ', 'http://s2.glbimg.com/WPL788kcPPZyTQZf-uZ3fqBpdWo=/0x0:620x206/620x206/s.glbimg.com/po/ek/f/original/2014/09/03/enem_2009_174.1.png',
 '. (Enem 2009) Considere um ponto P em uma
-circunfer√™ncia de raio r no plano cartesiano. Seja Q a
-proje√ß√£o ortogonal de P sobre o eixo x, como mostra a
-figura, e suponha que o ponto P percorra, no sentido antihor√°rio, uma dist√¢ncia d ‚â§ r sobre a circunfer√™ncia',3, NULL, 7),
-(11, NULL, 'Desprezando a resist√™ncia do ar, qual √© a dire√ß√£o e o sentido do vetor for√ßa resultante que
-atua sobre o objeto no ponto mais alto da trajet√≥ria?',NULL, '(Enem PPL 2014) Na Antiguidade, algumas pessoas acreditavam que, no lan√ßamento
-obliquo de um objeto, a resultante das for√ßas que atuavam sobre ele tinha o mesmo sentido
-da velocidade em todos os instantes do movimento. Isso n√£o est√° de acordo com as
-interpreta√ß√µes cient√≠ficas atualmente utilizadas para explicar esse fen√¥meno.',3, NULL, 25),
-(12, NULL, 'A partir dos resultados, a situa√ß√£o em que ocorre maior emiss√£o de poluentes √© aquela na
-qual o percurso √© feito com o motor',NULL, '(Enem PPL 2014) Um pesquisador avaliou o efeito da temperatura do motor (em
-velocidade constante) e da velocidade m√©dia de um ve√≠culo (com temperatura do motor
-constante) sobre a emiss√£o de mon√≥xido de carbono em dois tipos de percurso, aclive
-e declive, com iguais dist√¢ncias percorridas em linha reta. Os resultados s√£o apresentados
-nas duas figuras.',1, NULL, 25),
-(13, NULL, 'O piloto consegue apanhar o proj√©til, pois',NULL, '(Enem PPL 2013) Conta-se que um curioso incidente aconteceu durante a Primeira
-Guerra Mundial. Quando voava a uma altitude de dois mil metros, um piloto franc√™s viu o
+circunferÍncia de raio r no plano cartesiano. Seja Q a
+projeÁ„o ortogonal de P sobre o eixo x, como mostra a
+figura, e suponha que o ponto P percorra, no sentido antihor·rio, uma dist‚ncia d = r sobre a circunferÍncia',3, 7),
+(11, NULL, 'Desprezando a resistÍncia do ar, qual È a direÁ„o e o sentido do vetor forÁa resultante que
+atua sobre o objeto no ponto mais alto da trajetÛria?',NULL, '(Enem PPL 2014) Na Antiguidade, algumas pessoas acreditavam que, no lanÁamento
+obliquo de um objeto, a resultante das forÁas que atuavam sobre ele tinha o mesmo sentido
+da velocidade em todos os instantes do movimento. Isso n„o est· de acordo com as
+interpretaÁıes cientÌficas atualmente utilizadas para explicar esse fenÙmeno.',3, 25),
+(12, NULL, 'A partir dos resultados, a situaÁ„o em que ocorre maior emiss„o de poluentes È aquela na
+qual o percurso È feito com o motor',NULL, '(Enem PPL 2014) Um pesquisador avaliou o efeito da temperatura do motor (em
+velocidade constante) e da velocidade mÈdia de um veÌculo (com temperatura do motor
+constante) sobre a emiss„o de monÛxido de carbono em dois tipos de percurso, aclive
+e declive, com iguais dist‚ncias percorridas em linha reta. Os resultados s„o apresentados
+nas duas figuras.',1, 25),
+(13, NULL, 'O piloto consegue apanhar o projÈtil, pois',NULL, '(Enem PPL 2013) Conta-se que um curioso incidente aconteceu durante a Primeira
+Guerra Mundial. Quando voava a uma altitude de dois mil metros, um piloto francÍs viu o
 que acreditava ser uma mosca parada perto de sua face. Apanhando-a rapidamente, ficou
-surpreso ao verificar que se tratava de um proj√©til alem√£o.',1, NULL, 25),
-(14, NULL, 'O tempo m√≠nimo, em segundos, que o motorista deve gastar para passar pela lombada
-eletr√¥nica, cujo limite √© de 40 km/h, sem receber uma multa, √© de',NULL, '(Enem PPL 2013) Antes das lombadas eletr√¥nicas, eram pintadas faixas nas ruas para
-controle da velocidade dos autom√≥veis. A velocidade era estimada com o uso de bin√≥culos e
-cron√¥metros. O policial utilizava a rela√ß√£o entre a dist√¢ncia percorrida e o tempo gasto, para
-determinar a velocidade de um ve√≠culo. Cronometrava-se o tempo que um ve√≠culo levava
-para percorrer a dist√¢ncia entre duas faixas fixas, cuja dist√¢ncia era conhecida. A lombada
-eletr√¥nica √© um sistema muito preciso, porque a tecnologia elimina erros do operador. A
-dist√¢ncia entre os sensores √© de 2 metros, e o tempo √© medido por um circuito eletr√¥nico',2, NULL, 25),
-(15, NULL, 'Considerando uma velocidade de 72 km/h, qual o m√≥dulo da diferen√ßa entre as acelera√ß√µes
-de frenagem depois e antes da ado√ß√£o dessa tecnologia?',NULL, '(Enem PPL 2013) O trem de passageiros da Estrada de Ferro Vit√≥ria-Minas (EFVM), que
-circula diariamente entre a cidade de Cariacica, na Grande Vit√≥ria, e a capital mineira Belo
-Horizonte, est√° utilizando uma nova tecnologia de frenagem eletr√¥nica. Com a tecnologia
-anterior, era preciso iniciar a frenagem cerca de 400 metros antes da esta√ß√£o. Atualmente,
-essa dist√¢ncia caiu para 250 metros, o que proporciona redu√ß√£o no tempo de viagem',2, NULL, 25);
+surpreso ao verificar que se tratava de um projÈtil alem„o.',1, 25),
+(14, NULL, 'O tempo mÌnimo, em segundos, que o motorista deve gastar para passar pela lombada
+eletrÙnica, cujo limite È de 40 km/h, sem receber uma multa, È de',NULL, '(Enem PPL 2013) Antes das lombadas eletrÙnicas, eram pintadas faixas nas ruas para
+controle da velocidade dos automÛveis. A velocidade era estimada com o uso de binÛculos e
+cronÙmetros. O policial utilizava a relaÁ„o entre a dist‚ncia percorrida e o tempo gasto, para
+determinar a velocidade de um veÌculo. Cronometrava-se o tempo que um veÌculo levava
+para percorrer a dist‚ncia entre duas faixas fixas, cuja dist‚ncia era conhecida. A lombada
+eletrÙnica È um sistema muito preciso, porque a tecnologia elimina erros do operador. A
+dist‚ncia entre os sensores È de 2 metros, e o tempo È medido por um circuito eletrÙnico',2, 25),
+(15, NULL, 'Considerando uma velocidade de 72 km/h, qual o mÛdulo da diferenÁa entre as aceleraÁıes
+de frenagem depois e antes da adoÁ„o dessa tecnologia?',NULL, '(Enem PPL 2013) O trem de passageiros da Estrada de Ferro VitÛria-Minas (EFVM), que
+circula diariamente entre a cidade de Cariacica, na Grande VitÛria, e a capital mineira Belo
+Horizonte, est· utilizando uma nova tecnologia de frenagem eletrÙnica. Com a tecnologia
+anterior, era preciso iniciar a frenagem cerca de 400 metros antes da estaÁ„o. Atualmente,
+essa dist‚ncia caiu para 250 metros, o que proporciona reduÁ„o no tempo de viagem',2, 25);
 
 
 
 
 insert into tb_alternativas (id, descricao, resposta, id_questoes) values
-(1, '[‚Ä¶] a palavra gripe nos chegou ap√≥s uma s√©rie de
-cont√°gios entre l√≠nguas.',0,1),
-(2, 'Partiu da It√°lia em 1743 a epidemia de gripe [‚Ä¶]',0,1),
+(1, '[Ö] a palavra gripe nos chegou apÛs uma sÈrie de
+cont·gios entre lÌnguas.',0,1),
+(2, 'Partiu da It·lia em 1743 a epidemia de gripe [Ö]',0,1),
 (3, 'O primeiro era um termo derivado do latim medieval
-influentia, que significava "influ√™ncia dos astros sobre os
+influentia, que significava "influÍncia dos astros sobre os
 homens"',0,1),
 (4, 'O segundo era apenas a forma nominal do verbo
-gripper [‚Ä¶]',0,1),
-(5, 'Sup√µe-se que fizesse refer√™ncia ao modo violento como
-o v√≠rus se apossa do organismo infectado.',1,1),
-(6, 'criar rela√ß√£o de subordina√ß√£o entre leitor e autor, j√° que
+gripper [Ö]',0,1),
+(5, 'Supıe-se que fizesse referÍncia ao modo violento como
+o vÌrus se apossa do organismo infectado.',1,1),
+(6, 'criar relaÁ„o de subordinaÁ„o entre leitor e autor, j· que
 ambos usam as novas tecnologias.',0,2),
-(7, ' enfatizar a probabilidade de que toda popula√ß√£o
-brasileira esteja aprisionada √†s novas tecnologias.',0,2),
+(7, ' enfatizar a probabilidade de que toda populaÁ„o
+brasileira esteja aprisionada ‡s novas tecnologias.',0,2),
 (8, ' indicar, de forma clara, o ponto de vista de que hoje as
-pessoas s√£o controladas pelas novas tecnologias.',0,2),
-(9, 'tornar o leitor copart√≠cipe do ponto de vista de que ele
-manipula as novas tecnologias e por elas √© manipulado.',1,2),
+pessoas s„o controladas pelas novas tecnologias.',0,2),
+(9, 'tornar o leitor copartÌcipe do ponto de vista de que ele
+manipula as novas tecnologias e por elas È manipulado.',1,2),
 (10, 'demonstrar ao leitor sua parcela de responsabilidade por
 deixar que as novas tecnologias controlem as pessoas. ',0,2),
-(11, 'reconhece a esp√©cie do animal avistado.',0,3),
-(12, 'tem d√∫vida sobre a pron√∫ncia do nome do r√©ptil.',0,3),
-(13, 'desconsidera o conte√∫do lingu√≠stico da pergunta.',1,3),
+(11, 'reconhece a espÈcie do animal avistado.',0,3),
+(12, 'tem d˙vida sobre a pron˙ncia do nome do rÈptil.',0,3),
+(13, 'desconsidera o conte˙do linguÌstico da pergunta.',1,3),
 (14, 'constata o fato de um bicho cruzar a frente do carro.',0,3),
 (15, 'apresenta duas possibilidades de sentido para a mesma
 palavra.',0,3),
-(16, ' conformidade, pois as condi√ß√µes meteorol√≥gicas evidenciam um 
+(16, ' conformidade, pois as condiÁıes meteorolÛgicas evidenciam um 
 acontecimento ruim.',0,4),
-(17, 'reflexibilidade, pois o personagem se refere aos tubar√µes usando um pronome reflexivo.',0,4),
-(18, 'condicionalidade, pois a aten√ß√£o dos personagens √© a condi√ß√£o necess√°ria para a sua sobreviv√™ncia.',0,4),
-(19, 'possibilidade, pois a proximidade dos tubar√µes leva √† suposi√ß√£o do perigo iminente para os homens.',1,4),
+(17, 'reflexibilidade, pois o personagem se refere aos tubarıes usando um pronome reflexivo.',0,4),
+(18, 'condicionalidade, pois a atenÁ„o dos personagens È a condiÁ„o necess·ria para a sua sobrevivÍncia.',0,4),
+(19, 'possibilidade, pois a proximidade dos tubarıes leva ‡ suposiÁ„o do perigo iminente para os homens.',1,4),
 (20, 'impessoalidade, pois o personagem usa a terceira pessoa para expressar o distanciamento dos fatos.',0,4),
-(21, 'os desvios lingu√≠sticos cometidos pelos personagens do texto.',0,5),
-(22, 'a import√¢ncia de certos fen√¥menos gramaticais para o conhecimento da l√≠ngua portuguesa.',0,5),
-(23, 'a distin√ß√£o clara entre a norma culta e as outras variedades lingu√≠sticas.',0,5),
-(24, 'o relato fiel de epis√≥dios vividos por Cabeludinho durante as suas f√©rias.',0,5),
-(25, 'a valoriza√ß√£o da dimens√£o l√∫dica e po√©tica presente nos usos coloquiais da linguagem.',1,5),
+(21, 'os desvios linguÌsticos cometidos pelos personagens do texto.',0,5),
+(22, 'a import‚ncia de certos fenÙmenos gramaticais para o conhecimento da lÌngua portuguesa.',0,5),
+(23, 'a distinÁ„o clara entre a norma culta e as outras variedades linguÌsticas.',0,5),
+(24, 'o relato fiel de episÛdios vividos por Cabeludinho durante as suas fÈrias.',0,5),
+(25, 'a valorizaÁ„o da dimens„o l˙dica e poÈtica presente nos usos coloquiais da linguagem.',1,5),
 (26, 'menor que 100 m2.',0,6),
 (27, 'entre 100 m2 e 300 m2.',0,6),
 (28, 'entre 300 m2 e 500 m2.',0,6),
 (29, 'entre 500 m2 e 700 m2.',0,6),
 (30, 'maior que 700 m2.',1,6),
 (31, '1 000 m.',0,7),
-(32, '1 000 3‚àö3‚àöm.',1,7),
-(33, '2 000 33‚àí‚àí‚àö33‚àí‚àí‚àö m.',0,7),
+(32, '1 000 3v3vm.',1,7),
+(33, '2 000 33--v33--v m.',0,7),
 (34, '2 000 m.',0,7),
-(35, '2 000 3‚àö3‚àö m.',0,7),
+(35, '2 000 3v3v m.',0,7),
 (36, ' 1,8 km',0,8),
 (37, '1,9 km',0,8),
 (38, '3,1 km',1,8),
@@ -362,21 +362,21 @@ acontecimento ruim.',0,4),
 (48, 'r( 1 - tag d/r ).',0,10),
 (49, 'rsen (r/d).',0,10),
 (50, 'rcos (r/d).',0,10),
-(51, 'Indefinido, pois ele √© nulo, assim como a velocidade vertical nesse ponto.',0,11),
-(52, 'Vertical para baixo, pois somente o peso est√° presente durante o movimento.',1,11),
-(53, 'Horizontal no sentido do movimento, pois devido √† in√©rcia o objeto mant√©m seu movimento.',0,11),
-(54, 'Inclinado na dire√ß√£o do lan√ßamento, pois a for√ßa inicial que atua sobre o objeto √© constante.',0,11),
-(55, 'Inclinado para baixo e no sentido do movimento, pois aponta para o ponto onde o objeto cair√°.',0,11),
-(56, 'aquecido, em menores velocidades m√©dias e em pista em declive.',0,12),
-(57, 'aquecido, em maiores velocidades m√©dias e em pista em aclive.',0,12),
-(58, 'frio, em menores velocidades m√©dias e em pista em declive.',0,12),
-(59, 'frio, em menores velocidades m√©dias e em pista em aclive.',1,12),
-(60, 'frio, em maiores velocidades m√©dias e em pista em aclive.',0,12),
-(61, 'ele foi disparado em dire√ß√£o ao avi√£o franc√™s, freado pelo ar e parou justamente na frente do piloto.',0,13),
-(62, 'o avi√£o se movia no mesmo sentido que o dele, com velocidade visivelmente superior.',0,13),
-(63, 'ele foi disparado para cima com velocidade constante, no instante em que o avi√£o franc√™s passou.',0,13),
-(64, 'o avi√£o se movia no sentido oposto ao dele, com velocidade de mesmo valor.',0,13),
-(65, 'o avi√£o se movia no mesmo sentido que o dele, com velocidade de mesmo valor.',1,13),
+(51, 'Indefinido, pois ele È nulo, assim como a velocidade vertical nesse ponto.',0,11),
+(52, 'Vertical para baixo, pois somente o peso est· presente durante o movimento.',1,11),
+(53, 'Horizontal no sentido do movimento, pois devido ‡ inÈrcia o objeto mantÈm seu movimento.',0,11),
+(54, 'Inclinado na direÁ„o do lanÁamento, pois a forÁa inicial que atua sobre o objeto È constante.',0,11),
+(55, 'Inclinado para baixo e no sentido do movimento, pois aponta para o ponto onde o objeto cair·.',0,11),
+(56, 'aquecido, em menores velocidades mÈdias e em pista em declive.',0,12),
+(57, 'aquecido, em maiores velocidades mÈdias e em pista em aclive.',0,12),
+(58, 'frio, em menores velocidades mÈdias e em pista em declive.',0,12),
+(59, 'frio, em menores velocidades mÈdias e em pista em aclive.',1,12),
+(60, 'frio, em maiores velocidades mÈdias e em pista em aclive.',0,12),
+(61, 'ele foi disparado em direÁ„o ao avi„o francÍs, freado pelo ar e parou justamente na frente do piloto.',0,13),
+(62, 'o avi„o se movia no mesmo sentido que o dele, com velocidade visivelmente superior.',0,13),
+(63, 'ele foi disparado para cima com velocidade constante, no instante em que o avi„o francÍs passou.',0,13),
+(64, 'o avi„o se movia no sentido oposto ao dele, com velocidade de mesmo valor.',0,13),
+(65, 'o avi„o se movia no mesmo sentido que o dele, com velocidade de mesmo valor.',1,13),
 (66, '0,05.',0,14),
 (67, '11,1.',0,14),
 (68, '0,18.',1,14),

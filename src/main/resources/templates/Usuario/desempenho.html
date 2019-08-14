@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -8,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <link rel="shortcut icon" href="img/logoazul.png" >
   <title>Desempenho</title>
 
   <!-- Custom fonts for this template-->
@@ -17,10 +18,13 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  
+  <!-- Grafico -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>	
 </head>
 
 <body id="page-top">
+
 
   <th:block th:if="${session.usuarioLogado}">
 
@@ -137,66 +141,80 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800" align="center">Desempenho</h1>
+          <p class="mb-4" align="center">Os grafico foram criado com base em seu desempenho durante os execícios praticados.</p>
+	
 
           <!-- Content Row -->
           <div class="row">
 
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-12 col-lg-12" >
 
               <!-- Area Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Todas disciplinas</h6>
                 </div>
                 <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
-                </div>
-              </div>
+                
+                     <canvas class="line-chart"></canvas>
+      
+      <script th:inline="javascript">
+		
+  		var ctx = document.getElementsByClassName("line-chart");
+  		
+  		 var porcentagem = /*[[${porcentagem}]]*/;
+  		 
+  		 console.log(porcentagem);
+  		//Type, Data e options
+  		
+  		var chartGraph = new Chart(ctx, {
+  			type: 'bar',
+  			data: {
+  				labels: [porcentagem[0][0],porcentagem[1][0],porcentagem[2][0],porcentagem[3][0],porcentagem[4][0],porcentagem[5][0],porcentagem[6][0],porcentagem[7][0],porcentagem[8][0],porcentagem[9][0],porcentagem[10][0],porcentagem[11][0]],
+  				
+  				datasets: [{
+  					label: "Porcentagem de questões Corretas",
+  					fillColor: "rgba(220,220,220,0.5)",
+  					strokeColor: "rgba(220,220,220,0.8)",
+  					highlightFill: "rgba(220,220,220,0.75)",
+  					highlightStroke: "rgba(220,220,220,1)",
+  					backgroundColor: "rgba(34,139,34)",
+  					data: [porcentagem[0][1],porcentagem[1][1],porcentagem[2][1],porcentagem[3][1],porcentagem[4][1],porcentagem[5][1],porcentagem[6][1],porcentagem[7][1],porcentagem[8][1],porcentagem[9][1],porcentagem[10][1],porcentagem[11][1]]
+  					
+  				},
+  					{
+  						label: "Porcentagem de questões Erradas",
+			            fillColor: "rgba(151,187,205,0.5)",
+			            strokeColor: "rgba(151,187,205,0.8)",
+			            highlightFill: "rgba(151,187,205,0.75)",
+			            highlightStroke: "rgba(151,187,205,1)",
+			            backgroundColor: "rgba(178,34,34)",
+			            data: [porcentagem[0][2],porcentagem[1][2],porcentagem[2][2],porcentagem[3][2],porcentagem[4][2],porcentagem[5][2],porcentagem[6][2],porcentagem[7][2],porcentagem[8][2],porcentagem[9][2],porcentagem[10][2],porcentagem[11][2]]
+  					}
+  				]
+  			}
 
-              <!-- Bar Chart -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+  		});
+
+  	</script>
+                     
+                  
+                  
+                
                 </div>
-                <div class="card-body">
-                  <div class="chart-bar">
-                    <canvas id="myBarChart"></canvas>
-                    
-                  </div>
-                  <hr>
-                  Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
-                </div>
-              </div>
+              
+
+             
+             
 
             </div>
 
-            <!-- Donut Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
-                </div>
-              </div>
-            </div>
-          </div>
+           
+         
 
         </div>
         <!-- /.container-fluid -->
@@ -229,16 +247,17 @@
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <div class="modal-header" align="center">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Selecione Logout se desejar sair da conta</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+        <form th:action="@{/logout}" method="post">
+          <button class="btn btn-info" type="submit">Sair</button>
+        </form>
         </div>
       </div>
     </div>

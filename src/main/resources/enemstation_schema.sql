@@ -23,13 +23,6 @@ CREATE TABLE tb_dificuldade
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS questoes_grafico;
-CREATE TABLE questoes_grafico
-(
-  id int(11) NOT NULL AUTO_INCREMENT,
-  acertos int(11) NOT NULL, erros int(11) NOT NULL, 
-  PRIMARY KEY (id)
-);
 
 DROP TABLE IF EXISTS login_gmail;
 CREATE TABLE login_gmail
@@ -53,9 +46,9 @@ CREATE TABLE tb_questoes
   id int(255) NOT NULL AUTO_INCREMENT,
   comentario varchar(5000) NULL, enunciado varchar(5000) NOT NULL, 
   imagem tinyblob NULL, texto varchar(10000) NULL, 
-  id_dificuldade int(11) NOT NULL, grafico_id int(11) NULL, id_assunto int(11) NULL,
+  id_dificuldade int(11) NOT NULL,id_assunto int(11) NULL,disciplina_id int(11) NULL,
   PRIMARY KEY (id), CONSTRAINT FK_DIFICULDADE FOREIGN KEY(id_dificuldade) REFERENCES tb_dificuldade(id) ON DELETE NO ACTION ON UPDATE NO ACTION, 
-  CONSTRAINT FK_QUESTOES_GRAFICO FOREIGN KEY(grafico_id) REFERENCES questoes_grafico(id) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT FK_DISCIPLINA_QUUESTOES FOREIGN KEY(disciplina_id) REFERENCES tb_disciplina(id) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT FK_ASSUNTO FOREIGN KEY(id_assunto) REFERENCES tb_assunto(id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 

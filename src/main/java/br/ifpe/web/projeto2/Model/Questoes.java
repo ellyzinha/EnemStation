@@ -52,6 +52,9 @@ public class Questoes {
 	@JoinColumn(name = "id_assunto")
 	private Assunto assunto;
 	
+	@OneToOne(fetch = FetchType.LAZY)
+	private Disciplina disciplina;
+	
 	
 	
 	
