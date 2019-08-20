@@ -13,7 +13,7 @@
   display: none;
 }
 
-label {
+label{
   font-weight: 700;
   font-size: 18px;
   float: left;
@@ -24,6 +24,16 @@ label {
   background: #ccc;
 }
 
+.span{
+	font-weight: 700;
+  	font-size: 18px;
+}
+
+#h6{
+	font-weight: 700;
+  	font-size: 18px;
+}
+
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
@@ -32,7 +42,7 @@ label {
 #tab6:checked ~ #content6,
 #tab7:checked ~ #content7{
   display: block;
-  padding: 20px;
+  
   border-bottom: 2px solid #f0f0f0;
 }
 
