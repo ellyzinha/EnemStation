@@ -2,8 +2,6 @@ package br.ifpe.web.projeto2.service;
 
 
 
-import javax.mail.internet.InternetAddress;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -60,37 +58,18 @@ public class UsuarioService {
 			usuarioDao.save(usuario);
 		}
 	
-	public void updateSenha(String senha, Integer id_usuario) {
-        usuarioDao.updateSenha(senha, id_usuario);
-    }
-	
-	
-
-	public InternetAddress findUsuarioByEmail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	//VERIFICANDO EMAIL DA NO BANCO
+	//Verificando EMail no banco
 	public LoginGmail findByLoginGmail(String email) {
 		return loginGmailDAO.findByLoginEmail(email);
 	}
 	
-	//VERIFICANDO SE O EMAIL DA API JÁ EXISTE NO BANCO, CASO NÃO ESTEJA SALVA
-	public LoginGmail loginGmail(LoginGmail lg) {
-		
-		
-		if(this.findByLoginGmail(lg.email) != null){
-			return lg;
+	//Verificando se o email já existe no banco e salvando
+	
+	public void loginGmail(LoginGmail lg) {
+		if(this.findByLoginGmail(lg.email) != null) {
 			
 		}
 		loginGmailDAO.save(lg);
-		return lg;
-	}
-	
-	public Integer findByPermissao(String email) {
-		return usuarioDao.findByPermissao(email);
 	}
 	
 	

@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Built-By: elly
-Build-Jdk: 11.0.4
 Implementation-Title: EnemStation
 Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: SAMSUNG-PC
 Implementation-Vendor-Id: br.ifpe.web
-Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
- -starter-parent/br.ifpe.web
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/br.ifpe.web
 Created-By: Maven Integration for Eclipse
 

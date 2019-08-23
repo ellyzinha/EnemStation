@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,17 +24,7 @@ public class DadosUsuario {
 	private String tipoInstituicao;
 	private String provas;
 	private String enem;
-	@OneToOne
-	private Usuario usuario;
 	
-	
-	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 	public Integer getId_usuario() {
 		return id_usuario;
 	}
