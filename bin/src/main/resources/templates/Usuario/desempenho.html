@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="img/logoazul.png" >
+  <title>Desempenho</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  
+  <!-- Grafico -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>	
+</head>
+
+<body id="page-top">
+
+
+  <th:block th:if="${session.usuarioLogado}">
+
+  <!-- Page Wrapper -->
+ <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/perfil}">
+       <!-- <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div> -->
+        <div class="sidebar-brand-text mx-3">Meu Perfil</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+
+
+
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/}">
+          <i class="fas fa-home"></i>
+          <span>Home</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/questoes}">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Questões</span></a>
+      </li>
+
+      <li class="nav-item active">
+            <a class="nav-link" th:href="@{/material_disciplina}">
+              <i class="fas fa-book"></i>
+              <span>Materiais</span></a>
+          </li>
+
+          <li class="nav-item active">
+                <a class="nav-link" th:href="@{/desempenho}">
+                  <i class="fas fa-chart-bar"></i>
+                  <span>Desempenho</span></a>
+              </li>
+              
+              
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+    
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!--Divider-->
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="|${session.usuarioLogado.nome}|"></span>
+                <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiasajo6RFSTR2RkHQrezDFvJ9QY85uHTkci7cpPof5hZSvuiq7g">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" >
+                <a class="dropdown-item"  th:href="|/editar_perfil?id_usuario=${session.usuarioLogado.id_usuario}|"> 
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Editar Perfil
+                <a class="dropdown-item" th:href="|/dados_pessoais?id_usuario=${session.usuarioLogado.id_usuario}|">
+                  <i class="fa fa-address-card fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Dados Pessoais
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Sair
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800" align="center">Desempenho</h1>
+          <p class="mb-4" align="center">Os grafico foram criado com base em seu desempenho durante os execícios praticados.</p>
+	
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <div class="col-xl-12 col-lg-12" >
+
+              <!-- Area Chart -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Todas disciplinas</h6>
+                </div>
+                <div class="card-body">
+                
+                     <canvas class="line-chart"></canvas>
+      
+      <script th:inline="javascript">
+		
+  		var ctx = document.getElementsByClassName("line-chart");
+  		
+  		 var porcentagem = /*[[${porcentagem}]]*/;
+  		 
+  		 console.log(porcentagem);
+  		//Type, Data e options
+  		
+  		var chartGraph = new Chart(ctx, {
+  			type: 'bar',
+  			data: {
+  				labels: [porcentagem[0][0],porcentagem[1][0],porcentagem[2][0],porcentagem[3][0],porcentagem[4][0],porcentagem[5][0],porcentagem[6][0],porcentagem[7][0],porcentagem[8][0],porcentagem[9][0],porcentagem[10][0],porcentagem[11][0]],
+  				
+  				datasets: [{
+  					label: "Porcentagem de questões Corretas",
+  					fillColor: "rgba(220,220,220,0.5)",
+  					strokeColor: "rgba(220,220,220,0.8)",
+  					highlightFill: "rgba(220,220,220,0.75)",
+  					highlightStroke: "rgba(220,220,220,1)",
+  					backgroundColor: "rgba(34,139,34)",
+  					data: [porcentagem[0][1],porcentagem[1][1],porcentagem[2][1],porcentagem[3][1],porcentagem[4][1],porcentagem[5][1],porcentagem[6][1],porcentagem[7][1],porcentagem[8][1],porcentagem[9][1],porcentagem[10][1],porcentagem[11][1]]
+  					
+  				},
+  					{
+  						label: "Porcentagem de questões Erradas",
+			            fillColor: "rgba(151,187,205,0.5)",
+			            strokeColor: "rgba(151,187,205,0.8)",
+			            highlightFill: "rgba(151,187,205,0.75)",
+			            highlightStroke: "rgba(151,187,205,1)",
+			            backgroundColor: "rgba(178,34,34)",
+			            data: [porcentagem[0][2],porcentagem[1][2],porcentagem[2][2],porcentagem[3][2],porcentagem[4][2],porcentagem[5][2],porcentagem[6][2],porcentagem[7][2],porcentagem[8][2],porcentagem[9][2],porcentagem[10][2],porcentagem[11][2]]
+  					}
+  				]
+  			}
+
+  		});
+
+  	</script>
+                     
+                  
+                  
+                
+                </div>
+              
+
+             
+             
+
+            </div>
+
+           
+         
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Selecione Logout se desejar sair da conta</div>
+        <div class="modal-footer">
+        <form th:action="@{/logout}" method="post">
+          <button class="btn btn-info" type="submit">Sair</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/demo/chart-bar-demo.js"></script>
+
+</body>
+
+</html>

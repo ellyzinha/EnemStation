@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="httP://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+	<link rel="shortcut icon" href="img/logoazul.png" >
+  <title>Enem Station</title>
+
+  <!-- Fontes para esse tema -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+
+  <!-- Tema CSS -->
+  <link href="css/freelancer.min.css" rel="stylesheet">
+  
+  
+   <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/plano.css">
+
+
+</head>
+
+<body id="page-top"  style="background-color: rgb(251, 253, 253);">
+
+ <!-- Page Wrapper -->
+  <div id="wrapper">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+
+		<a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/ind}">
+       <!-- <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div> -->
+        <div class="sidebar-brand-text mx-3">Administrador</div>
+      </a>
+
+      
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/perfil}">
+          <i class="fas fa-home"></i>
+          <span>Perfil</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/adicionando_questoes}">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Adicionar Questões</span></a>
+      </li>
+      
+       <!-- Nav Item - Tables -->
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/exibir_assuntos}">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Adicionar Assuntos</span></a>
+      </li>
+      
+      <li class="nav-item active">
+            <a class="nav-link" th:href="@{/adicionar_materiais}">
+              <i class="fas fa-book"></i>
+              <span>Adicionar Materiais</span></a>
+          </li>
+              
+              
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+    
+
+    </ul>
+    
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content" >
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" style="background-color: #00FA9A;">
+          
+          <h1 style="margin: 22%; font-family: 'Arvo', serif; color: black; ">De onde veio? Onde estou?</h1>
+
+        </nav>
+	</div>
+        <!-- Begin Page Content -->
+        <div class="container">
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 600px;">
+	<h4 class="card-title mt-3 text-center">Adicionar Material</h4>
+ <!-- Erro -->
+   <div class="alert alert-success" th:if="${mensagem}"th:text="${mensagem}">
+	</div>
+						<div class="alert alert-danger" th:if="${mensagemErro}"
+							th:text="${mensagemErro}"></div>
+<form id="upload_form" th:action="@{/salvarMaterial}" th:object="${Material}" method="Post" enctype="multipart/form-data">
+		 <input type="hidden" name="codigo">
+		 
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text">Título   </span>
+		 </div>
+        
+        <input class="form-control"  name="titulo" type="text">
+    	
+    </div> 
+      <div class="alert alert-danger" th:if="${mensagemTitulo}">
+    	<div th:if="${mensagemTitulo}" th:text="${mensagemTitulo}"></div>
+    </div>
+    <div class="alert alert-danger" th:if="${Errors}">
+    	<div th:if="${Errors}" th:each="lista : ${Errors}" th:text="${lista.getDefaultMessage()}"></div>
+    </div>
+ 
+   <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text">Disciplina</span>
+		</div>
+		<select class="form-control" name="disciplina">
+			<option class="mdl-textfield__input" th:each="cat : ${listaDisciplina}" th:value="${cat.id}" th:text="${cat.descricao}"></option>
+		</select>
+	</div> 
+	
+    
+    
+  
+
+
+     <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text">Link de material</span>
+		</div>
+		
+		<input type="url"  class="form-control"  name="link" >
+		
+     </div> <!-- form-group// --> 
+  
+  
+    <div class="form-group input-group">
+    
+    	<div class="input-group-prepend">
+		    <span class="input-group-text">Arquivo</span>
+		</div>
+		
+		<input type="file"  class="form-control"  name="file" id="file"  >
+		   
+    </div> <!-- form-group// -->  
+    
+    <!-- MENSAGEM SOBRE ARQUIVO --> 
+     <div class="alert alert-danger" th:if="${Mensagem}">
+    	<div th:if="${Mensagem}" th:text="${Mensagem}"></div>
+     </div>  
+     <div th:if="${carregando}">
+     <progress id="progressBar" value="0" max="100" style="width:500px;"></progress>
+     	<p id="status1"></p>
+  		</div>	
+  			
+     <!-- barra de progresso 
+     <div class="progress progress-striped active">
+  			<div id="progressBar" value="0" max="100" style="width:300px;" class="progress-bar"  style="width: 0;"></div>
+	</div>
+	-->
+	<br>
+                                    
+    <div class="form-group">
+        <button type="submit" class="btn btn-success upload btn-block" onclick="uploadFile()"> Adicionar </button>
+    </div>
+     <!-- form-group// --> 
+    
+    <script>
+    function _(el) {
+    	  return document.getElementById(el);
+    	}
+
+    	function uploadFile() {
+    	  var file = _("file").files[0];
+    	  // alert(file.name+" | "+file.size+" | "+file.type);
+    	  var formdata = new FormData();
+    	  formdata.append("file", file);
+    	  var ajax = new XMLHttpRequest();
+    	  ajax.upload.addEventListener("progress", progressHandler, false);
+    	  ajax.addEventListener("load", completeHandler, false);
+    	  ajax.addEventListener("error", errorHandler, false);
+    	  ajax.addEventListener("abort", abortHandler, false);
+    	  ajax.open("POST", "adicionar_materiais"); // http://www.developphp.com/video/JavaScript/File-Upload-Progress-Bar-Meter-Tutorial-Ajax-PHP
+    	  //use file_upload_parser.php from above url
+    	  ajax.send(formdata);
+    	}
+
+    	function progressHandler(event) {
+    	  
+    	  var percent = (event.loaded / event.total) * 100;
+    	  _("progressBar").value = Math.round(percent);
+    	  _("status1").innerHTML = Math.round(percent) + "% Carregando... Por favor aguarde!";
+    	}
+
+    	function completeHandler(event) {
+    	  _("status").innerHTML = event.target.responseText;
+    	  _("progressBar").value = 0; //wil clear progress bar after successful upload
+    	}
+
+    	function errorHandler(event) {
+    	  _("status").innerHTML = "Upload Failed";
+    	}
+
+    	function abortHandler(event) {
+    	  _("status").innerHTML = "Upload Aborted";
+    	}
+    </script>
+ 
+      
+      
+    
+      
+</form>
+
+
+<!-- Progress Bar
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+ -->
+<br><br><br><br><br><br><br>
+
+
+
+</article>
+</div> <!-- card.// -->
+
+</div> 
+<!--container end.//-->
+      <!-- End of Main Content -->
+
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja Sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Selecione Logout se desejar sair da conta</div>
+        <div class="modal-footer">
+        <form th:action="@{/logout}" method="post">
+          <button class="btn btn-info" type="submit">Sair</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+     
+     
+    	
+      
+			<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+			<!-- bootstrap -->
+			<script type="text/javascript" src="js/bootstrap.js"></script>
+			
+			<!-- chamada da função -->
+			<script type="text/javascript">
+			$(function() {
+				  
+
+				    // Requisição.
+
+				    $('#teste').modal('show');
+
+				    setTimeout(function() {
+				      $('#teste').modal('hide');
+				    }, 3000); // 3000 = 3 segundos
+				  });
+			
+			</script>
+
+<!-- fim de modal -->
+
+
+ <div class="modal fade" tabindex="-1" role="dialog" id="teste" aria-hidden="true" th:if="${MensagemSucesso}" >
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div class="modal-content"  >
+     
+      <div class="modal-body">
+       	<img alt="" src="images/material_sucesso.png" width="60%">
+      </div>
+      
+      <div class="modal-footer">
+        <h2 class="alert alert-success" style="margin-bottom: -10%; margin-top:-10%;" th:if="${MensagemSucesso}"
+							th:text="${MensagemSucesso}">
+		</h2>
+      </div>
+    </div>
+  </div>
+</div>
+      
+
+<!-- jquery -->
+			<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+			<!-- bootstrap -->
+			<script type="text/javascript" src="js/bootstrap.js"></script>
+			
+			<!-- chamada da função -->
+			
+
+<!-- fim de modal -->
+ 
+ 
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>
