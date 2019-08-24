@@ -140,22 +140,25 @@
 												<div class="card text-white bg-primary" style="width: 18rem;">
 													<div class="card-body">
 														<h3 class="card-title" th:text="${cont.titulo}"></h3>
-														<p class="card-text" th:text="${cont.link}"> </p>
+														<p class="card-text" >Link:
+														<a th:href="${cont.link}" target="_Blank" th:text="${cont.link}" style="color: blue;"> </a></p>
 														<a th:href="${cont.caminhoArquivo}"
 															class="btn btn-outline-secondary" target="_blank">Visualizar</a>
 													</div>
 												</div>
+												
+												
 											</div>
+		
 											
-											
-			
+											<div th:if="${listarMateriais.isEmpty()}">Nenhum Material Disponivel!</div>
 			
 										</div>
 										
 										
 										
 									</div>
-			<div th:if="${Mensagem}" th:text="${Mensagem}"> Nenhum Material Disponivel!</div>
+	
 			
 			
 								</article>

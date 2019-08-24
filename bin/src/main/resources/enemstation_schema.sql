@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS usuario;
 CREATE TABLE usuario
 (
-  id_usuario int(11) AUTO_INCREMENT, ativo bit(1) NOT NULL,
+  id_usuario int(11) AUTO_INCREMENT,
   email varchar(255) NOT NULL, foto longblob NULL, 
   nome varchar(255) NOT NULL, permissao int(11) NULL, 
   senha varchar(255) NOT NULL, PRIMARY KEY (id_usuario)
@@ -48,7 +48,7 @@ CREATE TABLE tb_questoes
   imagem tinyblob NULL, texto varchar(10000) NULL, 
   id_dificuldade int(11) NOT NULL,id_assunto int(11) NULL,disciplina_id int(11) NULL,
   PRIMARY KEY (id), CONSTRAINT FK_DIFICULDADE FOREIGN KEY(id_dificuldade) REFERENCES tb_dificuldade(id) ON DELETE NO ACTION ON UPDATE NO ACTION, 
-  CONSTRAINT FK_DISCIPLINA_QUUESTOES FOREIGN KEY(disciplina_id) REFERENCES tb_disciplina(id) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT FK_DISCIPLINA_QUUESTOES FOREIGN KEY(disciplina_id) REFERENCES tb_disciplina(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT FK_ASSUNTO FOREIGN KEY(id_assunto) REFERENCES tb_assunto(id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 

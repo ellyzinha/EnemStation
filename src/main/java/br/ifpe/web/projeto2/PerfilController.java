@@ -108,7 +108,7 @@ public class PerfilController {
 	public ModelAndView dados_pessoais(DadosUsuario dadosUsuario, Usuario usuario) {
 		ModelAndView mv = new ModelAndView("Usuario/informacoes_pessoais");
 		if (dadosUsuario != null && dadosUsuario.getUsuario() != null) {
-			dadosUsuario = this.dadosUsuarioRep.getOneUsuario();
+			dadosUsuario = this.dadosUsuarioRep.getOneUsuarioId();
 			return exibirPerfil();
 		} else { // Caso contrário, será uma adição de novo produto
 			dadosUsuario = new DadosUsuario();

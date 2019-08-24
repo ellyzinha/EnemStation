@@ -20,7 +20,6 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioDAO usuarioDao;
-	@Autowired
 
 	
 	
@@ -89,8 +88,6 @@ public class UsuarioService {
 	public Integer findByPermissao(String email) {
 		return usuarioDao.findByPermissao(email);
 	}
-	
-
 	
 	
 	

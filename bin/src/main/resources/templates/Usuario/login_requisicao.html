@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1c2127">
+    <title>Enem Station</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/login-page.css" />
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#1c2127">
+    <meta name="msapplication-navbutton-color" content="#1c2127">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1c2127">
+    
+    <link rel="shortcut icon" href="img/logoazul.png" >
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<style>
+  html {
+  height: 100%
+}
+
+#particles-js canvas {
+  display: block;
+vertical-align: bottom;
+-webkit-transform: scale(1);
+-ms-transform: scale(1);
+transform: scale(1);
+opacity: 1;
+-webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+transition: opacity .8s ease, transform 1.4s ease
+}
+#particles-js {
+width: 100%;
+height: 100%;
+position: fixed;
+z-index: -10;
+top: 0;
+left: 0;
+background-color: #00356B;
+}
+.verify-bloc {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  color: #fff;
+  max-width: 90%;
+  padding: 2em 3em 10px 3em;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0px 0px 2px #131415;
+  font-family: 'Open Sans', sans-serif;
+  min-width: 600px;
+  word-wrap: break-word;
+}
+.verify-top, .verify-middle {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.top-img-block img {
+  margin-top: -82px;
+  height: 102px;
+  border-radius: 50%;
+  width: 102px;
+}
+.verify-top h3 {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 24px;
+}
+.verify-footer {
+  text-align: center;
+  font-size: 11px;
+}
+.verify-middle i {
+  margin-bottom: 6px;
+}
+.verify-footer p {
+  opacity: 0.6;
+}
+@media only screen and (max-width: 768px) {
+  .verify-bloc {
+    min-width: 80%;
+    width: 80%;
+  }
+}
+</style>
+  </head>
+  <body>
+    <div id="particles-js">
+
+    </div>
+
+
+    <div class="verify-bloc">
+      <div class="verify-top">
+        <!--User image and user name -->
+        <div class="top-img-block">
+          <img id="user-photo"  src="img/logoazul.png" alt=""/>
+          <p id="user-name">Enem Station</p>
+        </div>
+        <h3></h3>
+      </div>
+      <div class="verify-middle">
+        <!-- Loading animation and status -->
+      <i id="status-icon" class="fas fa-spinner fa-spin fa-2x"></i><br />
+      <p id="status-text" style="font-size: 15pt">Caso seu navegador já estejá viengulado a alguma conta do google, você será automaticamente cadastro em nosso sistema e direcionado para página de perfil. Caso não esteja, click no botão a abaixo!</p>
+      </div>
+      <div class="verify-footer">
+        <!-- Footer of site, maybe version -->
+       
+	<p align="center" class="divider-text">
+      </div>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="https://itrade.tf/librarys/particlejs/particles.js"></script>
+    <script>
+      /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+      particlesJS.load('particles-js', 'https://itrade.tf/librarys/particlejs/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+      });
+      
+      window.location.href = "http://localhost:8090/perfil";
+    </script>
+
+
+
+  </body>
+</html>
