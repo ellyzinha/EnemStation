@@ -1,27 +1,27 @@
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (1, 'Português', 'img/disciplinas/portugues.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (2, 'Matemática', 'img/disciplinas/matematica.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (3, 'Biologia', 'img/disciplinas/biologia.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (4, 'Física', 'img/disciplinas/fisica.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (5, 'Química', 'img/disciplinas/quimica.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (6, 'Geografia', 'img/disciplinas/geografia.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (7, 'História', 'img/disciplinas/historia.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (8, 'Filosofia', 'img/disciplinas/filosofia.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (9, 'Sociologia', 'img/disciplinas/sociologia.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (10, 'Espanhol', 'img/disciplinas/espanhol.png');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (11, 'Inglês', 'img/disciplinas/ingles.jpg');
-insert into tb_disciplina (id, descricao, caminho_imagem)
-values (12, 'Literatura', 'img/disciplinas/literatura.jpg');
+insert into tb_disciplina (id, descricao)
+values (1, 'Português');
+insert into tb_disciplina (id, descricao)
+values (2, 'Matemática');
+insert into tb_disciplina (id, descricao)
+values (3, 'Biologia');
+insert into tb_disciplina (id, descricao)
+values (4, 'Física');
+insert into tb_disciplina (id, descricao)
+values (5, 'Química');
+insert into tb_disciplina (id, descricao)
+values (6, 'Geografia');
+insert into tb_disciplina (id, descricao)
+values (7, 'História');
+insert into tb_disciplina (id, descricao)
+values (8, 'Filosofia');
+insert into tb_disciplina (id, descricao)
+values (9, 'Sociologia');
+insert into tb_disciplina (id, descricao)
+values (10, 'Espanhol');
+insert into tb_disciplina (id, descricao)
+values (11, 'Inglês');
+insert into tb_disciplina (id, descricao)
+values (12, 'Literatura');
 
 
 insert into tb_dificuldade (id, descricao)

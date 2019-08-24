@@ -93,6 +93,8 @@ public class UsuarioService {
 		return usuarioDao.findByPermissao(email);
 	}
 	
+
+	
 	
 	
 

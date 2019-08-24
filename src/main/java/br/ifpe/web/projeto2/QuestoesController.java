@@ -2,6 +2,7 @@ package br.ifpe.web.projeto2;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,9 @@ import br.ifpe.web.projeto2.Model.Assunto;
 import br.ifpe.web.projeto2.Model.Correta;
 import br.ifpe.web.projeto2.Model.Questoes;
 import br.ifpe.web.projeto2.Model.Resposta;
+import br.ifpe.web.projeto2.Model.Usuario;
 import br.ifpe.web.projeto2.service.QuestoesService;
+import br.ifpe.web.projeto2.service.UsuarioService;
 
 @Controller
 public class QuestoesController {
@@ -36,6 +39,8 @@ public class QuestoesController {
 	private QuestoesService questoesService;
 	@Autowired
 	private AssuntoDAO assuntoRep;
+	@Autowired
+	private UsuarioService user;
 	
 	//Exibir formulário de adicionar questões
 	@GetMapping("/adicionando_questoes")
@@ -163,8 +168,10 @@ public class QuestoesController {
 	
 	// Salvar resposta do usuário
 	@PostMapping("/salvarResposta")
-	public String salvarResposta(@ModelAttribute Resposta resposta) {
-		questoesService.salvarResposta(resposta);
+	public String salvarResposta(@ModelAttribute Resposta resposta, HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		resposta.setUsuario(usuario);
+		this.questoesService.salvarResposta(resposta);
 		return "redirect:/listaQuestoes";
 	}
 	

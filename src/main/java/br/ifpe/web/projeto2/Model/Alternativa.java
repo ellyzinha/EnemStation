@@ -24,13 +24,16 @@ public class Alternativa {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
 	@Column(nullable = false)
 	@NotBlank
 	private String descricao;
+	
 	@Enumerated
 	private Correta resposta;
+	
 	@ManyToOne
-	@JoinColumn(name="questoes_id")
+	@JoinColumn(name="id_questoes")
 	private Questoes questoes;
 	
 	

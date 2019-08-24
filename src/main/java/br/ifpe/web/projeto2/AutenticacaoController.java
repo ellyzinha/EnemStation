@@ -16,7 +16,7 @@ import br.ifpe.web.projeto2.Model.Usuario;
 import br.ifpe.web.projeto2.service.UsuarioService;
 
 @Controller
-public class AutenticaçãoController {
+public class AutenticacaoController {
 	
 	@Autowired
 	private UsuarioService usuarioService;

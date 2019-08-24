@@ -137,3 +137,7 @@
 	visibility: visible !important;
   }
   
+  .inline{
+  	display: inline-block;
+  }
+  

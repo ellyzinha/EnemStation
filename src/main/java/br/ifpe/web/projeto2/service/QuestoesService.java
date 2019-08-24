@@ -68,6 +68,9 @@ public class QuestoesService {
 	//Método de salvar resposta
 	public void salvarResposta(Resposta resposta) {
 		respostaDao.save(resposta);
+		//Verificação: se acertar a questão irá aparecer uma mensagem de Resposta Correta
+		
+		//Verificação: se errar a questão irá aparecer uma mensagem de Resposta Incorreta
 	}
 	
 	//BUSCANDO TODOS OS DISCIPLINAS
