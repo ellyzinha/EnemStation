@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Perfil</title>
+<title>Plano de Estudo</title>
 
 <!-- Custom fonts for this template -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -24,8 +24,8 @@
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 <!-- Custom styles for this page -->
-<link href="vendor/datatables/dataTables.bootstrap4.min.css"
-	rel="stylesheet">
+<!-- ---<link href="vendor/datatables/dataTables.bootstrap4.min.css"
+	rel="stylesheet"> -->
 <link href="css/freelancer.min.css" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="css/plano_estudo.css">
@@ -50,7 +50,7 @@
 					th:href="@{/perfil}"> <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
-					<div class="sidebar-brand-text mx-3">Meu Perfil</div>
+					<div class="sidebar-brand-text mx-3">Home</div>
 				</a>
 
 				<!-- Divider -->
@@ -64,8 +64,9 @@
 				<hr class="sidebar-divider">
 
 				<!-- Nav Item - Charts -->
-				<li class="nav-item active"><a class="nav-link" th:href="@{/}">
-						<i class="fas fa-home"></i> <span>Home</span>
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/perfil}"> <i class="fas fa-home"></i> <span>Meu
+							Plano de Estudo</span>
 				</a></li>
 
 				<!-- Nav Item - Tables -->
@@ -79,6 +80,10 @@
 
 				<li class="nav-item active"><a class="nav-link" href="#"> <i
 						class="fas fa-chart-bar"></i> <span>Desempenho</span></a></li>
+
+				<!-- --<li class="nav-item active"><a class="nav-link"
+					th:href="@{/plano_estudo}"><i class="fas fa-book"></i><span>Plano
+							de Estudo</span></a></li> -->
 
 
 
@@ -154,114 +159,68 @@
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
 							<div class="card-header py-3" align="center">
-								<h6 class="m-0 font-weight-bold text-info">Cadastro Plano
-									de Estudo</h6>
+								<h6 class="m-0 font-weight-bold text-info" id="h6">Cadastro
+									do Plano de Estudo</h6>
 							</div>
 							<div class="card-body">
 								<div class="tab_container">
 									<input id="tab1" class="plano_estudo" type="radio" name="tabs"
-										checked> <label for="tab1"><span>Segunda</span></label>
-
-									<input id="tab2" class="plano_estudo" type="radio" name="tabs">
-									<label for="tab2"><span>Terça</span></label> <input id="tab3"
+										checked> <label for="tab1"><span
+										value="segunda">Segunda</span></label> 
+										
+									<input id="tab2"
 										class="plano_estudo" type="radio" name="tabs"> <label
-										for="tab3"><span>Quarta</span></label> <input id="tab4"
-										class="plano_estudo" type="radio" name="tabs"> <label
-										for="tab4"><span>Quinta</span></label> <input id="tab5"
-										class="plano_estudo" type="radio" name="tabs"> <label
-										for="tab5"><span>Sexta</span></label> <input id="tab6"
-										class="plano_estudo" type="radio" name="tabs"> <label
-										for="tab6"><span>Sabado</span></label> <input id="tab7"
-										class="plano_estudo" type="radio" name="tabs"> <label
-										for="tab7"><span>Domingo</span></label>
+										for="tab2"><span value="terca">Terça</span></label> 
+										
+									<input id="tab3" class="plano_estudo" type="radio" name="tabs">
+										<label for="tab3"><span value="quarta">Quarta</span></label> 
+									
+									<input id="tab4" class="plano_estudo" type="radio" name="tabs">
+										<label for="tab4"><span value="quinta">Quinta</span></label>
+									
+									 <input id="tab5" class="plano_estudo" type="radio" name="tabs">
+										<label for="tab5"><span value="sexta">Sexta</span></label>
+									
+									 <input id="tab6" class="plano_estudo" type="radio" name="tabs">
+										<label for="tab6"><span value="sabado">Sabado</span></label>
+									
+									 <input id="tab7" class="plano_estudo" type="radio" name="tabs">
+										<label for="tab7"><span value="domingo">Domingo</span></label>
 
 									<!-- Tab Segunda -->
 									<section id="content1" class="tab-content">
-										<!-- Tabela do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-12 col-md-offset-2 custyle mx-0">
-												<form class="w-100">
-													
-													<!-- Horario -->
-													<span>Horario</span>
-													<input type="text" id="defaultContactFormName"
-														class="form-control mb-4" placeholder="Horario">
-													<!-- Select -->
-													<span>Disciplina</span> <select class="form-control"
-														id="exampleFormControlSelect1">
-														<option value="1" selected>Escolha uma disciplina</option>
-													</select>
-													<br>
-
-													<!-- Assunto -->
-													<span>Assunto</span> <select class="form-control"
-														id="exampleFormControlSelect1">
-														<option value="1" selected>Escolha um Assunto</option>
-													</select>
-											</div>
-										</div>
+										<div th:replace="/Usuario/listaAssunto::listaPlano"></div>
 									</section>
 
 									<!-- ----Tab terça-- -->
 									<section id="content2" class="tab-content">
-
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form></form>
-											</div>
-										</div>
+										<div th:replace="/Usuario/listaAssunto::listaPlano"></div>
 									</section>
 
 									<!-- ----Tab quarta-- -->
 									<section id="content3" class="tab-content">
+										<div th:replace="/Usuario/listaAssunto::listaPlano"></div>
 
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form></form>
-											</div>
-										</div>
 									</section>
 
 									<!-- ----Tab quinta-- -->
 									<section id="content4" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form></form>
-											</div>
-										</div>
+										<div th:replace="/Usuario/listaAssunto::listaPlano"></div>
 									</section>
 
 									<!--------Tab sexta--------->
 									<section id="content5" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form></form>
-											</div>
-										</div>
+										<div th:replace="/Usuario/listaAssunto::listaPlano"></div>
 									</section>
 
 									<!--------Tab sabado--------->
 									<section id="content6" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form></form>
-											</div>
-										</div>
+										<div th:replace="/Usuario/listaAssunto::listaPlano"></div>
 									</section>
 
 									<!--------Tab domingo--------->
 									<section id="content7" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form></form>
-											</div>
-										</div>
+										<div th:replace="/Usuario/listaAssunto::listaPlano"></div>
 									</section>
 
 								</div>
@@ -316,11 +275,14 @@
 					<script src="js/sb-admin-2.min.js"></script>
 
 					<!-- Page level plugins -->
-					<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+					<!-- ---<script src="vendor/datatables/jquery.dataTables.min.js"></script>
 					<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+					 -->
+					  <script src="/js/listaPlano.js"></script>
+					
 
 					<!-- Page level custom scripts -->
-					<script src="js/demo/datatables-demo.js"></script>
+					<!-- --<script src="js/demo/datatables-demo.js"></script> -->
 	</th:block>
 </body>
 
