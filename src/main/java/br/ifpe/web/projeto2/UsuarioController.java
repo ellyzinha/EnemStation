@@ -4,6 +4,7 @@ package br.ifpe.web.projeto2;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.query.criteria.internal.predicate.IsEmptyPredicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -16,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import br.ifpe.web.projeto2.Model.LoginGmail;
 import br.ifpe.web.projeto2.Model.Usuario;
 import br.ifpe.web.projeto2.service.UsuarioService;
 
@@ -41,11 +40,19 @@ public class UsuarioController {
 	//Efetuar o cadastro
 	@PostMapping("/addUsuario")
 	public String addUsuario(@Valid @ModelAttribute Usuario usuario, BindingResult br, RedirectAttributes ra) throws Exception{
+		
+		
 		if (br.hasErrors()) {
 			ra.addFlashAttribute("Errors",br.getAllErrors());
 		} else {
+			if(usuario.getSenhaRepetida().isEmpty()) {
+				ra.addFlashAttribute("Senha_conf","ops! você esqueceu de digita novamente seu senha!");
+				return "redirect:/cad";
+			}
+			
+			
 			try {
-				usuario.setAtivo(true);
+				
 				usuarioService.criarUsuario(usuario);
 				ra.addFlashAttribute("mensagem", "Usuário: " + usuario.getNome() + ", cadastrado com sucesso!");
 			} catch (Exception e) {
@@ -55,9 +62,40 @@ public class UsuarioController {
 		return "redirect:/cad";
 	}
 	
-	//Salvando informações do gmail
+	//EFETUANDO LOGIN E/OU CADASTRA VIA GMAIL
 	
-@RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
+	@ResponseBody
+	public String salvarGmail(@RequestParam String nome, @RequestParam String email,HttpSession session) {
+		
+		Usuario usuario = new Usuario();
+		usuario.setEmail(email);
+		usuario.setNome(nome);
+		
+		System.out.println(usuario.getEmail());
+		
+		this.usuarioService.loginGmail(usuario);
+		
+		session.setAttribute("usuarioLogado",usuario);
+		
+		return "redirect:/loginGmailG";
+	} 
+	
+	@GetMapping("/loginGmailG")
+	public String login() {
+		return "Usuario/login_gmail";
+	}
+	
+	@GetMapping("/loginGmailRequisicao")
+	public String requisicao() {
+		return "Usuario/login_requisicao";
+	}
+	
+	
+	
+	
+	/*
+	  @RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
 	@ResponseBody
 	public String salvarGmail(@RequestParam String nome, @RequestParam String email,HttpSession session) {
 		LoginGmail usuarioLogado = new LoginGmail();
@@ -70,14 +108,7 @@ public class UsuarioController {
 		
 		return "redirect:/perfil";
 	} 
-	
-
-	@GetMapping("/loginGmail")
-	public String gmail() {
-		return "Usuario/login_gmail";
-	}
-
-	
+	 */
 	
 	
 

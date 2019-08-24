@@ -38,6 +38,10 @@ public class MaterialService {
 		return materialDAO.findByMaterial(id);
 	}
 	
+	public String titulo(Integer id){
+		return materialDAO.findByTitulo(id);
+	}
+	
 	public List<Material> listarMaterial1(){
 		return materialDAO.findAll();
 	}

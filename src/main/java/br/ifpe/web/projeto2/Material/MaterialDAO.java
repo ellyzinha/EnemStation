@@ -22,4 +22,8 @@ public interface MaterialDAO extends JpaRepository<Material, Integer> {
 	//CONSULTANDO MATERIAL POR DISCIPLINA
 	@Query("select m from Material m where m.disciplina.id = :id")
 	public List<Material> findByMaterial(Integer id);
+	
+	//CONSULTANDO TITULO DA DISCIPLINA DE UM MATERIAL ESPECIFICO
+	@Query("select d.descricao from Disciplina d where d.id = :id")
+	public String findByTitulo(Integer id);
 }

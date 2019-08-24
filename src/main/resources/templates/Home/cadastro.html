@@ -199,7 +199,7 @@
 	<p class="text-center">Aproveite todas nossas ferramentas</p>
 	<p>
 	
-	<a class="btn btn-danger btn-block"  th:href="@{/loginGmail}">Login &nbsp; <i class="fab fa-google-plus-g"> </i></a>
+	<a class="btn btn-danger btn-block"  th:href="@{/loginGmailG}">Login &nbsp; <i class="fab fa-google-plus-g"> </i></a>
 	
 	
 	<p align="center" class="divider-text">
@@ -259,6 +259,11 @@
 		<div class="input-group-prepend">
     	
 		    <span class="input-group-text" id="showPassword1" value="show"> <i class="fa fa-eye" id="olho"></i> </span>
+		</div>
+	
+		<div  class="alert alert-danger" th:if="${Senha_conf}" style=" top: 13px" >
+		
+				<div th:text="${Senha_conf}"></div>
 		</div>
 
 </div> <!-- form-group// --> 
@@ -321,7 +326,7 @@
 						</div>
                       
                       </div>
-                      <button type="submit" class="btn btn-primary"> Entrar</button> <a class="btn btn-danger" th:href="@{/loginGmail}"> Gmail</a>
+                      <button type="submit" class="btn btn-primary"> Entrar</button> <a class="btn btn-danger" th:href="@{/loginGmailG}"> Gmail</a>
                       
                      
 							<div th:if="${mensagemErroModal}">

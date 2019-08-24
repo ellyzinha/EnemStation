@@ -6,17 +6,24 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
-import br.ifpe.web.projeto2.Model.LoginGmail;
 import br.ifpe.web.projeto2.Model.Usuario;
 
 public class AutorizadorInterceptor implements HandlerInterceptor {
 	private static final boolean CONTROLAR_ACESSO = true;
 
+<<<<<<< HEAD
 	private static final String[] RECURSOS_LIVRES = {"Home","/","/logout", "/efetuarLogin", "/acesso-negado","/cad","/addUsuario","/modificarSenha", "/email-enviado","/esquecer_senha","/esquecerSenhaForm","/lista_material/"};
 
 	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
 	
 	private static final String[] RECURSOS_USUARIO = {"/loginGmail","/material_disciplina","/loginGmail","/editar_plano","/perfil","/desempenho","/lista_material","/questoes", "/listaQuestoes","/editar_perfil","/dados_pessoais","/salvarResposta"};
+=======
+	private static final String[] RECURSOS_LIVRES = {"Home","/","/logout", "/efetuarLogin", "/acesso-negado","/cad","/addUsuario","/modificarSenha", "/email-enviado","/esquecer_senha","/lista_material/","/loginGmail","/loginGmailG","/loginGmailRequisicao"};
+
+	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
+	
+	private static final String[] RECURSOS_USUARIO = {"/loginGmail","/material_disciplina","esquecerSenhaForm","/editar_plano","/perfil","/desempenho","/lista_material/","/questoes","/addUsuario"};
+>>>>>>> 78a14c8ba9b36214a9531abc5242b9952a1d032c
 	
 	private static final String[] RECURSOS_ADMIN = {"/adicionar_materiais","/salvarMaterial"};
 
@@ -43,13 +50,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 			}
 		}
 		
-		if(request.getSession().getAttribute("usuarioLogado") instanceof LoginGmail ) {
-			for (String recurso : RECURSOS_USUARIO) {
-				if (request.getRequestURL().toString().endsWith(recurso)) {
-					return true;
-				}
-			}
-		}
+		
 
 		if (request.getSession().getAttribute("usuarioLogado") == null) {
 			request.getRequestDispatcher(PAGINA_ACESSO_NEGADO).forward(request, response);
@@ -69,14 +70,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 					return true;
 				}
 			}
-			
-			/*for (String recurso : RECURSOS_USUARIO) {
-				if (request.getRequestURL().toString().endsWith(recurso) && usuario.getPermissao() == 0) {
-					return true;
-				}else {
-					return false;
-				}
-			}*/
+		
 			
 			return false;
 		}
