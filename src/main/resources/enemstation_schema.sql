@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS usuario;
 CREATE TABLE usuario
 (
-  id_usuario int(11) AUTO_INCREMENT, ativo bit(1) NOT NULL,
+  id_usuario int(11) AUTO_INCREMENT,
   email varchar(255) NOT NULL, foto longblob NULL, 
   nome varchar(255) NOT NULL, permissao int(11) NULL, 
   senha varchar(255) NOT NULL, PRIMARY KEY (id_usuario)

@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.ifpe.web.projeto2.DAO.LoginGmailDAO;
 import br.ifpe.web.projeto2.DAO.UsuarioDAO;
-import br.ifpe.web.projeto2.Model.LoginGmail;
 import br.ifpe.web.projeto2.Model.Usuario;
 import br.ifpe.web.projeto2.exceptions.EmailExistsException;
 
@@ -23,16 +21,13 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioDAO usuarioDao;
 	@Autowired
-	private LoginGmailDAO loginGmailDAO;
+
 	
 	
 	public Usuario efetuarLogin(String email, String senha) throws ServiceException {
 		Usuario usuario = this.usuarioDao.efetuarLogin(email, senha);
 		if (usuario == null) {
 			throw new ServiceException("Login/senha não encontrados");
-		}
-		if (!usuario.isAtivo()) {
-			throw new ServiceException("Usuário [" + usuario.getNome() + "] está bloqueado");
 		}
 		return usuario;
 	}
@@ -73,19 +68,21 @@ public class UsuarioService {
 	
 	
 	//VERIFICANDO EMAIL DA NO BANCO
-	public LoginGmail findByLoginGmail(String email) {
-		return loginGmailDAO.findByLoginEmail(email);
+	public Usuario findByLoginGmail(String email) {
+		
+		return usuarioDao.findByEmail(email);
 	}
 	
 	//VERIFICANDO SE O EMAIL DA API JÁ EXISTE NO BANCO, CASO NÃO ESTEJA SALVA
-	public LoginGmail loginGmail(LoginGmail lg) {
+	public Usuario loginGmail(Usuario lg) {
 		
 		
-		if(this.findByLoginGmail(lg.email) != null){
+		if(this.findByLoginGmail(lg.getEmail()) == null){
+			usuarioDao.save(lg);
 			return lg;
 			
 		}
-		loginGmailDAO.save(lg);
+		
 		return lg;
 	}
 	

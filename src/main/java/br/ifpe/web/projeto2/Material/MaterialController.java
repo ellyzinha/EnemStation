@@ -109,9 +109,15 @@ public class MaterialController {
 	
 
 	@GetMapping("/lista_material/{id}")
-	public ModelAndView exibirMaterial(@PathVariable("id") Integer id) {
+	public ModelAndView exibirMaterial(@PathVariable("id") Integer id,RedirectAttributes ra) {
 		ModelAndView mv=  new ModelAndView("Material/listaMaterial");
 		mv.addObject("listarMateriais",materialService.listarMaterial(id));
+		mv.addObject("titulo",materialService.titulo(id));
+		if(materialService.listarMaterial(id) == null) {
+			ra.addFlashAttribute("Mensagem","Nenhum material Disponivel!");
+			return mv;
+		}
+		
 		
 		return mv;
 	}

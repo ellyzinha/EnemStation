@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,6 +28,7 @@ public class Material {
 	
 	@ManyToOne  
 	@NotNull(message="selecione uma disciplina")
+	@JoinColumn(name ="disciplina_id")
 	public Disciplina disciplina;
 	
 	@Size(max=50)

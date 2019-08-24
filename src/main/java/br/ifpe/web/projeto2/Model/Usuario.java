@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -33,12 +34,11 @@ public class Usuario {
 	@Column(nullable = false)
 	private String email;
 	
-	@Column(nullable = false)
-	@NotBlank(message = "Insira uma senha para prosseguir")
+	@Column(nullable = true)
 	@Size(min = 6, message = "Digite uma senha com minimo 6 caracteres")
 	private String senha;
 	
-	private boolean ativo;
+	
 	
 	
 	private int permissao;
@@ -49,11 +49,22 @@ public class Usuario {
 	@Lob
 	private byte[] foto;
 	
+	@Transient
+	private String senhaRepetida;
 	
 	
 	
 	
 	
+	
+	public String getSenhaRepetida() {
+		return senhaRepetida;
+	}
+
+	public void setSenhaRepetida(String senhaRepetida) {
+		this.senhaRepetida = senhaRepetida;
+	}
+
 	public byte[] getFoto() {
 		return foto;
 	}
@@ -78,13 +89,7 @@ public class Usuario {
 		this.dadosUsuario = dadosUsuario;
 	}
 	
-	public boolean isAtivo() {
-		return ativo;
-	}
 	
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
 	
 	public Integer getId_usuario() {
 		return id_usuario;
