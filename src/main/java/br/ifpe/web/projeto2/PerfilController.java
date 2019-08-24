@@ -1,6 +1,7 @@
 package br.ifpe.web.projeto2;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,16 +13,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ifpe.web.projeto2.DAO.DadosUsuarioDAO;
+import br.ifpe.web.projeto2.DAO.PlanoEstudoDAO;
 import br.ifpe.web.projeto2.DAO.UsuarioDAO;
 import br.ifpe.web.projeto2.Model.DadosUsuario;
+import br.ifpe.web.projeto2.Model.PlanoEstudo;
 import br.ifpe.web.projeto2.Model.Usuario;
+import br.ifpe.web.projeto2.service.PlanoEstudoService;
 import br.ifpe.web.projeto2.service.UsuarioService;
 
 
@@ -34,13 +40,25 @@ public class PerfilController {
 	private UsuarioService usuarioService;
 	@Autowired
 	private DadosUsuarioDAO dadosUsuarioRep;
+	@Autowired
+	private PlanoEstudoService planoEstudoService;
+	
 	
 	@GetMapping("/perfil")
 	public ModelAndView exibirPerfil() {
-		ModelAndView mv = new ModelAndView("Usuario/perfil");		
+		ModelAndView mv = new ModelAndView("Usuario/perfil");
 		mv.addObject("listaUsuarios", this.usuarioRep.findAll(Sort.by("nome")));
 		return mv;
 	}
+	
+	@GetMapping("/planoEstudo/{diadasemana}")
+	public ModelAndView planoEstudo(@PathVariable("diadasemana")String diadasemana,  HttpSession session) {
+		ModelAndView mv = new ModelAndView("/Usuario/perfil::planoEstudo");
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		mv.addObject("planoEstudo", this.planoEstudoService.listaPlano(diadasemana, usuario));
+		return mv;
+	}
+	
 	
 	@GetMapping("/editar_perfil")
 	public ModelAndView exibirEditarPerfil(Usuario usuario) {
@@ -118,4 +136,6 @@ public class PerfilController {
 		return mv;
 	}
 
+	
+	
 }
