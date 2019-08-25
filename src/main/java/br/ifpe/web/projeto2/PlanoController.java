@@ -6,18 +6,18 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import br.ifpe.web.projeto2.DAO.AssuntoDAO;
 import br.ifpe.web.projeto2.DAO.DisciplinaDAO;
-import br.ifpe.web.projeto2.DAO.PlanoEstudoDAO;
+
 
 import br.ifpe.web.projeto2.Model.PlanoEstudo;
 import br.ifpe.web.projeto2.Model.Usuario;
@@ -61,19 +61,19 @@ public class PlanoController {
 		mv.setViewName("redirect:/plano_estudo");
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 		planoEstudo.setUsuario(usuario);
+		//this.planoEstudoService.save(planoEstudo);
 		this.planoEstudoService.save(planoEstudo);
-		
 		return mv;
 	}
 	
-	@GetMapping("/formularioPlano/{id_disciplina}")
-	public ModelAndView listaAssunto(@PathVariable("id_disciplina") Integer id ) {
-		ModelAndView mv = new ModelAndView("/Usuario/listaAssunto::listaAssunto");
-		mv.addObject("listaAssunto", this.planoEstudoService.listaAssunto(id));
-		
-
-		return mv;
-	}
+//	@GetMapping("/formularioPlano/{id_disciplina}")
+//	public ModelAndView listaAssunto(@PathVariable("id_disciplina") Integer id ) {
+//		ModelAndView mv = new ModelAndView("/Usuario/listaAssunto::listaAssunto");
+//		mv.addObject("listaAssunto", this.planoEstudoService.listaAssunto(id));
+//		
+//
+//		return mv;
+//	}
 	
 //	public String cadastroPlano(@Valid @ModelAttribute PlanoEstudo planoEstudo, Errors errors, RedirectAttributes ra) {
 //		if(errors.hasErrors()) {

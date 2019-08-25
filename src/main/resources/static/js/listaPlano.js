@@ -1,3 +1,4 @@
+// funcao para listar o plano de estudo, de acordo com cada dia que foi cadastrado ex: cadastro de segunda, lista em segunda
 function planoEstudo(diadasemana){
 	$.ajax({
 		url: "/planoEstudo/" + diadasemana,
@@ -9,15 +10,15 @@ function planoEstudo(diadasemana){
 	
 }
 
-function listaAssunto(plano, id){
+//function listaAssunto(plano, id){
 	
-	console.log($(plano).attr('id'), id);
+	//console.log($(plano).attr('id'), id);
 	
-	$.ajax({
-		url: "/formularioPlano/ "+ id,
-		success: function(data) {
-		$("#"+$(plano).attr('id')).find('select').html(data);
-		
-	}
-	})
-}
+//	$.ajax({
+		//url: "/formularioPlano/ "+ id,
+		//success: function(data) {
+		//$("#"+$(plano).attr('id')).find('select').html(data);
+	//	$(this).parent().find("select:last-child").html(data);
+//	}
+	//})
+//}

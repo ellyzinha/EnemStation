@@ -122,9 +122,9 @@ public class PerfilController {
 		return "redirect:/perfil";
 	}
 	
-	@GetMapping("dados_pessoais")
+	@GetMapping("/dados_pessoais")
 	public ModelAndView dados_pessoais(DadosUsuario dadosUsuario, Usuario usuario) {
-		ModelAndView mv = new ModelAndView("Usuario/informacoes_pessoais");
+		ModelAndView mv = new ModelAndView("/Usuario/informacoes_pessoais");
 		if (dadosUsuario != null && dadosUsuario.getUsuario() != null) {
 			dadosUsuario = this.dadosUsuarioRep.getOneUsuarioId();
 			return exibirPerfil();

@@ -32,9 +32,14 @@ public class PlanoEstudoService {
 		return planoEstudoDAO.findAll();
 	}
 	
-	public void save( PlanoEstudo planoEstudo){
+	public void save(PlanoEstudo planoEstudo) {
 		planoEstudoDAO.save(planoEstudo);
 	}
+	
+	
+//	public void save(PlanoEstudo planoEstudo){
+//		planoEstudoDAO.save(planoEstudo);
+//	}
 	
 	public PlanoEstudo getOne(Integer id) {
 		return planoEstudoDAO.getOne(id);
