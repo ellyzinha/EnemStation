@@ -20,7 +20,7 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioDAO usuarioDao;
-	@Autowired
+
 
 	
 	
