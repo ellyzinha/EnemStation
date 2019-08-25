@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Tema CSS -->
-  <link href="css/freelancer.css" rel="stylesheet">
+  <link href="css/freelancer.min.css" rel="stylesheet">
 
   <!-- Bootstrap temas-->
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -30,7 +30,7 @@
       padding: 10%;
   }
   .how-section1 h4{
-      color: #3931af;
+      color: rgb(85,176,131);
       font-weight: bold;
       font-size: 30px;
   }
@@ -49,6 +49,17 @@
   .how-img img{
       width: 40%;
   }
+
+  a {
+      color: rgb(85,176,131);
+      text-decoration: none;
+      background-color: transparent;
+  }
+
+  a:hover {
+      color:rgb(85,176,131);
+      text-decoration: underline;
+  }
   </style>
 
 
@@ -57,13 +68,9 @@
 <body id="page-top">
 
   <!-- Menu de navegação -->
-  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #0e3b56;">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Enem Station</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
@@ -73,7 +80,7 @@
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Sobre</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Entrar</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/cad}">Cadastro</a>
@@ -84,11 +91,11 @@
   </nav>
 
   <!-- Masthead -->
-  <header class="masthead text-white text-center" style="background-color:  rgb(43, 5, 78);">
+  <header class="masthead text-white text-center" style="background-color:  rgb(85,176,131);">
     <div class="container d-flex align-items-center flex-column">
 
       <!-- Masthead Avatar Image -->
-      <img class="masthead-avatar mb-5" src="img/logoazul.png" alt="">
+      <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
 
       <!-- Masthead Heading -->
       <h1 class="masthead-heading text-uppercase mb-0">O que é o Enem Station?</h1>
@@ -176,7 +183,7 @@
   </section>
 
   <!-- About Section -->
-  <section class="page-section text-white mb-0" id="about" style="background-color:  rgb(43, 5, 78);">
+  <section class="page-section text-white mb-0" id="about" style="background-color:  rgb(85,176,131);">
     <div class="container">
 
       <!-- About Section Heading -->
@@ -216,7 +223,7 @@
 
 
   <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
+  <section class="copyright py-4 text-center text-white" style=" background-color: #0e3b56;">
     <div class="container">
       <small>Copyright &copy; Enem Station 2019</small>
     </div>
@@ -235,8 +242,8 @@
   <div class="modal" tabindex="-1" role="dialog" id="modal-login">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header" style="background-color:rgb(43, 5, 78);">
-        <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
+      <div class="modal-header" style="background-color:rgb(85,176,131);">
+        <h5 class="modal-title" style="color: s9,19,16);">Entrar</h5>
         <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -273,7 +280,7 @@
                     Esqueceu senha? <a th:href="@{/esquecer_senha}">Recuperar</a>
 
       </div>
-      <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
+      <div class="modal-footer" style="background-color: rgb(85,176,131); padding: 5% 41% 5% 35%;">
         <a type="button" class="btn btn-primary" th:href="@{/cad}">Cadastrar</a>
         </div> 
       
