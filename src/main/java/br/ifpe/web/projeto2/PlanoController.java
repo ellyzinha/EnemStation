@@ -61,7 +61,6 @@ public class PlanoController {
 		mv.setViewName("redirect:/plano_estudo");
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 		planoEstudo.setUsuario(usuario);
-		//this.planoEstudoService.save(planoEstudo);
 		this.planoEstudoService.save(planoEstudo);
 		return mv;
 	}

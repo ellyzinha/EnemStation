@@ -27,8 +27,12 @@ public class PlanoEstudo {
 	private String diadasemana;
 	
 	@Column(nullable = false)
-	@NotBlank(message = "Informe um horario")
-	private String horario;
+	@NotBlank(message = "Informe um horario de Inicio")
+	private String horarioInicio;
+	
+	@Column(nullable = false)
+	@NotBlank(message = "Informe um horario Final")
+	private String horarioFinal;
 	
 	@OneToOne
 	@NotNull(message = "Informe o Assunto")
@@ -59,12 +63,20 @@ public class PlanoEstudo {
 		this.id_plano = id_plano;
 	}
 
-	public String getHorario() {
-		return horario;
+	public String getHorarioInicio() {
+		return horarioInicio;
 	}
 
-	public void setHorario(String horario) {
-		this.horario = horario;
+	public void setHorarioInicio(String horarioInicio) {
+		this.horarioInicio = horarioInicio;
+	}
+
+	public String getHorarioFinal() {
+		return horarioFinal;
+	}
+
+	public void setHorarioFinal(String horarioFinal) {
+		this.horarioFinal = horarioFinal;
 	}
 
 	public Assunto getAssunto() {
