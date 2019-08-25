@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.ifpe.web.projeto2.Model.Usuario;
 import br.ifpe.web.projeto2.service.UsuarioService;
+import br.ifpe.web.projeto2.util.Util;
 
 @Controller
 public class UsuarioController {
@@ -41,7 +42,7 @@ public class UsuarioController {
 	@PostMapping("/addUsuario")
 	public String addUsuario(@Valid @ModelAttribute Usuario usuario, BindingResult br, RedirectAttributes ra) throws Exception{
 		
-		
+
 		if (br.hasErrors()) {
 			ra.addFlashAttribute("Errors",br.getAllErrors());
 		} else {
@@ -49,9 +50,8 @@ public class UsuarioController {
 				ra.addFlashAttribute("Senha_conf","ops! você esqueceu de digita novamente seu senha!");
 				return "redirect:/cad";
 			}
-			
-			
 			try {
+				usuario.setSenha(Util.criptografarSenha(usuario.getSenha()));
 				
 				usuarioService.criarUsuario(usuario);
 				ra.addFlashAttribute("mensagem", "Usuário: " + usuario.getNome() + ", cadastrado com sucesso!");
@@ -72,7 +72,6 @@ public class UsuarioController {
 		usuario.setEmail(email);
 		usuario.setNome(nome);
 		
-		System.out.println(usuario.getEmail());
 		
 		this.usuarioService.loginGmail(usuario);
 		

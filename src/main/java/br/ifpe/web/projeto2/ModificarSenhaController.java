@@ -46,7 +46,7 @@ public class ModificarSenhaController {
             model.addAttribute("token", resetToken.getToken());
         }
 
-        return "modificar_senha";
+        return "Usuario/modificar_senha";
     }
 	
 	@PostMapping

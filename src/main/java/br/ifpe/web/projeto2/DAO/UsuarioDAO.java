@@ -39,7 +39,6 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	
 	
 	
-	
 	//OS CODIGOS ABAIXO SERVIRA PARA REPRESENTACAO DO DESEMPENHO
 	//CONSULTANDO QUANTIDADE DE ERROS DAS REPOSTAS DE PORTUGUES
 	@Query(value="select disciplinas.descricao, ( select count(tb_resposta.id) from tb_resposta \r\n" + 

@@ -8,32 +8,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="img/logoazul.png" >
+  <link rel="shortcut icon" th:href="@{/img/logoazul.png}" >
 
   <title>Material - Enem Station</title>
 
   <!-- Fontes para esse tema -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+  <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}" rel="stylesheet" type="text/css">
+  <link th:href="@{https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic}" rel="stylesheet" type="text/css">
+  <link th:href="@{https://fonts.googleapis.com/css?family=Arvo&display=swap}" rel="stylesheet">
 
   <!-- Tema CSS -->
-  <link href="css/freelancer.min.css" rel="stylesheet">
+  <link th:href="@{/css/freelancer.min.css}" rel="stylesheet">
   
   
    <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+  <link th:href="@{https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <link href="css/freelancer.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" href="css/plano.css">
+  <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
+  <link th:href="@{/css/freelancer.min.css}" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/plano.css}">
 
 
 </head>
@@ -82,7 +82,7 @@
               <span>Meu Plano</span></a>
       </li>
           <li class="nav-item active">
-                <a class="nav-link" th:href="@{/ind}">
+                <a class="nav-link" th:href="@{/desempenho}">
                   <i class="fas fa-chart-bar"></i>
                   <span>Desempenho</span></a>
               </li>
@@ -104,9 +104,22 @@
 	        <!-- Topbar -->
 	        <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
 	          
-	          <h1 style="font-family: 'Arvo', serif; color: black; ">Materiais de Português</h1>
-	
+	          <h2 style="font-family: 'Arvo', serif; color: black; padding-left: 30% " th:text="${titulo}"></h2>
+				
+				
+				<!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+				<ul class="navbar-nav ml-auto">
+
+           
+				
 	        </nav>
+	        
+	        
+	        
+	        
 		</div>
         <!-- Begin Page Content -->
 
@@ -115,14 +128,15 @@
 				<div class="card  bg-light" >
 						<!-- CORPO DA PÁGINA -->
 								<article class="card-body ">
-									<div th:text="${semMaterial}"></div>
+									<div ></div>
 			
 			
 									<div class="container">
 			
 			
-										<div class="row" >
+										 <div class="row" >
 											<div class="col-sm py fixed" th:each="cont : ${listarMateriais}" style="padding: 2%;">
+											
 												<div class="card text-white bg-primary" style="width: 18rem;">
 													<div class="card-body">
 														<h3 class="card-title" th:text="${cont.titulo}"></h3>
@@ -132,11 +146,16 @@
 													</div>
 												</div>
 											</div>
+											
+											
 			
 			
 										</div>
+										
+										
+										
 									</div>
-			
+			<div th:if="${Mensagem}" th:text="${Mensagem}"> Nenhum Material Disponivel!</div>
 			
 			
 								</article>
@@ -193,3 +212,4 @@
 </body>
 
 </html>
+

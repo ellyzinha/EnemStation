@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="httP://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+</head>
+<body>
+	<th:block th:fragment="listaPlano">
+
+
+		<!-- Formulario do Plano de Estudo -->
+		<div class="container" align="center">
+			<div class="row col-md-6 col-md-offset-2 custyle">
+				<form class="w-100" th:action="@{/cadastroPlano}" method="post"
+					th:object="${planoEstudo}" id="plano_form">
+					<div class="alert alert-success" th:if="${mensagem}"
+						th:text="${mensagem}"></div>
+					<div>
+						<input type="hidden" th:field="*{id_plano}" /> <input
+							type="hidden" id="diadasemana" value="terca" name="diadasemana" />
+					</div>
+					<!-- Horario -->
+					<span class="span">Horario</span> <input type="time"
+						id="defaultContactFormName" th:field="*{horario}"
+						class="form-control mb-4" placeholder="Horario" min="00:01"
+						max="23:00" th:errorclass="fieldError"> <span
+						class="fieldError" th:if="${#fields.hasErrors('horario')}"
+						th:errors="*{horario}"></span>
+
+					<!-- Select -->
+					<span class="span">Disciplina</span> <select onchange="listaAssunto(this, this.value)" class="form-control"
+						id="exampleFormControlSelect1" th:field="*{disciplina}">
+						<option value="1" selected>Escolha uma disciplina</option>
+						<option th:each="disciplina : ${listaDisciplina}"
+							th:text="${disciplina.descricao}" th:value="${disciplina.id}"></option>
+					</select> <br>
+					<div id="assunto">
+						<span class="span">Assunto</span> <select class="form-control"
+							id="exampleFormControlSelect1" th:field="*{assunto}">
+
+							<div th:replace="/Usuario/listaAssunto::listaAssunto"></div>
+							
+						</select>
+					</div>
+					<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+						<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
+					</div>
+					<br>
+					<button class="btn btn-outline-success" type="submit">Salvar</button>
+					<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+
+				</form>
+			</div>
+		</div>
+
+
+	</th:block>
+	<th:block th:fragment="listaAssunto">
+
+		<!-- Assunto -->
+		<option value="1" selected>Escolha um Assunto</option>
+		<option th:each="assunto : ${listaAssunto}"
+			th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
+
+	</th:block>
+
+
+</body>
+
+</html>

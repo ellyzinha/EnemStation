@@ -21,7 +21,6 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioDAO usuarioDao;
 
-
 	
 	
 	public Usuario efetuarLogin(String email, String senha) throws ServiceException {
@@ -89,8 +88,6 @@ public class UsuarioService {
 	public Integer findByPermissao(String email) {
 		return usuarioDao.findByPermissao(email);
 	}
-	
-
 	
 	
 	

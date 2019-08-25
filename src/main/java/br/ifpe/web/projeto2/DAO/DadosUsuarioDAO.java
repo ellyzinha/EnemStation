@@ -9,6 +9,6 @@ import br.ifpe.web.projeto2.Model.DadosUsuario;
 @Repository
 public interface DadosUsuarioDAO extends JpaRepository<DadosUsuario, Integer> {
 	@Query("select u from DadosUsuario u where u.usuario = :usuario")
-	DadosUsuario getOneUsuario();
+	DadosUsuario getOneUsuarioId();
 
 }

@@ -37,7 +37,7 @@ public class EsquecerSenhaController {
 	
 	@GetMapping
 	public String displayEsquecerSenhaPage() {
-		return "esquecer_senha";
+		return "Usuario/esquecer_senha";
 	}
 	
 	@PostMapping
@@ -46,13 +46,13 @@ public class EsquecerSenhaController {
                                             HttpServletRequest request) {
 
         if (result.hasErrors()){
-            return "esquecer_senha";
+            return "Usuario/esquecer_senha";
         }
         
         Usuario usuario = usuarioService.findUsuarioByEmail(form.getEmail());
         if(usuario == null) {
         	result.rejectValue("email",null, "Não Encontramos uma conta com esse email");
-        	return "esquecer_senha";
+        	return "Usuario/esquecer_senha";
         }
         
         SenhaToken token = new SenhaToken();
@@ -75,7 +75,7 @@ public class EsquecerSenhaController {
         mail.setModel(model);
         emailService.enviarEmail(mail);
         
-        return "redirect:/esquecer_senha?sucess";
+        return "redirect:/Usuario/esquecer_senha?sucess";
         
         
         

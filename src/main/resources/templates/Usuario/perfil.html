@@ -23,13 +23,13 @@
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   <link href="css/freelancer.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" href="css/plano.css">
-
+	<link rel="stylesheet" type="text/css" href="css/plano_estudo.css">
+	
+	
 </head>
 
 <body id="page-top">
 
-	<th:block th:if="${session.usuarioLogado}">
 
   <!-- Page Wrapper -->
  <div id="wrapper">
@@ -42,7 +42,7 @@
        <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
-        <div class="sidebar-brand-text mx-3">Meu Perfil</div>
+        <div class="sidebar-brand-text mx-3"   > <i class="fas fa-home"></i>Home</div>
       </a>
 
       <!-- Divider -->
@@ -57,9 +57,9 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item active">
-        <a class="nav-link" th:href="@{/}">
-          <i class="fas fa-home"></i>
-          <span>Home</span></a>
+        <a class="nav-link" th:href="@{/perfil}">
+          <i class="fas fa-book"></i>
+          <span>Meu Plano de Estudo</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
@@ -76,10 +76,16 @@
           </li>
 
           <li class="nav-item active">
-                <a class="nav-link" th:href="@{/desempenho}">
+                <a class="nav-link" href="#">
                   <i class="fas fa-chart-bar"></i>
                   <span>Desempenho</span></a>
               </li>
+              
+          <!--<li class="nav-item active">
+        <a class="nav-link" th:href="@{/plano_estudo}">
+          <i class="fas fa-book"></i>
+          <span>Plano de Estudo</span></a>
+      </li>--->
               
               
 
@@ -149,34 +155,45 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" align="center" >
-              <h6 class="m-0 font-weight-bold text-info">Plano de Estudo</h6>
+              <h6 class="m-0 font-weight-bold text-info" id="h6">Plano de Estudo</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <div class="tab_container">
-                                <input id="tab1" type="radio" name="tabs" checked>
-                                <label for="tab1"><span>Segunda</span></label>
-                          
-                                <input id="tab2" type="radio" name="tabs">
-                                <label for="tab2"><i class="fa fa-pencil-square-o"></i><span>Terça</span></label>
-                          
-                                <input id="tab3" type="radio" name="tabs">
-                                <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Quarta</span></label>
-                          
-                                <input id="tab4" type="radio" name="tabs">
-                                <label for="tab4"><i class="fa fa-folder-open-o"></i><span>Quinta</span></label>
-                          
-                                <input id="tab5" type="radio" name="tabs">
-                                <label for="tab5"><i class="fa fa-envelope-o"></i><span>Sexta</span></label>
-                          
-                              <!-- Tab Segunda --> 
+                        
+									<input onclick="planoEstudo($(this).val())" id="tab1" 
+									class="plano_estudo" type="radio" name="tabs"
+									value="segunda"> <label for="tab1"><span value="segunda">Segunda</span></label>
+
+									<input onclick="planoEstudo($(this).val())" id="tab2" value="terca"
+									class="plano_estudo" type="radio" name="tabs">
+									<label for="tab2"><span value="terca">Terça</span></label> 
+									
+									<input onclick="planoEstudo($(this).val())" id="tab3" value="quarta"
+										class="plano_estudo" type="radio" name="tabs"> <label
+										for="tab3"><span value="quarta">Quarta</span></label> 
+										
+									<input onclick="planoEstudo($(this).val())" id="tab4" value="quinta"
+										class="plano_estudo" type="radio" name="tabs"> <label
+										for="tab4"><span value="quinta">Quinta</span></label> 
+										
+									<input onclick="planoEstudo($(this).val())" id="tab5" value="sexta"
+										class="plano_estudo" type="radio" name="tabs"> <label
+										for="tab5"><span value="sexta">Sexta</span></label> 
+										
+									<input onclick="planoEstudo($(this).val())" id="tab6" value="sabado"
+										class="plano_estudo" type="radio" name="tabs"> <label
+										for="tab6"><span value="sabado">Sabado</span></label> 
+										
+									<input onclick="planoEstudo($(this).val())" id="tab7" value="domingo"
+										class="plano_estudo" type="radio" name="tabs"> <label
+										for="tab7"><span value="domingo">Domingo</span></label> 
+										                         
                               <section id="content1" class="tab-content">
-                          
+                               <div th:fragment="planoEstudo" th:if="${planoEstudo}">
                               <!-- Tabela do Plano de Estudo -->
-                          
-                              <div class="container" align="center">
-                              <div class="row col-md-6 col-md-offset-2 custyle">
+                              <div class="container" align="center" >
+                              <div class="row col-md-6 col-md-offset-2 custyle mx-0">
                               <table class="table table-striped custab">
                               <thead>
                                   <tr>
@@ -185,202 +202,31 @@
                                       <th>Assunto</th>
                                       <th class="text-center"></th>
                                   </tr>
+                                  <tr th:each="plano : ${planoEstudo}">
+                                  	<td  th:text="${plano.horario}" ></td>
+                                  	<td  th:text="${plano.disciplina.descricao}"></td>
+                                  	<td  th:text="${plano.assunto.descricao}" ></td>
+                                  	<td>	<a th:href="@{/editarPlano(id_plano=${plano.id_plano})}" class="btn btn-info btn-xs">Editar</a>
+                                  			<a th:href="@{/removerPlano(id_plano=${plano.id_plano})}" class="btn btn-danger btn-xs">Remover</a>
+                                  		</td>
+                                  	</tr>
                               </thead>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
                               </table>
                               </div>
                           </div>
-                                      
-                                </section>
-                          
-                                <section id="content2" class="tab-content">
-                          
-                              <!-- Tabela do Plano de Estudo -->
-                          
-                              <div class="container" align="center">
-                              <div class="row col-md-6 col-md-offset-2 custyle">
-                              <table class="table table-striped custab">
-                              <thead>
-                                  <tr>
-                                      <th>Horário</th>
-                                      <th>Disciplina</th>
-                                      <th>Assunto</th>
-                                      <th class="text-center"></th>
-                                  </tr>
-                              </thead>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                              </table>
-                              </div>
                           </div>
-                                    
-                                </section>
-                          
-                                <section id="content3" class="tab-content">
-                          
-                              <!-- Tabela do Plano de Estudo -->
-                          
-                              <div class="container" align="center">
-                              <div class="row col-md-6 col-md-offset-2 custyle">
-                              <table class="table table-striped custab">
-                              <thead>
-                                  <tr>
-                                      <th>Horário</th>
-                                      <th>Disciplina</th>
-                                      <th>Assunto</th>
-                                      <th class="text-center"></th>
-                                  </tr>
-                              </thead>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                              </table>
-                              </div>
-                          </div>
-                                  
-                                </section>
-                          
-                                <section id="content4" class="tab-content">
-                          
-                              <!-- Tabela do Plano de Estudo -->
-                          
-                              <div class="container" align="center">
-                              <div class="row col-md-6 col-md-offset-2 custyle">
-                              <table class="table table-striped custab">
-                              <thead>
-                                  <tr>
-                                      <th>Horário</th>
-                                      <th>Disciplina</th>
-                                      <th>Assunto</th>
-                                      <th class="text-center"></th>
-                                  </tr>
-                              </thead>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                              </table>
-                              </div>
-                          </div>
-                                </section>
-                          
-                                <section id="content5" class="tab-content">
-                          
-                              <!-- Tabela do Plano de Estudo -->
-                          
-                              <div class="container" align="center">
-                              <div class="row col-md-6 col-md-offset-2 custyle">
-                              <table class="table table-striped custab">
-                              <thead>
-                                  <tr>
-                                      <th>Horário</th>
-                                      <th>Disciplina</th>
-                                      <th>Assunto</th>
-                                      <th class="text-center"></th>
-                                  </tr>
-                              </thead>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                                      <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Editar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                                      </tr>
-                </table>
-              </div>
-            </div>
+                          </section>
+                                  <a th:href="@{/plano_estudo}" class="btn btn-primary">Cadastrar Plano de Estudo</a>
+        				  </div>
+         		 </table>
+         	 </div>
+          	</div>
           </div>
 
-        </div>
-        <!-- /.container-fluid -->
+		</div>
+	</div>
+</div>
 
-      </div>
-      <!-- End of Main Content -->
-
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -401,24 +247,28 @@
       </div>
     </div>
   </div>
-
+  
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="/js/listaPlano.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- -<script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <!-- -<script src="js/sb-admin-2.min.js"></script> -->
 
   <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <!-- -<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
-</th:block>
+  <!-- -<script src="js/demo/datatables-demo.js"></script> -->
+  
+    
+
 </body>
 
 </html>

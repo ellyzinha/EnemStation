@@ -154,7 +154,7 @@ insert into tb_assunto (id, descricao, id_disciplina)
 values (60, 'Realismo', 12);
 
 insert into tb_questoes (id, comentario, enunciado, imagem, texto,
-id_dificuldade, id_assunto) values (1,NULL, "Para se entender o trecho como uma unidade de sentido, é
+id_dificuldade, id_assunto,disciplina_id) values (1,NULL, "Para se entender o trecho como uma unidade de sentido, é
 preciso que o leitor reconheça a ligação entre seus
 elementos. Nesse texto, a coesão é construída
 predominantemente pela retomada de um termo por outro e
@@ -169,7 +169,7 @@ medieval influentia, que significava “influência dos astros
 sobre os homens”. O segundo era apenas a forma nominal
 do verbo gripper, isto é, “agarrar”. Supõe-se que fizesse
 referência ao modo violento como o vírus se apossa do
-organismo infectado.",1,4), 
+organismo infectado.",1,4,1), 
 (2, NULL, "Ao escrever um artigo de opinião, o produtor precisa criar
 uma base de orientação linguística que permita alcançar os
 leitores e convencê-los com relação ao ponto de vista
@@ -195,7 +195,7 @@ Não mais como aqueles acorrentados na caverna
 de Platão, somos livres para nos aprisionar, por espontânea
 vontade, a esta relação sadomasoquista com as estruturas
 midiáticas, na qual tanto controlamos quanto somos
-controlados.", 2,4),
+controlados.", 2,4,1),
 (3, NULL, 'Na piada, a quebra de expectativa contribui para produzir o
 efeito de humor. Esse efeito ocorre porque um dos
 personagens', NULL, 'Dois comprades viajavam de carro por uma
@@ -206,10 +206,10 @@ Um dos compadres falou:
 O outro perguntou:
 — Lagarto ou largato?
 O primeiro respondeu:
-— Num sei não, o bicho passou muito rápido.', 3,4),
+— Num sei não, o bicho passou muito rápido.', 3,4,1),
 (4, NULL, 'As palavras e as expressões são mediadoras dos sentidos
 produzidos nos textos. Na fala de Hagar, a expressão “é como se” ajuda a conduzir o conteúdo 
-enunciado para o campo da', 'img/questoes/enem-2012-7.png', NULL, 2, 4),
+enunciado para o campo da', 'img/questoes/enem-2012-7.png', NULL, 2, 4,1),
 (5, NULL, 'No texto, o autor desenvolve uma reflexão sobre diferentes possibilidades de uso da língua e sobre os sentidos que esses usos podem produzir, 
 a exemplo das expressões “voltou de ateu”, “disilimina esse” e “eu não sei a ler”. Com essa reflexão, o autor destaca', NULL, 'Cabeludinho
 
@@ -221,7 +221,7 @@ solenidade de amor. E pode ser instrumento de rir. De outra feita, no meio da pe
 Eu não disiliminei ninguém. Mas aquele verbo novo trouxe um perfume de poesia à nossa quadra. Aprendi nessas férias a brincar de palavras mais do 
 que trabalhar com elas. Comecei a não gostar de palavra engavetada. Aquela que não pode mudar de lugar. Aprendi a gostar mais das palavras pelo que 
 elas entoam do que pelo que elas informam. Por depois ouvi um vaqueiro a cantar com saudade: Ai morena, não me escreve / que eu não sei aler. 
-Aquele a preposto ao verbo ler, ao meu ouvir, ampliava  a solidão do vaqueiro.', 3, 4),
+Aquele a preposto ao verbo ler, ao meu ouvir, ampliava  a solidão do vaqueiro.', 3, 4,1),
 (6, NULL, 'Utilizando 0,26 como valor aproximado para tangente de
 15º e duas casas decimais nas operações, descobre-se que a
 área da base desse prédio ocupa na avenida um espaço', 'http://s2.glbimg.com/wFmzcyoTJ-4YBRhZn5gLT4fJR0M=/0x0:290x389/290x389/s.glbimg.com/po/ek/f/original/2013/11/08/enem-prova-2013-136.png'
@@ -231,12 +231,12 @@ Madri, na Espanha. A inclinação das torres é de 15° com a
 vertical e elas têm, cada uma, uma altura de 114 m (a altura
 é indicada na figura como o segmento AB). Estas torres são
 um bom exemplo de um prisma oblíquo de base quadrada e
-uma delas pode ser observada na imagem.', 3,7),
+uma delas pode ser observada na imagem.', 3,7,2),
 (7, NULL, 'Suponha que o navegante tenha medido o ângulo aa = 30º e, ao chegar ao ponto B, verificou que o barco havia percorrido a 
 distância AB = 2 000 m. Com base nesses dados e mantendo a mesma trajetória, a menor distância do barco até o ponto fixo P será'
 , 'http://s2.glbimg.com/GTotnU7Qw8dYHLL9Ua2ynlxC4Rs=/0x0:682x219/620x199/s.glbimg.com/po/ek/f/original/2013/10/09/questao_155_da_prova_do_enem_2011_.png'
 ,'Para determinar a distância de um barco até a praia, um navegante utilizou o seguinte procedimento: a partir de um ponto A, mediu o ângulo visual aa fazendo mira em um ponto fixo P da praia.
- Mantendo o barco no mesmo sentido, ele seguiu até um ponto B de modo que fosse possível ver o mesmo ponto P da praia, no entanto sob um ângulo visual 2aa. A figura ilustra essa situação:', 3, 7),
+ Mantendo o barco no mesmo sentido, ele seguiu até um ponto B de modo que fosse possível ver o mesmo ponto P da praia, no entanto sob um ângulo visual 2aa. A figura ilustra essa situação:', 3, 7,2),
  (8, NULL, 'Qual a altura aproximada em que se encontrava o balão?', 'http://3.bp.blogspot.com/-Rm-PKfy3PVo/TlVASI-RRiI/AAAAAAAAADw/wgm4hIim4PI/s1600/160.jpg', 
  '(Enem 2010) Um balão atmosférico, lançado em Bauru
 (343 quilômetros a Noroeste de São Paulo), na noite do
@@ -253,34 +253,34 @@ Uma estava a 1,8 km da posição vertical do balão e o
 avistou sob um ângulo de 60°; a outra estava a 5,5 km da
 posição vertical do balão, alinhada com a primeira, e no
 mesmo sentido, conforme se vê na figura, e o avistou sob
-um ângulo de 30°.',2, 7),
+um ângulo de 30°.',2, 7,2),
 (9, NULL, 'O cientista deveria concluir que, periodicamente, S atinge o valor de', NULL,
 'Um satélite de telecomunicações, t minutos após ter atingido sua órbita, está a r quilômetros de distância do centro da Terra. Quando r assume seus valores máximo e mínimo, diz-se que o satélite atingiu o apogeu e o perigeu, respectivamente. Suponha que, para esse satélite, o valor de r em função de t seja dado por 
 
 r(t)=58651+0,15·cos(0,06t)
 
-Um cientista monitora o movimento desse sate´lite para controlar o seu afastamento do centro da Terra. Para isso, ele precisa calcular a soma dos valores de r, no apogeu e no perigeu, representada por S.',1, 7),
+Um cientista monitora o movimento desse sate´lite para controlar o seu afastamento do centro da Terra. Para isso, ele precisa calcular a soma dos valores de r, no apogeu e no perigeu, representada por S.',1, 7,2),
 (10, NULL, 'Então, o ponto Q percorrerá, no eixo x, uma distância dada
 por ', 'http://s2.glbimg.com/WPL788kcPPZyTQZf-uZ3fqBpdWo=/0x0:620x206/620x206/s.glbimg.com/po/ek/f/original/2014/09/03/enem_2009_174.1.png',
 '. (Enem 2009) Considere um ponto P em uma
 circunferência de raio r no plano cartesiano. Seja Q a
 projeção ortogonal de P sobre o eixo x, como mostra a
-figura, e suponha que o ponto P percorra, no sentido antihorário, uma distância d = r sobre a circunferência',3, 7),
+figura, e suponha que o ponto P percorra, no sentido antihorário, uma distância d = r sobre a circunferência',3, 7,2),
 (11, NULL, 'Desprezando a resistência do ar, qual é a direção e o sentido do vetor força resultante que
 atua sobre o objeto no ponto mais alto da trajetória?',NULL, '(Enem PPL 2014) Na Antiguidade, algumas pessoas acreditavam que, no lançamento
 obliquo de um objeto, a resultante das forças que atuavam sobre ele tinha o mesmo sentido
 da velocidade em todos os instantes do movimento. Isso não está de acordo com as
-interpretações científicas atualmente utilizadas para explicar esse fenômeno.',3, 25),
+interpretações científicas atualmente utilizadas para explicar esse fenômeno.',3, 25,4),
 (12, NULL, 'A partir dos resultados, a situação em que ocorre maior emissão de poluentes é aquela na
 qual o percurso é feito com o motor',NULL, '(Enem PPL 2014) Um pesquisador avaliou o efeito da temperatura do motor (em
 velocidade constante) e da velocidade média de um veículo (com temperatura do motor
 constante) sobre a emissão de monóxido de carbono em dois tipos de percurso, aclive
 e declive, com iguais distâncias percorridas em linha reta. Os resultados são apresentados
-nas duas figuras.',1, 25),
+nas duas figuras.',1, 25,4),
 (13, NULL, 'O piloto consegue apanhar o projétil, pois',NULL, '(Enem PPL 2013) Conta-se que um curioso incidente aconteceu durante a Primeira
 Guerra Mundial. Quando voava a uma altitude de dois mil metros, um piloto francês viu o
 que acreditava ser uma mosca parada perto de sua face. Apanhando-a rapidamente, ficou
-surpreso ao verificar que se tratava de um projétil alemão.',1, 25),
+surpreso ao verificar que se tratava de um projétil alemão.',1, 25,4),
 (14, NULL, 'O tempo mínimo, em segundos, que o motorista deve gastar para passar pela lombada
 eletrônica, cujo limite é de 40 km/h, sem receber uma multa, é de',NULL, '(Enem PPL 2013) Antes das lombadas eletrônicas, eram pintadas faixas nas ruas para
 controle da velocidade dos automóveis. A velocidade era estimada com o uso de binóculos e
@@ -288,13 +288,13 @@ cronômetros. O policial utilizava a relação entre a distância percorrida e o tem
 determinar a velocidade de um veículo. Cronometrava-se o tempo que um veículo levava
 para percorrer a distância entre duas faixas fixas, cuja distância era conhecida. A lombada
 eletrônica é um sistema muito preciso, porque a tecnologia elimina erros do operador. A
-distância entre os sensores é de 2 metros, e o tempo é medido por um circuito eletrônico',2, 25),
+distância entre os sensores é de 2 metros, e o tempo é medido por um circuito eletrônico',2, 25,4),
 (15, NULL, 'Considerando uma velocidade de 72 km/h, qual o módulo da diferença entre as acelerações
 de frenagem depois e antes da adoção dessa tecnologia?',NULL, '(Enem PPL 2013) O trem de passageiros da Estrada de Ferro Vitória-Minas (EFVM), que
 circula diariamente entre a cidade de Cariacica, na Grande Vitória, e a capital mineira Belo
 Horizonte, está utilizando uma nova tecnologia de frenagem eletrônica. Com a tecnologia
 anterior, era preciso iniciar a frenagem cerca de 400 metros antes da estação. Atualmente,
-essa distância caiu para 250 metros, o que proporciona redução no tempo de viagem',2, 25);
+essa distância caiu para 250 metros, o que proporciona redução no tempo de viagem',2, 25,4);
 
 
 

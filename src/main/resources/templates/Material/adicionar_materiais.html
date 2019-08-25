@@ -38,7 +38,7 @@
 </head>
 
 <body id="page-top"  style="background-color: rgb(251, 253, 253);">
-
+<th:block th:if="${session.usuarioLogado}">
  <!-- Page Wrapper -->
   <div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -362,7 +362,7 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
-
+</th:block>
 </body>
 
 </html>
