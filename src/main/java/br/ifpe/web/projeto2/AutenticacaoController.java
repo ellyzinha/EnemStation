@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +18,7 @@ import br.ifpe.web.projeto2.service.UsuarioService;
 import br.ifpe.web.projeto2.util.Util;
 
 @Controller
-public class AutenticaçãoController {
+public class AutenticacaoController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
@@ -31,8 +32,11 @@ public class AutenticaçãoController {
 	}
 	
 	@PostMapping("/efetuarLogin")
-	public String efetuarLogin(Usuario usuario, RedirectAttributes ra, HttpSession session) throws br.ifpe.web.projeto2.service.ServiceException {
+	public String efetuarLogin(Usuario usuario, RedirectAttributes ra, Errors errors, HttpSession session) throws br.ifpe.web.projeto2.service.ServiceException {
 		Usuario usuarioLogado;
+		if (errors.hasErrors()){
+			ra.addFlashAttribute("mensagemErro","Email e Senha Inválidos");
+		}
 		
 		
 		
@@ -46,7 +50,7 @@ public class AutenticaçãoController {
 			
 		} catch (Exception e) {
 			ra.addFlashAttribute("mensagemErroModal", e.getMessage());
-			return "Home/index";
+			return "redirect:/";
 		}
 		return "redirect:/perfil";
 	}

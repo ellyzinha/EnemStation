@@ -66,7 +66,7 @@ public class ModificarSenhaController {
         usuarioService.updateSenha(form.getSenha(), usuario.getId_usuario());
         tokenDAO.delete(token);
 
-        return "redirect:/ind?resetSuccess";	
+        return "redirect:/?resetSuccess";
 			
 		}
 	}

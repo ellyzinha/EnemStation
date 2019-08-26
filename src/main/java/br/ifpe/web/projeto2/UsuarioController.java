@@ -23,72 +23,70 @@ import br.ifpe.web.projeto2.util.Util;
 
 @Controller
 public class UsuarioController {
-	
-	@Autowired
-	private UsuarioService usuarioService;
-	
-	//Exibir página de cadastro
-	 @GetMapping("/cad")
-	public ModelAndView cadastrar(Usuario usuario) {
-		ModelAndView mv = new ModelAndView("Home/cadastro");
-		mv.addObject("usuario", new Usuario());
-		return mv;
-	} 
-	 
-	
-	
-	
-	//Efetuar o cadastro
-	@PostMapping("/addUsuario")
-	public String addUsuario(@Valid @ModelAttribute Usuario usuario, BindingResult br, RedirectAttributes ra) throws Exception{
-		
 
-		if (br.hasErrors()) {
-			ra.addFlashAttribute("Errors",br.getAllErrors());
-		} else {
-			if(usuario.getSenhaRepetida().isEmpty()) {
-				ra.addFlashAttribute("Senha_conf","ops! você esqueceu de digita novamente seu senha!");
-				return "redirect:/cad";
-			}
-			try {
-				usuario.setSenha(Util.criptografarSenha(usuario.getSenha()));
-				
-				usuarioService.criarUsuario(usuario);
-				ra.addFlashAttribute("mensagem", "Usuário: " + usuario.getNome() + ", cadastrado com sucesso!");
-			} catch (Exception e) {
-				ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + e.getMessage());
-			}
-		}
-		return "redirect:/cad";
-	}
-	
-	//EFETUANDO LOGIN E/OU CADASTRA VIA GMAIL
-	
-	@RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
-	@ResponseBody
-	public String salvarGmail(@RequestParam String nome, @RequestParam String email,HttpSession session) {
-		
-		Usuario usuario = new Usuario();
-		usuario.setEmail(email);
-		usuario.setNome(nome);
-		
-		
-		this.usuarioService.loginGmail(usuario);
-		
-		session.setAttribute("usuarioLogado",usuario);
-		
-		return "redirect:/loginGmailG";
-	} 
-	
-	@GetMapping("/loginGmailG")
-	public String login() {
-		return "Usuario/login_gmail";
-	}
-	
-	@GetMapping("/loginGmailRequisicao")
-	public String requisicao() {
-		return "Usuario/login_requisicao";
-	}
+    @Autowired
+    private UsuarioService usuarioService;
+
+    //Exibir página de cadastro
+    @GetMapping("/cad")
+    public ModelAndView cadastrar(Usuario usuario) {
+        ModelAndView mv = new ModelAndView("Home/cadastro");
+        mv.addObject("usuario", new Usuario());
+        return mv;
+    }
+
+
+    //Efetuar o cadastro
+    @PostMapping("/addUsuario")
+    public String addUsuario(@Valid @ModelAttribute Usuario usuario, BindingResult br, RedirectAttributes ra) throws Exception {
+
+
+        if (br.hasErrors()) {
+            ra.addFlashAttribute("Errors", br.getAllErrors());
+        } else {
+            if (usuario.getSenhaRepetida().isEmpty()) {
+                ra.addFlashAttribute("Senha_conf", "ops! você esqueceu de digita novamente seu senha!");
+                return "redirect:/cad";
+            }
+            try {
+                usuario.setSenha(Util.criptografarSenha(usuario.getSenha()));
+
+                usuarioService.criarUsuario(usuario);
+                ra.addFlashAttribute("mensagem", "Usuário: " + usuario.getNome() + ", cadastrado com sucesso!");
+            } catch (Exception e) {
+                ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + e.getMessage());
+            }
+        }
+        return "redirect:/cad";
+    }
+
+    //EFETUANDO LOGIN E/OU CADASTRA VIA GMAIL
+
+    @RequestMapping(value = "/loginGmail", method = RequestMethod.POST)
+    @ResponseBody
+    public String salvarGmail(@RequestParam String nome, @RequestParam String email, HttpSession session) {
+
+        Usuario usuario = new Usuario();
+        usuario.setEmail(email);
+        usuario.setNome(nome);
+
+
+        this.usuarioService.loginGmail(usuario);
+
+        session.setAttribute("usuarioLogado", usuario);
+
+        return "redirect:/loginGmailG";
+    }
+
+    @GetMapping("/loginGmailG")
+    public String login() {
+        return "Usuario/login_gmail";
+    }
+
+    @GetMapping("/loginGmailRequisicao")
+    public String requisicao() {
+        return "Usuario/login_requisicao";
+    }
 	
 	
 	
@@ -108,7 +106,6 @@ public class UsuarioController {
 		return "redirect:/perfil";
 	} 
 	 */
-	
-	
+
 
 }

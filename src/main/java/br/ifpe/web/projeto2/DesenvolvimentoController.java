@@ -15,7 +15,7 @@ import br.ifpe.web.projeto2.Model.Grafico;
 import br.ifpe.web.projeto2.Model.Usuario;
 
 @Controller
-public class DesemvolvimentoController {
+public class DesenvolvimentoController {
 
 	@Autowired
 	private UsuarioDAO usuarioRep;

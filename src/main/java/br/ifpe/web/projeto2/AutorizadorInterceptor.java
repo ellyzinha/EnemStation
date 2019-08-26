@@ -15,7 +15,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 
 	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
 	
-	private static final String[] RECURSOS_USUARIO = {"/loginGmail","/cadastroPlano","/salvarPerfil","/material_disciplina","esquecerSenhaForm","/editar_plano","/perfil","/desempenho","/lista_material/","/questoes","/addUsuario","/plano_estudo","/editarPlano","/removerPlano","/formularioPlano/","/planoEstudo","/cadastroPlano","/dados_pessoais"};
+	private static final String[] RECURSOS_USUARIO = {"/loginGmail","/cadastroPlano","/salvarPerfil","/material_disciplina","esquecerSenhaForm","/editar_plano","/perfil","/desempenho","/lista_material/","/questoes","/addUsuario","/questao","/questao-achada","/vermais","/listaQuestoes","/salvarResposta","/plano_estudo","/editarPlano","/removerPlano","/formularioPlano/","/planoEstudo","/cadastroPlano","/dados_pessoais"};
 	
 	private static final String[] RECURSOS_ADMIN = {"/adicionar_materiais","/salvarMaterial"};
 

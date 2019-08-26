@@ -167,12 +167,12 @@
 
 
 </head>
-<body id="page-top" style="background-color:  rgb(243, 243, 243);">
+<body id="page-top" style="background-color:  rgb(85,176,131);">
      <!-- Menu de navegação -->
-  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #4E8BBF;">
+  <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #0e3b56;">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" th:href="@{/}">Enem Station</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(43, 5, 78);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold text-white rounded" style="background-color:  rgb(85,176,131);" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
         </button>
@@ -182,7 +182,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-toggle="modal"  data-target="#modal-login">Login</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="" data-th-background="static" data-keyboard="false" data-toggle="modal"  data-target="#modal-login">Entrar</a>
             </li>
           </ul>
         </div>
@@ -190,10 +190,10 @@
     </nav>
 <!--formulario-->
 
-<br><br><br><br><br><br>
-<div class="container">
+<br><br><br><br><br><br><br><br>
+<div class="container" style="margin-bottom : 9%;">
 
-<div class="card bg-light">
+<div class="card bg-light" >
 <article class="card-body mx-auto " style="width: 400px;">
 	<h4 class="card-title mt-3 text-center">CADASTRE-SE</h4>
 	<p class="text-center">Aproveite todas nossas ferramentas</p>
@@ -296,51 +296,72 @@
 </div> 
 <!--container end.//-->
 
-<br><br>
-    <!--modal de login-->
-  <div class="modal" tabindex="-1" role="dialog" id="modal-login">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color:rgb(43, 5, 78);">
-            <h5 class="modal-title" style="color: rgb(232, 238, 243)">Login</h5>
-            <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" style="padding: 5% 10% 5% 15%">
-            <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
-                   
-                      <form th:action="@{/efetuarLogin}" th:object="${usuario}" method="post" >
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">E-mail</label>
-                        <input th:field="*{email}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="e-mail">
-                      </div>
-                      <div class="form-group ">
-                        <label for="exampleInputPassword1">Senha</label>
-                       
-                       	<div class="input-group-prepend">
-                       	
-                       	
-                       	 	<input th:field="*{senha}" type="password" class="form-control" id="senhaModal" placeholder="Senha">
-                       		<span class="input-group-text" id="showModal" value="show"> <i class="fa fa-eye" id="olho"></i> </span>
-						</div>
-                      
-                      </div>
-                      <button type="submit" class="btn btn-primary"> Entrar</button> <a class="btn btn-danger" th:href="@{/loginGmailG}"> Gmail</a>
-                      
-                     
-							<div th:if="${mensagemErroModal}">
-								<div class="alert alert-danger" th:text="${mensagemErroModal}"></div>
-							</div>
-                    </form>
-                    Esqueceu senha? <a th:href="@{/esquecer_senha}" >Recuperar</a>
+     <!-- Copyright Section -->
+     <section class="copyright py-4 text-center text-white" style=" background-color: #0e3b56; margin-top: 11%;">
+         <div class="container">
+             <small>Copyright &copy; Enem Station 2019</small>
+         </div>
+     </section>
 
-      </div>
-      <div class="modal-footer" style="background-color: rgb(43, 5, 78); padding: 5% 41% 5% 35%;">
-        <a type="button" class="btn btn-primary" th:href="@{/cad}">Cadastrar</a>
-        </div>
-        </div>
-      </div>
+     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+     <div class="scroll-to-top d-lg-none position-fixed ">
+         <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+             <i class="fa fa-chevron-up"></i>
+         </a>
+     </div>
+
+     <!--modal de login-->
+     <div class="modal" tabindex="-1" role="dialog" id="modal-login">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header" style="background-color:rgb(85,176,131);">
+                     <h5 class="modal-title" style="color: s9,19,16);">Entrar</h5>
+                     <button type="button" class="btn btn-light" data-dismiss="modal" aria-label="Close" style="background-color: white;">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body" style="padding: 5% 10% 5% 15%">
+                     <p class="text-monospace">Aproveite as ferramentas do nosso site!<p>
+
+                     <form th:action="@{/efetuarLogin}" th:object="${usuario}" method="post" >
+                         <div class="form-group">
+                             <label for="exampleInputEmail1">E-mail</label>
+                             <input th:field="*{email}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="informe seu e-mail">
+                         </div>
+                         <div class="form-group">
+                             <label for="exampleInputPassword1">Senha</label>
+
+                             <div class="input-group-prepend">
+                                 <input th:field="*{senha}" type="password" class="form-control" id="senhaModal" placeholder="digite sua senha">
+                                 <span class="input-group-text" id="showModal" value="show"> <i class="fa fa-eye" id="olho"></i> </span>
+                             </div>
+
+                         </div>
+                         <button type="submit"  class="btn btn-primary"> Entrar</button> <a class="btn btn-danger" th:href="@{/loginGmailG}"> Gmail</a>
+
+                         <div th:if="${mensagemErro}">
+                             <div class="alert alert-success" th:text="${mensagemErro}"></div>
+                         </div>
+                         <div th:if="${mensagemErro}">
+                             <div class="alert alert-danger" th:text="${mensagemErro}"></div>
+                         </div>
+                         <div th:if="${mensagemErroModal}">
+                             <div class="alert alert-danger" th:text="${mensagemErroModal}"></div>
+                         </div>
+                     </form>
+                     Esqueceu senha? <a th:href="@{/esquecer_senha}">Recuperar</a>
+
+                 </div>
+                 <div class="modal-footer" style="background-color: rgb(85,176,131); padding: 5% 41% 5% 35%;">
+                     <a type="button" class="btn btn-info" th:href="@{/cad}">Cadastrar</a>
+                 </div>
+
+             </div>
+         </div>
+     </div>
+     </div>
+
+
     
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -358,13 +379,6 @@
 
 </div>
 
-
-  <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; Enem Station 2019</small>
-    </div>
-  </section>
    <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

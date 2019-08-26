@@ -203,7 +203,7 @@
                                       <th class="text-center"></th>
                                   </tr>
                                   <tr th:each="plano : ${planoEstudo}">
-                                  	<td  th:text="${plano.horarioInicio}" th:text="${plano.horarioFinal}"></td>
+                                  	<td  th:text="${plano.horarioInicio}"></td>
                                   	<td  th:text="${plano.disciplina.descricao}"></td>
                                   	<td  th:text="${plano.assunto.descricao}" ></td>
                                   	<td>	<a th:href="@{/editarPlano(id_plano=${plano.id_plano})}" class="btn btn-info btn-xs">Editar</a>

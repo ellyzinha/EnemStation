@@ -69,13 +69,13 @@ public class EsquecerSenhaController {
         Map<String, Object> model = new HashMap<>();
         model.put("token", token);
         model.put("usuario", usuario);
-        model.put("signature","https://memorynotfound.com");
+        model.put("signature","https://enemstation.com.brs");
         String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
         model.put("resetUrl", url + "/modificar_senha?token=" + token.getToken());
         mail.setModel(model);
         emailService.enviarEmail(mail);
         
-        return "redirect:/Usuario/esquecer_senha?sucess";
+        return "redirect:/esquecer_senha?sucess";
         
         
         
