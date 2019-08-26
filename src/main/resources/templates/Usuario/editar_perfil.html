@@ -23,7 +23,7 @@
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   <link href="css/freelancer.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" href="css/plano.css">
+    <link rel="stylesheet" type="text/css" href="css/plano_estudo.css">
   <script>
   function validaSenha(senha, confirma_senha){
 		if(senha.value != confirma_senha.value){
@@ -65,9 +65,9 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item active">
-        <a class="nav-link" th:href="@{/}">
+        <a class="nav-link" th:href="@{/perfil}">
           <i class="fas fa-home"></i>
-          <span>Home</span></a>
+          <span>Meu Plano de Estudo</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
@@ -84,7 +84,7 @@
           </li>
 
           <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/desempenho">
                   <i class="fas fa-chart-bar"></i>
                   <span>Desempenho</span></a>
               </li>
@@ -136,10 +136,6 @@
                   <i class="fa fa-address-card fa-sm fa-fw mr-2 text-gray-400"></i>
                   Dados Pessoais
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -159,15 +155,15 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3" align="center" >
-              <h6 class="m-0 font-weight-bold text-info">Editar perfil</h6>
+              <h6 class="m-0 font-weight-bold text-info" id="h6">Editar perfil</h6>
             </div>
             <div class="card-body">
             <!-- Formulário para editar perfil -->
             
-            <form action="/salvarPerfil" method="post" 
+            <form th:action=@{/salvarPerfil} method="post"
 				enctype="multipart/form-data" th:object="${usuario}">
 				<input type="hidden" id="id_usuario" th:field="*{id_usuario}" />
-				<input type="hidden" id="ativo" value="1" th:field="*{ativo}" />
+
             	
             		<div>
             			<label>Nome:</label>

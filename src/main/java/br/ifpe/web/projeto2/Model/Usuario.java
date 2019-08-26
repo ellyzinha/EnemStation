@@ -1,5 +1,7 @@
 package br.ifpe.web.projeto2.Model;
 
+import org.apache.commons.codec.binary.Base64;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -63,8 +65,8 @@ public class Usuario {
 		this.senhaRepetida = senhaRepetida;
 	}
 
-	public byte[] getFoto() {
-		return foto;
+	public String getFoto() {
+		return Base64.encodeBase64String(this.foto);
 	}
 	
 	public void setFoto(byte[] foto) {
