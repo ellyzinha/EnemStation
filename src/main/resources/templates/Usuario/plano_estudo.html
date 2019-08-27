@@ -50,7 +50,7 @@
                     th:href="@{/perfil}"> <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
-                <div class="sidebar-brand-text mx-3">Home</div>
+                <div class="sidebar-brand-text mx-3">Meu Perfil</div>
             </a>
 
             <!-- Divider -->
@@ -68,7 +68,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item active"><a class="nav-link"
-                                           th:href="@{/questoes}"> <i class="fas fa-pencil-alt"></i>
+                                           th:href="@{/questoesDisciplina}"> <i class="fas fa-pencil-alt"></i>
                 <span>Questões</span></a>
             </li>
 
@@ -202,9 +202,9 @@
                                                     <div th:if="${mensagemErroHorario}"
                                                          th:text="${mensagemErroHorario}"></div>
                                                 </div>
-                                                <div class="alert alert-danger" th:if="${mensagemCampoHorario}">
-                                                    <div th:if="${mensagemCampoHorario}"
-                                                         th:text="${mensagemCampoHorario}"></div>
+                                                <div class="alert alert-danger" th:if="${mensagemCampoPreencha}">
+                                                    <div th:if="${mensagemCampoPreencha}"
+                                                         th:text="${mensagemCampoPreencha}"></div>
                                                 </div>
                                                 <div class="form-row">
                                                     <span>Das</span>

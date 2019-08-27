@@ -52,7 +52,7 @@ public class PlanoController {
 	}
 
 	@PostMapping("/cadastroPlano")
-	public ModelAndView cadastroPlano(@Valid @ModelAttribute PlanoEstudo planoEstudo, BindingResult br, HttpSession session, RedirectAttributes ra) throws Exception {
+	public ModelAndView cadastroPlano(@Valid PlanoEstudo planoEstudo, BindingResult br, HttpSession session, RedirectAttributes ra) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		if (br.hasErrors()) {
 			ra.addFlashAttribute("mensagemCampoPreencha","Preencha o Campo");
