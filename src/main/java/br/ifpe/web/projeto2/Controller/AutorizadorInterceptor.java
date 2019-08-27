@@ -1,4 +1,4 @@
-package br.ifpe.web.projeto2;
+package br.ifpe.web.projeto2.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 
 	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
 	
-	private static final String[] RECURSOS_USUARIO = {"/loginGmail","/cadastroPlano","/salvarPerfil","/material_disciplina","esquecerSenhaForm","/editar_plano","/perfil","/editar_perfil","/desempenho","/lista_material/","/questoes","/addUsuario","/questao","/questao-achada","/vermais","/listaQuestoes","/salvarResposta","/add_dadosPessoais","/plano_estudo","/editarPlano","/removerPlano","/formularioPlano/","/planoEstudo","/cadastroPlano","/dados_pessoais"};
+	private static final String[] RECURSOS_USUARIO = {"/loginGmail","/cadastroPlano","/salvarPerfil","/material_disciplina","esquecerSenhaForm","/editar_plano","/perfil","/editar_perfil","/desempenho","/lista_material/","/questoes","/questoesDisciplina","/addUsuario","/questao","/questao-achada","/vermais","/listaQuestoes/","/salvarResposta","/add_dadosPessoais","/plano_estudo","/editarPlano","/removerPlano","/formularioPlano/","/planoEstudo","/cadastroPlano","/dados_pessoais"};
 	
 	private static final String[] RECURSOS_ADMIN = {"/adicionar_materiais","/salvarMaterial"};
 

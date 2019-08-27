@@ -43,7 +43,7 @@
             <!-- <div class="sidebar-brand-icon rotate-n-15">
                <i class="fas fa-laugh-wink"></i>
              </div> -->
-            <div class="sidebar-brand-text mx-3"><i class="fas fa-home"></i>Home</div>
+            <div class="sidebar-brand-text mx-3"><i class="fas fa-home"></i>Meu Perfil</div>
         </a>
 
         <!-- Divider -->
@@ -62,7 +62,7 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item active">
-            <a class="nav-link" th:href="@{/listaQuestoes}">
+            <a class="nav-link" th:href="@{/questoesDisciplina}">
                 <i class="fas fa-pencil-alt"></i>
                 <span>Questões</span></a>
         </li>
@@ -156,7 +156,7 @@
                         <h6 class="m-0 font-weight-bold text-info" id="h6">Plano de Estudo</h6>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="150%" cellspacing="0">
                             <div class="tab_container">
 
                                 <input checked onclick="planoEstudo($(this).val())" id="tab1"
@@ -201,7 +201,7 @@
                                                         <th class="text-center"></th>
                                                     </tr>
                                                     <tr th:each="plano : ${planoEstudo}">
-                                                        <td th:text="${plano.horarioInicio}"></td>
+                                                        <td>[[${plano.horarioInicio}]]  até  [[${plano.horarioFinal}]]</td>
                                                         <td th:text="${plano.disciplina.descricao}"></td>
                                                         <td th:text="${plano.assunto.descricao}"></td>
                                                         <td><a th:href="@{/editarPlano(id_plano=${plano.id_plano})}"

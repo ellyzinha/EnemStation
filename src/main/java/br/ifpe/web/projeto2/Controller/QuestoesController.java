@@ -1,27 +1,23 @@
-package br.ifpe.web.projeto2;
+package br.ifpe.web.projeto2.Controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import br.ifpe.web.projeto2.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.ifpe.web.projeto2.DAO.AssuntoDAO;
 import br.ifpe.web.projeto2.DAO.DificuldadeDAO;
 import br.ifpe.web.projeto2.DAO.QuestoesDAO;
-import br.ifpe.web.projeto2.Model.Alternativa;
-import br.ifpe.web.projeto2.Model.Assunto;
-import br.ifpe.web.projeto2.Model.Correta;
-import br.ifpe.web.projeto2.Model.Questoes;
-import br.ifpe.web.projeto2.Model.Resposta;
 import br.ifpe.web.projeto2.service.QuestoesService;
 
 @Controller
@@ -149,13 +145,15 @@ public class QuestoesController {
 		return mv;
 	}
 	
-	//Exibir questões para o usuário responder
+	//	Exibir/listar questões com paginação
 	
-	@GetMapping("/listaQuestoes")
-	public ModelAndView exibirMaterial(Resposta resposta) {
+	@GetMapping("/listaQuestoes/{id}")
+	public ModelAndView exibirMaterial(@PathVariable("id") Integer id, Resposta resposta, @RequestParam(value = "page" ,required = false,defaultValue = "1") int page) {
 		ModelAndView mv=  new ModelAndView("Questao/ExibirQuestoes");
-	//	List<Questoes> questoes = questoesService.listarQuestoes();
-		mv.addObject("listarQuestoes",questoesService.listarQuestoes());
+		Page<Questoes> pagina = this.questoesService.findAll(PageRequest.of(page - 1,5,Sort.by("dificuldade")));
+		mv.addObject("listarQuestoesPage",pagina);
+		mv.addObject("listarQuestoes",questoesService.listarQuestoes(id));
+        mv.addObject("titulo", this.questoesService.titulo(id));
 		mv.addObject("resposta",resposta);
 	
 		return mv;
@@ -163,10 +161,21 @@ public class QuestoesController {
 	
 	// Salvar resposta do usuário
 	@PostMapping("/salvarResposta")
-	public String salvarResposta(@ModelAttribute Resposta resposta) {
+	public String salvarResposta(@ModelAttribute Resposta resposta, HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		resposta.setUsuario(usuario);
 		questoesService.salvarResposta(resposta);
+		System.out.println(usuario.getSenhaRepetida());
 		return "redirect:/listaQuestoes";
 	}
+
+    @GetMapping("/questoesDisciplina")
+    public ModelAndView questoesDisciplina() {
+        ModelAndView mv = new ModelAndView("Questao/questoesDisciplina");
+        mv.addObject("listaDisciplinas", this.questoesService.listarDisciplinas());
+        return mv;
+
+    }
 	
 
 }

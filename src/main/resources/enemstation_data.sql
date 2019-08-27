@@ -159,16 +159,16 @@ insert into tb_assunto (id, descricao, id_disciplina)
 values (60, 'Realismo', 12);
 
 insert into tb_questoes (id, comentario, enunciado, imagem, texto,
-id_dificuldade, id_assunto, disciplina_id) values (1,NULL, "Para se entender o trecho como uma unidade de sentido, é preciso que o leitor reconheça a 
+id_dificuldade, id_assunto, disciplina_id) values (1,NULL, 'Para se entender o trecho como uma unidade de sentido, é preciso que o leitor reconheça a
 ligação entre seus elementos. Nesse texto, a coesão é construída predominantemente pela retomada de um termo por outro e pelo uso da elipse. 
-O fragmento do texto em que há coesão por elipse do sujeito é: ", NULL, 
-"(Enem 2013) Gripado, penso entre espirros em como a palavra gripe nos chegou após uma série de contágios entre línguas. Partiu da Itália em 1743 a 
+O fragmento do texto em que há coesão por elipse do sujeito é: ', NULL,
+'(Enem 2013) Gripado, penso entre espirros em como a palavra gripe nos chegou após uma série de contágios entre línguas. Partiu da Itália em 1743 a
 epidemia de gripe que disseminou pela Europa, além do vírus propriamente dito, dois vocábulos virais: o italiano influenza e o francês grippe. 
 O primeiro era um termo derivado do latim medieval influentia, que significava “influência dos astros sobre os homens”. O segundo era apenas a forma 
-nominal do verbo gripper, isto é, “agarrar”. Supõe-se que fizesse referência ao modo violento como o vírus se apossa do organismo infectado.",1,4,1), 
-(2, NULL, "Ao escrever um artigo de opinião, o produtor precisa criar uma base de orientação linguística que permita alcançar os leitores e 
-convencê-los com relação ao ponto de vista defendido. Diante disso, nesse texto, a escolha das formas verbais em destaque objetiva", NULL, 
-"(Enem 2013)Novas tecnologias
+nominal do verbo gripper, isto é, “agarrar”. Supõe-se que fizesse referência ao modo violento como o vírus se apossa do organismo infectado.',1,4,1),
+(2, NULL, 'Ao escrever um artigo de opinião, o produtor precisa criar uma base de orientação linguística que permita alcançar os leitores e
+convencê-los com relação ao ponto de vista defendido. Diante disso, nesse texto, a escolha das formas verbais em destaque objetiva', NULL,
+'(Enem 2013)Novas tecnologias
 Atualmente, prevalece na mídia um discurso de exaltação das novas tecnologias, principalmente aquelas ligadas às atividades de telecomunicações. 
 Expressões frequentes como “o futuro já chegou”, “maravilhas tecnológicas” e “conexão total com o mundo” “fetichi – zam” novos produtos, 
 transformando-os em objetos do desejo, de consumo obrigatório. Por esse motivo carregamos hoje nos bolsos, bolsas e mochilas o “futuro” tão festejado.
@@ -176,7 +176,7 @@ Todavia, não podemos reduzir-nos a meras vítimas de um aparelho midiático per
 certamente, e controle, sem sombra de dúvida. Entretanto, desenvolvemos uma relação simbiótica de dependência mútua com os veículos de comunicação, 
 que se estreita a cada imagem compartilhada e a cada dossiê pessoal transformado em objeto público de entretenimento. Não mais como aqueles 
 acorrentados na caverna de Platão, somos livres para nos aprisionar, por espontânea vontade, a esta relação sadomasoquista com as estruturas 
-midiáticas, na qual tanto controlamos quanto somos controlados.",2,4,1),
+midiáticas, na qual tanto controlamos quanto somos controlados.',2,4,1),
 (3, NULL, 'Na piada, a quebra de expectativa contribui para produzir o
 efeito de humor. Esse efeito ocorre porque um dos
 personagens', NULL, '(Enem 2013) Dúvida
@@ -521,7 +521,7 @@ correspondentes ao pagamento de cestas básicas pelos acusados.',2,38,8);
 
 
 
-insert into tb_alternativas (id, descricao, resposta, questoes_id) values
+insert into tb_alternativas (id, descricao, resposta, id_questoes) values
 (1, '“[...] a palavra gripe nos chegou após uma série de contágios entre línguas.”',0,1),
 (2, '“Partiu da Itália em 1743 a epidemia de gripe [...]”.',0,1),
 (3, '“O primeiro era um termo derivado do latim medieval influentia, que significava ‘influência dos astros sobre os homens"',0,1),

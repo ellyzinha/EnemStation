@@ -41,7 +41,8 @@ public class Questoes {
     @Column(length = 5000)
     private String comentario;
 
-    @OneToOne(fetch = FetchType.LAZY)
+
+    @OneToOne
     @JoinColumn(name = "id_dificuldade")
     private Dificuldade dificuldade;
 
@@ -49,11 +50,11 @@ public class Questoes {
             fetch = FetchType.LAZY)
     private List<Alternativa> alternativa;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "id_assunto")
     private Assunto assunto;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     private Disciplina disciplina;
 
 
@@ -89,13 +90,6 @@ public class Questoes {
         this.imagem = imagem;
     }
 
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
 
     public String getEnunciado() {
         return enunciado;

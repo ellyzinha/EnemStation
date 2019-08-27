@@ -1,677 +1,692 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="httP://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:sec="httP://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<title>Plano de Estudo</title>
+    <title>Plano de Estudo</title>
 
-<!-- Custom fonts for this template -->
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-	type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+          type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-<!-- Custom styles for this page -->
-<!-- ---<link href="vendor/datatables/dataTables.bootstrap4.min.css"
-	rel="stylesheet"> -->
-<link href="css/freelancer.min.css" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <!-- ---<link href="vendor/datatables/dataTables.bootstrap4.min.css"
+        rel="stylesheet"> -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="css/plano_estudo.css">
+    <link rel="stylesheet" type="text/css" href="css/plano_estudo.css">
 
 </head>
 
 <body id="page-top">
 
-	<th:block th:if="${session.usuarioLogado}">
+<th:block th:if="${session.usuarioLogado}">
 
-		<!-- Page Wrapper -->
-		<div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-			<!-- Sidebar -->
-			<ul
-				class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-				id="accordionSidebar">
+        <!-- Sidebar -->
+        <ul
+                class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+                id="accordionSidebar">
 
-				<!-- Sidebar - Brand -->
-				<a
-					class="sidebar-brand d-flex align-items-center justify-content-center"
-					th:href="@{/perfil}"> <!-- <div class="sidebar-brand-icon rotate-n-15">
+            <!-- Sidebar - Brand -->
+            <a
+                    class="sidebar-brand d-flex align-items-center justify-content-center"
+                    th:href="@{/perfil}"> <!-- <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div> -->
-					<div class="sidebar-brand-text mx-3">Home</div>
-				</a>
+                <div class="sidebar-brand-text mx-3">Home</div>
+            </a>
 
-				<!-- Divider -->
-				<hr class="sidebar-divider my-0">
-
-
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-				<!-- Divider -->
-				<hr class="sidebar-divider">
-
-				<!-- Nav Item - Charts -->
-				<li class="nav-item active"><a class="nav-link"
-					th:href="@{/perfil}"> <i class="fas fa-home"></i> <span>Meu
+            <!-- Nav Item - Charts -->
+            <li class="nav-item active"><a class="nav-link"
+                                           th:href="@{/perfil}"> <i class="fas fa-home"></i> <span>Meu
 							Plano de Estudo</span>
-				</a></li>
+            </a></li>
 
-				<!-- Nav Item - Tables -->
-				<li class="nav-item active"><a class="nav-link"
-					th:href="@{/questoes}"> <i class="fas fa-pencil-alt"></i> <span>Questões</span></a>
-				</li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item active"><a class="nav-link"
+                                           th:href="@{/questoes}"> <i class="fas fa-pencil-alt"></i>
+                <span>Questões</span></a>
+            </li>
 
-				<li class="nav-item active"><a class="nav-link"
-					th:href="@{/material_disciplina}"> <i class="fas fa-book"></i>
-						<span>Materiais</span></a></li>
+            <li class="nav-item active"><a class="nav-link"
+                                           th:href="@{/material_disciplina}"> <i class="fas fa-book"></i>
+                <span>Materiais</span></a></li>
 
-				<li class="nav-item active"><a class="nav-link" href="#"> <i
-						class="fas fa-chart-bar"></i> <span>Desempenho</span></a></li>
+            <li class="nav-item active"><a class="nav-link" href="#"> <i
+                    class="fas fa-chart-bar"></i> <span>Desempenho</span></a></li>
 
-				<!-- --<li class="nav-item active"><a class="nav-link"
-					th:href="@{/plano_estudo}"><i class="fas fa-book"></i><span>Plano
-							de Estudo</span></a></li> -->
-
-
-
-				<!-- Divider -->
-				<hr class="sidebar-divider d-none d-md-block">
+            <!-- --<li class="nav-item active"><a class="nav-link"
+                th:href="@{/plano_estudo}"><i class="fas fa-book"></i><span>Plano
+                        de Estudo</span></a></li> -->
 
 
-
-			</ul>
-			<!-- End of Sidebar -->
-
-			<!-- Content Wrapper -->
-			<div id="content-wrapper" class="d-flex flex-column">
-
-				<!-- Main Content -->
-				<div id="content">
-
-					<!-- Topbar -->
-					<nav
-						class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-						<!-- Sidebar Toggle (Topbar) -->
-						<button id="sidebarToggleTop"
-							class="btn btn-link d-md-none rounded-circle mr-3">
-							<i class="fa fa-bars"></i>
-						</button>
-
-						<!-- Topbar Navbar -->
-						<ul class="navbar-nav ml-auto">
-
-							<!--Divider-->
-							<div class="topbar-divider d-none d-sm-block"></div>
-
-							<!-- Nav Item - User Information -->
-							<li class="nav-item dropdown no-arrow"><a
-								class="nav-link dropdown-toggle" href="#" id="userDropdown"
-								role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <span
-									class="mr-2 d-none d-lg-inline text-gray-600 small"
-									th:text="|${session.usuarioLogado.nome}|"></span> <img
-									class="img-profile rounded-circle"
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiasajo6RFSTR2RkHQrezDFvJ9QY85uHTkci7cpPof5hZSvuiq7g">
-							</a> <!-- Dropdown - User Information -->
-								<div
-									class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-									aria-labelledby="userDropdown">
-									<a class="dropdown-item"
-										th:href="|/editar_perfil?id_usuario=${session.usuarioLogado.id_usuario}|">
-										<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-										Editar Perfil <a class="dropdown-item"
-										th:href="|/dados_pessoais?id_usuario=${session.usuarioLogado.id_usuario}|">
-											<i class="fa fa-address-card fa-sm fa-fw mr-2 text-gray-400"></i>
-											Dados Pessoais
-									</a> <a class="dropdown-item" href="#"> <i
-											class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-											Activity Log
-									</a>
-										<div class="dropdown-divider"></div> <a class="dropdown-item"
-										href="#" data-toggle="modal" data-target="#logoutModal"> <i
-											class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-											Sair
-									</a>
-								</div></li>
-
-						</ul>
-
-					</nav>
-					<!-- End of Topbar -->
-
-					<!-- Begin Page Content -->
-					<div class="container-fluid">
-
-						<!-- DataTales Example -->
-						<div class="card shadow mb-4">
-							<div class="card-header py-3" align="center">
-								<h6 class="m-0 font-weight-bold text-info" id="h6">Cadastro
-									do Plano de Estudo</h6>
-							</div>
-							<div class="card-body">
-								<div class="tab_container">
-									<input id="tab1" class="plano_estudo" type="radio" name="tabs"
-										checked> <label for="tab1"><span
-										value="segunda">Segunda</span></label>
-									<input id="tab2"
-										class="plano_estudo" type="radio" name="tabs"> <label
-										for="tab2"><span value="terca">Terca</span></label>
-									<input
-										id="tab3" class="plano_estudo" type="radio" name="tabs">
-									<label for="tab3"><span value="quarta">Quarta</span></label>
-									<input
-										id="tab4" class="plano_estudo" type="radio" name="tabs">
-									<label for="tab4"><span value="quinta">Quinta</span></label> <input
-										id="tab5" class="plano_estudo" type="radio" name="tabs">
-									<label for="tab5"><span value="sexta">Sexta</span></label> <input
-										id="tab6" class="plano_estudo" type="radio" name="tabs">
-									<label for="tab6"><span value="sabado">Sabado</span></label> <input
-										id="tab7" class="plano_estudo" type="radio" name="tabs">
-									<label for="tab7"><span value="domingo">Domingo</span></label>
-
-									<!-- Tab Segunda -->
-									<section id="content1" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form class="w-100" th:action="@{/cadastroPlano}"
-													method="post" th:object="${planoEstudo}" id="plano_form">
-													<div class="alert alert-success" th:if="${mensagem}"
-														th:text="${mensagem}"></div>
-													<div>
-														<input type="hidden" th:field="*{id_plano}" /> <input
-															type="hidden" id="diadasemana" value="segunda"
-															name="diadasemana" />
-													</div>
-														<h6>Horario</h6>
-														<div class="form-row">
-															<span>Das</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioInicio}" class="form-control mb-4"
-																	placeholder="horarioInicio" min="00:01" max="23:00">
-															</div>
-															<span>Até</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioFinal}" class="form-control mb-4"
-																	placeholder="horarioFinal" min="00:01" max="23:00">
-
-															</div>
-														</div>
-													
-													<span class="span">Disciplina</span> <select
-														class="form-control" id="exampleFormControlSelect1"
-														th:field="*{disciplina}">
-														<option value="1" selected>Escolha uma disciplina</option>
-														<option th:each="disciplina : ${listaDisciplina}"
-															th:text="${disciplina.descricao}"
-															th:value="${disciplina.id}"></option>
-													</select> <br>
-													<div id="assunto">
-														<span class="span">Assunto</span> <select
-															class="form-control" id="exampleFormControlSelect1"
-															th:field="*{assunto}">
-															<!-- Assunto -->
-															<option value="1" selected>Escolha um Assunto</option>
-															<option th:each="assunto : ${listaAssunto}"
-																th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
 
 
-														</select>
-													</div>
-													<div class="alert alert-danger"
-														th:if="${#fields.hasAnyErrors()}">
-														<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
-													</div>
-													<br>
-													<button class="btn btn-outline-success" type="submit">Salvar</button>
-													<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+        </ul>
+        <!-- End of Sidebar -->
 
-												</form>
-											</div>
-										</div>
-									</section>
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-									<!-- ----Tab terça-- -->
-									<section id="content2" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form class="w-100" th:action="@{/cadastroPlano}"
-													method="post" th:object="${planoEstudo}" id="plano_form">
-													<div class="alert alert-success" th:if="${mensagem}"
-														th:text="${mensagem}"></div>
-													<div>
-														<input type="hidden" th:field="*{id_plano}" /> <input
-															type="hidden" id="diadasemana" value="terca"
-															name="diadasemana" />
-													</div>
-														<h6>Horario</h6>
-														<div class="form-row">
-															<span>Das</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioInicio}" class="form-control mb-4"
-																	placeholder="horarioInicio" min="00:01" max="23:00">
-															</div>
-															<span>Até</span>
-															<div class="col">
+            <!-- Main Content -->
+            <div id="content">
 
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioFinal}" class="form-control mb-4"
-																	placeholder="horarioFinal" min="00:01" max="23:00">
+                <!-- Topbar -->
+                <nav
+                        class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-															</div>
-														</div>
-													<span class="span">Disciplina</span> <select
-														class="form-control" id="exampleFormControlSelect1"
-														th:field="*{disciplina}">
-														<option value="1" selected>Escolha uma disciplina</option>
-														<option th:each="disciplina : ${listaDisciplina}"
-															th:text="${disciplina.descricao}"
-															th:value="${disciplina.id}"></option>
-													</select> <br>
-													<div id="assunto">
-														<span class="span">Assunto</span> <select
-															class="form-control" id="exampleFormControlSelect1"
-															th:field="*{assunto}">
-															<!-- Assunto -->
-															<option value="1" selected>Escolha um Assunto</option>
-															<option th:each="assunto : ${listaAssunto}"
-																th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
-														</select>
-													</div>
-													<div class="alert alert-danger"
-														th:if="${#fields.hasAnyErrors()}">
-														<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
-													</div>
-													<br>
-													<button class="btn btn-outline-success" type="submit">Salvar</button>
-													<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop"
+                            class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
-												</form>
-											</div>
-										</div>
-									</section>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
 
-									<!-- ----Tab quarta-- -->
-									<section id="content3" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form class="w-100" th:action="@{/cadastroPlano}"
-													method="post" th:object="${planoEstudo}" id="plano_form">
-													<div class="alert alert-success" th:if="${mensagem}"
-														th:text="${mensagem}"></div>
-													<div>
-														<input type="hidden" th:field="*{id_plano}" /> <input
-															type="hidden" id="diadasemana" value="quarta"
-															name="diadasemana" />
-													</div>
-														<h6>Horario</h6>
-														<div class="form-row">
-															<span>Das</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioInicio}" class="form-control mb-4"
-																	placeholder="horarioInicio" min="00:01" max="23:00">
-															</div>
-															<span>Até</span>
-															<div class="col">
+                        <!--Divider-->
+                        <div class="topbar-divider d-none d-sm-block"></div>
 
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioFinal}" class="form-control mb-4"
-																	placeholder="horarioFinal" min="00:01" max="23:00">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow"><a
+                                class="nav-link dropdown-toggle" href="#" id="userDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"> <span
+                                class="mr-2 d-none d-lg-inline text-gray-600 small"
+                                th:text="|${session.usuarioLogado.nome}|"></span> <img
+                                class="img-profile rounded-circle"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiasajo6RFSTR2RkHQrezDFvJ9QY85uHTkci7cpPof5hZSvuiq7g">
+                        </a> <!-- Dropdown - User Information -->
+                            <div
+                                    class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                <a class="dropdown-item"
+                                   th:href="|/editar_perfil?id_usuario=${session.usuarioLogado.id_usuario}|">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Editar Perfil <a class="dropdown-item"
+                                                     th:href="|/dados_pessoais?id_usuario=${session.usuarioLogado.id_usuario}|">
+                                    <i class="fa fa-address-card fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Dados Pessoais
+                                </a> <a class="dropdown-item" href="#"> <i
+                                        class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item"
+                                       href="#" data-toggle="modal" data-target="#logoutModal"> <i
+                                            class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Sair
+                                    </a>
+                            </div>
+                        </li>
 
-															</div>
-														</div>
-													<span class="span">Disciplina</span> <select
-														class="form-control" id="exampleFormControlSelect1"
-														th:field="*{disciplina}">
-														<option value="1" selected>Escolha uma disciplina</option>
-														<option th:each="disciplina : ${listaDisciplina}"
-															th:text="${disciplina.descricao}"
-															th:value="${disciplina.id}"></option>
-													</select> <br>
-													<div id="assunto">
-														<span class="span">Assunto</span> <select
-															class="form-control" id="exampleFormControlSelect1"
-															th:field="*{assunto}">
-															<!-- Assunto -->
-															<option value="1" selected>Escolha um Assunto</option>
-															<option th:each="assunto : ${listaAssunto}"
-																th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
-														</select>
-													</div>
-													<div class="alert alert-danger"
-														th:if="${#fields.hasAnyErrors()}">
-														<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
-													</div>
-													<br>
-													<button class="btn btn-outline-success" type="submit">Salvar</button>
-													<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
-												</form>
-											</div>
-										</div>
-									</section>
+                    </ul>
 
-									<!-- ----Tab quinta-- -->
-									<section id="content4" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form class="w-100" th:action="@{/cadastroPlano}"
-													method="post" th:object="${planoEstudo}" id="plano_form">
-													<div class="alert alert-success" th:if="${mensagem}"
-														th:text="${mensagem}"></div>
-													<div>
-														<input type="hidden" th:field="*{id_plano}" /> <input
-															type="hidden" id="diadasemana" value="quinta"
-															name="diadasemana" />
-													</div>
-														<h6>Horario</h6>
-														<div class="form-row">
-															<span>Das</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioInicio}" class="form-control mb-4"
-																	placeholder="horarioInicio" min="00:01" max="23:00">
-															</div>
-															<span>Até</span>
-															<div class="col">
+                </nav>
+                <!-- End of Topbar -->
 
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioFinal}" class="form-control mb-4"
-																	placeholder="horarioFinal" min="00:01" max="23:00">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-															</div>
-														</div>
-													<span class="span">Disciplina</span> <select
-														class="form-control" id="exampleFormControlSelect1"
-														th:field="*{disciplina}">
-														<option value="1" selected>Escolha uma disciplina</option>
-														<option th:each="disciplina : ${listaDisciplina}"
-															th:text="${disciplina.descricao}"
-															th:value="${disciplina.id}"></option>
-													</select> <br>
-													<div id="assunto">
-														<span class="span">Assunto</span> <select
-															class="form-control" id="exampleFormControlSelect1"
-															th:field="*{assunto}">
-															<!-- Assunto -->
-															<option value="1" selected>Escolha um Assunto</option>
-															<option th:each="assunto : ${listaAssunto}"
-																th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
-														</select>
-													</div>
-													<div class="alert alert-danger"
-														th:if="${#fields.hasAnyErrors()}">
-														<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
-													</div>
-													<br>
-													<button class="btn btn-outline-success" type="submit">Salvar</button>
-													<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
-												</form>
-											</div>
-										</div>
-									</section>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3" align="center">
+                            <h6 class="m-0 font-weight-bold text-info" id="h6">Cadastro
+                                do Plano de Estudo</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab_container">
+                                <input id="tab1" class="plano_estudo" type="radio" name="tabs"
+                                       checked> <label for="tab1"><span
+                                    value="segunda">Segunda</span></label>
+                                <input id="tab2"
+                                       class="plano_estudo" type="radio" name="tabs"> <label
+                                    for="tab2"><span value="terca">Terca</span></label>
+                                <input
+                                        id="tab3" class="plano_estudo" type="radio" name="tabs">
+                                <label for="tab3"><span value="quarta">Quarta</span></label>
+                                <input
+                                        id="tab4" class="plano_estudo" type="radio" name="tabs">
+                                <label for="tab4"><span value="quinta">Quinta</span></label> <input
+                                    id="tab5" class="plano_estudo" type="radio" name="tabs">
+                                <label for="tab5"><span value="sexta">Sexta</span></label> <input
+                                    id="tab6" class="plano_estudo" type="radio" name="tabs">
+                                <label for="tab6"><span value="sabado">Sabado</span></label> <input
+                                    id="tab7" class="plano_estudo" type="radio" name="tabs">
+                                <label for="tab7"><span value="domingo">Domingo</span></label>
 
-									<!--------Tab sexta--------->
-									<section id="content5" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form class="w-100" th:action="@{/cadastroPlano}"
-													method="post" th:object="${planoEstudo}" id="plano_form">
-													<div class="alert alert-success" th:if="${mensagem}"
-														th:text="${mensagem}"></div>
-													<div>
-														<input type="hidden" th:field="*{id_plano}" /> <input
-															type="hidden" id="diadasemana" value="sexta"
-															name="diadasemana" />
-													</div>
-														<h6>Horario</h6>
-														<div class="form-row">
-															<span>Das</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioInicio}" class="form-control mb-4"
-																	placeholder="horarioInicio" min="00:01" max="23:00">
-															</div>
-															<span>Até</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioFinal}" class="form-control mb-4"
-																	placeholder="horarioFinal" min="00:01" max="23:00">
+                                <!-- Tab Segunda -->
+                                <section id="content1" class="tab-content">
+                                    <!-- Formulario do Plano de Estudo -->
+                                    <div class="container" align="center">
+                                        <div class="row col-md-12 col-md-offset-2 custyle">
+                                            <form class="w-100" th:action="@{/cadastroPlano}"
+                                                  method="post" th:object="${planoEstudo}" id="plano_form">
+                                                <!-- Mensagem de Plano criado -->
+                                                <div class="alert alert-success" th:if="${mensagem}"
+                                                     th:text="${mensagem}"></div>
 
-															</div>
-														</div>
-													<span class="span">Disciplina</span> <select
-														class="form-control" id="exampleFormControlSelect1"
-														th:field="*{disciplina}">
-														<option value="1" selected>Escolha uma disciplina</option>
-														<option th:each="disciplina : ${listaDisciplina}"
-															th:text="${disciplina.descricao}"
-															th:value="${disciplina.id}"></option>
-													</select> <br>
-													<div id="assunto">
-														<span class="span">Assunto</span> <select
-															class="form-control" id="exampleFormControlSelect1"
-															th:field="*{assunto}">
-															<!-- Assunto -->
-															<option value="1" selected>Escolha um Assunto</option>
-															<option th:each="assunto : ${listaAssunto}"
-																th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
-														</select>
-													</div>
-													<div class="alert alert-danger"
-														th:if="${#fields.hasAnyErrors()}">
-														<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
-													</div>
-													<br>
-													<button class="btn btn-outline-success" type="submit">Salvar</button>
-													<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
-												</form>
-											</div>
-										</div>
-									</section>
+                                                <div>
+                                                    <input type="hidden" th:field="*{id_plano}"/> <input
+                                                        type="hidden" id="diadasemana" value="segunda"
+                                                        name="diadasemana"/>
+                                                </div>
+                                                <h6>Horario</h6>
+                                                <div class="alert alert-danger" th:if="${mensagemErroHorario}">
+                                                    <div th:if="${mensagemErroHorario}"
+                                                         th:text="${mensagemErroHorario}"></div>
+                                                </div>
+                                                <div class="alert alert-danger" th:if="${mensagemCampoHorario}">
+                                                    <div th:if="${mensagemCampoHorario}"
+                                                         th:text="${mensagemCampoHorario}"></div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <span>Das</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioInicio}" class="form-control mb-4"
+                                                               placeholder="horarioInicio" min="00:01" max="23:00">
+                                                    </div>
+                                                    <span>Até</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioFinal}" class="form-control mb-4"
+                                                               placeholder="horarioFinal" min="00:01" max="23:00">
 
-									<!--------Tab sabado--------->
-									<section id="content6" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form class="w-100" th:action="@{/cadastroPlano}"
-													method="post" th:object="${planoEstudo}" id="plano_form">
-													<div class="alert alert-success" th:if="${mensagem}"
-														th:text="${mensagem}"></div>
-													<div>
-														<input type="hidden" th:field="*{id_plano}" /> <input
-															type="hidden" id="diadasemana" value="sabado"
-															name="diadasemana" />
-													</div>
-														<h6>Horario</h6>
-														<div class="form-row">
-															<span>Das</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioInicio}" class="form-control mb-4"
-																	placeholder="horarioInicio" min="00:01" max="23:00">
-															</div>
-															<span>Até</span>
-															<div class="col">
+                                                    </div>
+                                                </div>
 
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioFinal}" class="form-control mb-4"
-																	placeholder="horarioFinal" min="00:01" max="23:00">
-
-															</div>
-														</div>
-													<span class="span">Disciplina</span> <select
-														class="form-control" id="exampleFormControlSelect1"
-														th:field="*{disciplina}">
-														<option value="1" selected>Escolha uma disciplina</option>
-														<option th:each="disciplina : ${listaDisciplina}"
-															th:text="${disciplina.descricao}"
-															th:value="${disciplina.id}"></option>
-													</select> <br>
-													<div id="assunto">
-														<span class="span">Assunto</span> <select
-															class="form-control" id="exampleFormControlSelect1"
-															th:field="*{assunto}">
-															<!-- Assunto -->
-															<option value="1" selected>Escolha um Assunto</option>
-															<option th:each="assunto : ${listaAssunto}"
-																th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
-														</select>
-													</div>
-													<div class="alert alert-danger"
-														th:if="${#fields.hasAnyErrors()}">
-														<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
-													</div>
-													<br>
-													<button class="btn btn-outline-success" type="submit">Salvar</button>
-													<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
-												</form>
-											</div>
-										</div>
-									</section>
-
-									<!--------Tab domingo--------->
-									<section id="content7" class="tab-content">
-										<!-- Formulario do Plano de Estudo -->
-										<div class="container" align="center">
-											<div class="row col-md-6 col-md-offset-2 custyle">
-												<form class="w-100" th:action="@{/cadastroPlano}"
-													method="post" th:object="${planoEstudo}" id="plano_form">
-													<div class="alert alert-success" th:if="${mensagem}"
-														th:text="${mensagem}"></div>
-													<div>
-														<input type="hidden" th:field="*{id_plano}" /> <input
-															type="hidden" id="diadasemana" value="domingo"
-															name="diadasemana" />
-													</div>
-														<h6>Horario</h6>
-														<div class="form-row">
-															<span>Das</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioInicio}" class="form-control mb-4"
-																	placeholder="horarioInicio" min="00:01" max="23:00">
-															</div>
-															<span>Até</span>
-															<div class="col">
-																<input type="time" id="defaultContactFormName"
-																	th:field="*{horarioFinal}" class="form-control mb-4"
-																	placeholder="horarioFinal" min="00:01" max="23:00">
-															</div>
-														</div>
-													<span class="span">Disciplina</span> <select
-														class="form-control" id="exampleFormControlSelect1"
-														th:field="*{disciplina}">
-														<option value="1" selected>Escolha uma disciplina</option>
-														<option th:each="disciplina : ${listaDisciplina}"
-															th:text="${disciplina.descricao}"
-															th:value="${disciplina.id}"></option>
-													</select> <br>
-													<div id="assunto">
-														<span class="span">Assunto</span> <select
-															class="form-control" id="exampleFormControlSelect1"
-															th:field="*{assunto}">
-															<!-- Assunto -->
-															<option value="1" selected>Escolha um Assunto</option>
-															<option th:each="assunto : ${listaAssunto}"
-																th:text="${assunto.descricao}" th:value="${assunto.id}"></option>
-														</select>
-													</div>
-													<div class="alert alert-danger"
-														th:if="${#fields.hasAnyErrors()}">
-														<p th:each="err: ${#fields.allErrors()}" th:text="${err}"></p>
-													</div>
-													<br>
-													<button class="btn btn-outline-success" type="submit">Salvar</button>
-													<a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
-												</form>
-											</div>
-										</div>
-									</section>
-
-								</div>
-							</div>
-							<!-- End of Main Content -->
+                                                <span class="span">Disciplina</span> <select
+                                                    class="form-control" id="exampleFormControlSelect1"
+                                                    th:field="*{disciplina}">
+                                                <option value="1" selected>Escolha uma disciplina</option>
+                                                <option th:each="disciplina : ${listaDisciplina}"
+                                                        th:text="${disciplina.descricao}"
+                                                        th:value="${disciplina.id}"></option>
+                                            </select> <br>
+                                                <div class="alert alert-danger" th:if="${mensagemCampoPreencha}">
+                                                    <div th:if="${mensagemCampoPreencha}"
+                                                         th:text="${mensagemCampoPreencha}"></div>
+                                                </div>
+                                                <div id="assunto">
+                                                    <span class="span">Assunto</span> <select
+                                                        class="form-control" id="exampleFormControlSelect1"
+                                                        th:field="*{assunto}">
+                                                    <!-- Assunto -->
+                                                    <option value="1" selected>Escolha um Assunto</option>
+                                                    <option th:each="assunto : ${listaAssunto}"
+                                                            th:text="${assunto.descricao}"
+                                                            th:value="${assunto.id}"></option>
 
 
-						</div>
-						<!-- End of Content Wrapper -->
+                                                </select>
+                                                </div>
+                                                <div class="alert alert-danger" th:if="${mensagemCampoPreencha}">
+                                                    <div th:if="${mensagemCampoPreencha}"
+                                                         th:text="${mensagemCampoPreencha}"></div>
+                                                </div>
+                                                <br>
+                                                <button class="btn btn-outline-success" type="submit">Salvar</button>
+                                                <a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
 
-					</div>
-					<!-- End of Page Wrapper -->
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
 
-					<!-- Scroll to Top Button-->
-					<a class="scroll-to-top rounded" href="#page-top"> <i
-						class="fas fa-angle-up"></i>
-					</a>
+                                <!-- ----Tab terça-- -->
+                                <section id="content2" class="tab-content">
+                                    <!-- Formulario do Plano de Estudo -->
+                                    <div class="container" align="center">
+                                        <div class="row col-md-12 col-md-offset-2 custyle">
+                                            <form class="w-100" th:action="@{/cadastroPlano}"
+                                                  method="post" th:object="${planoEstudo}" id="plano_form">
+                                                <div class="alert alert-success" th:if="${mensagem}"
+                                                     th:text="${mensagem}"></div>
+                                                <div>
+                                                    <input type="hidden" th:field="*{id_plano}"/> <input
+                                                        type="hidden" id="diadasemana" value="terca"
+                                                        name="diadasemana"/>
+                                                </div>
+                                                <h6>Horario</h6>
+                                                <div class="alert alert-danger" th:if="${mensagemErroHorario}">
+                                                    <div th:if="${mensagemErroHorario}"
+                                                         th:text="${mensagemErroHorario}"></div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <span>Das</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioInicio}" class="form-control mb-4"
+                                                               placeholder="horarioInicio" min="00:01" max="23:00">
+                                                    </div>
+                                                    <span>Até</span>
+                                                    <div class="col">
 
-					<!-- Logout Modal-->
-					<div class="modal fade" id="logoutModal" tabindex="-1"
-						role="dialog" aria-labelledby="exampleModalLabel"
-						aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header" align="center">
-									<h5 class="modal-title" id="exampleModalLabel">Deseja
-										Sair?</h5>
-									<button class="close" type="button" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">Selecione Logout se desejar sair
-									da conta</div>
-								<div class="modal-footer">
-									<form th:action="@{/logout}" method="post">
-										<button class="btn btn-info" type="submit">Sair</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioFinal}" class="form-control mb-4"
+                                                               placeholder="horarioFinal" min="00:01" max="23:00">
 
-					<!-- Bootstrap core JavaScript-->
-					<script src="vendor/jquery/jquery.min.js"></script>
-					<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                                                    </div>
+                                                </div>
+                                                <span class="span">Disciplina</span> <select
+                                                    class="form-control" id="exampleFormControlSelect1"
+                                                    th:field="*{disciplina}">
+                                                <option value="1" selected>Escolha uma disciplina</option>
+                                                <option th:each="disciplina : ${listaDisciplina}"
+                                                        th:text="${disciplina.descricao}"
+                                                        th:value="${disciplina.id}"></option>
+                                            </select> <br>
+                                                <div id="assunto">
+                                                    <span class="span">Assunto</span> <select
+                                                        class="form-control" id="exampleFormControlSelect1"
+                                                        th:field="*{assunto}">
+                                                    <!-- Assunto -->
+                                                    <option value="1" selected>Escolha um Assunto</option>
+                                                    <option th:each="assunto : ${listaAssunto}"
+                                                            th:text="${assunto.descricao}"
+                                                            th:value="${assunto.id}"></option>
+                                                </select>
+                                                </div>
+                                                <br>
+                                                <button class="btn btn-outline-success" type="submit">Salvar</button>
+                                                <a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
 
-					<!-- Core plugin JavaScript-->
-					<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
 
-					<!-- Custom scripts for all pages-->
-					<script src="js/sb-admin-2.min.js"></script>
+                                <!-- ----Tab quarta-- -->
+                                <section id="content3" class="tab-content">
+                                    <!-- Formulario do Plano de Estudo -->
+                                    <div class="container" align="center">
+                                        <div class="row col-md-12 col-md-offset-2 custyle">
+                                            <form class="w-100" th:action="@{/cadastroPlano}"
+                                                  method="post" th:object="${planoEstudo}" id="plano_form">
+                                                <div class="alert alert-success" th:if="${mensagem}"
+                                                     th:text="${mensagem}"></div>
+                                                <div>
+                                                    <input type="hidden" th:field="*{id_plano}"/> <input
+                                                        type="hidden" id="diadasemana" value="quarta"
+                                                        name="diadasemana"/>
+                                                </div>
+                                                <h6>Horario</h6>
+                                                <div class="alert alert-danger" th:if="${mensagemErroHorario}">
+                                                    <div th:if="${mensagemErroHorario}"
+                                                         th:text="${mensagemErroHorario}"></div>
+                                                </div>
 
-					<!-- Page level plugins -->
-					<!-- ---<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-					<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-					 -->
-					<script src="/js/listaPlano.js"></script>
+                                                <div class="form-row">
+                                                    <span>Das</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioInicio}" class="form-control mb-4"
+                                                               placeholder="horarioInicio" min="00:01" max="23:00">
+                                                    </div>
+                                                    <span>Até</span>
+                                                    <div class="col">
+
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioFinal}" class="form-control mb-4"
+                                                               placeholder="horarioFinal" min="00:01" max="23:00">
+
+                                                    </div>
+                                                </div>
+                                                <span class="span">Disciplina</span> <select
+                                                    class="form-control" id="exampleFormControlSelect1"
+                                                    th:field="*{disciplina}">
+                                                <option value="1" selected>Escolha uma disciplina</option>
+                                                <option th:each="disciplina : ${listaDisciplina}"
+                                                        th:text="${disciplina.descricao}"
+                                                        th:value="${disciplina.id}"></option>
+                                            </select> <br>
+                                                <div id="assunto">
+                                                    <span class="span">Assunto</span> <select
+                                                        class="form-control" id="exampleFormControlSelect1"
+                                                        th:field="*{assunto}">
+                                                    <!-- Assunto -->
+                                                    <option value="1" selected>Escolha um Assunto</option>
+                                                    <option th:each="assunto : ${listaAssunto}"
+                                                            th:text="${assunto.descricao}"
+                                                            th:value="${assunto.id}"></option>
+                                                </select>
+                                                </div>
+                                                <br>
+                                                <button class="btn btn-outline-success" type="submit">Salvar</button>
+                                                <a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- ----Tab quinta-- -->
+                                <section id="content4" class="tab-content">
+                                    <!-- Formulario do Plano de Estudo -->
+                                    <div class="container" align="center">
+                                        <div class="row col-md-12 col-md-offset-2 custyle">
+                                            <form class="w-100" th:action="@{/cadastroPlano}"
+                                                  method="post" th:object="${planoEstudo}" id="plano_form">
+                                                <div class="alert alert-success" th:if="${mensagem}"
+                                                     th:text="${mensagem}"></div>
+                                                <div>
+                                                    <input type="hidden" th:field="*{id_plano}"/> <input
+                                                        type="hidden" id="diadasemana" value="quinta"
+                                                        name="diadasemana"/>
+                                                </div>
+                                                <h6>Horario</h6>
+                                                <div class="alert alert-danger" th:if="${mensagemErroHorario}">
+                                                    <div th:if="${mensagemErroHorario}"
+                                                         th:text="${mensagemErroHorario}"></div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <span>Das</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioInicio}" class="form-control mb-4"
+                                                               placeholder="horarioInicio" min="00:01" max="23:00">
+                                                    </div>
+                                                    <span>Até</span>
+                                                    <div class="col">
+
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioFinal}" class="form-control mb-4"
+                                                               placeholder="horarioFinal" min="00:01" max="23:00">
+
+                                                    </div>
+                                                </div>
+                                                <span class="span">Disciplina</span> <select
+                                                    class="form-control" id="exampleFormControlSelect1"
+                                                    th:field="*{disciplina}">
+                                                <option value="1" selected>Escolha uma disciplina</option>
+                                                <option th:each="disciplina : ${listaDisciplina}"
+                                                        th:text="${disciplina.descricao}"
+                                                        th:value="${disciplina.id}"></option>
+                                            </select> <br>
+                                                <div id="assunto">
+                                                    <span class="span">Assunto</span> <select
+                                                        class="form-control" id="exampleFormControlSelect1"
+                                                        th:field="*{assunto}">
+                                                    <!-- Assunto -->
+                                                    <option value="1" selected>Escolha um Assunto</option>
+                                                    <option th:each="assunto : ${listaAssunto}"
+                                                            th:text="${assunto.descricao}"
+                                                            th:value="${assunto.id}"></option>
+                                                </select>
+                                                </div>
+                                                <br>
+                                                <button class="btn btn-outline-success" type="submit">Salvar</button>
+                                                <a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!--------Tab sexta--------->
+                                <section id="content5" class="tab-content">
+                                    <!-- Formulario do Plano de Estudo -->
+                                    <div class="container" align="center">
+                                        <div class="row col-md-12 col-md-offset-2 custyle">
+                                            <form class="w-100" th:action="@{/cadastroPlano}"
+                                                  method="post" th:object="${planoEstudo}" id="plano_form">
+                                                <div class="alert alert-success" th:if="${mensagem}"
+                                                     th:text="${mensagem}"></div>
+                                                <div>
+                                                    <input type="hidden" th:field="*{id_plano}"/> <input
+                                                        type="hidden" id="diadasemana" value="sexta"
+                                                        name="diadasemana"/>
+                                                </div>
+                                                <h6>Horario</h6>
+                                                <div class="alert alert-danger" th:if="${mensagemErroHorario}">
+                                                    <div th:if="${mensagemErroHorario}"
+                                                         th:text="${mensagemErroHorario}"></div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <span>Das</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioInicio}" class="form-control mb-4"
+                                                               placeholder="horarioInicio" min="00:01" max="23:00">
+                                                    </div>
+                                                    <span>Até</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioFinal}" class="form-control mb-4"
+                                                               placeholder="horarioFinal" min="00:01" max="23:00">
+
+                                                    </div>
+                                                </div>
+                                                <span class="span">Disciplina</span> <select
+                                                    class="form-control" id="exampleFormControlSelect1"
+                                                    th:field="*{disciplina}">
+                                                <option value="1" selected>Escolha uma disciplina</option>
+                                                <option th:each="disciplina : ${listaDisciplina}"
+                                                        th:text="${disciplina.descricao}"
+                                                        th:value="${disciplina.id}"></option>
+                                            </select> <br>
+                                                <div id="assunto">
+                                                    <span class="span">Assunto</span> <select
+                                                        class="form-control" id="exampleFormControlSelect1"
+                                                        th:field="*{assunto}">
+                                                    <!-- Assunto -->
+                                                    <option value="1" selected>Escolha um Assunto</option>
+                                                    <option th:each="assunto : ${listaAssunto}"
+                                                            th:text="${assunto.descricao}"
+                                                            th:value="${assunto.id}"></option>
+                                                </select>
+                                                </div>
+                                                <br>
+                                                <button class="btn btn-outline-success" type="submit">Salvar</button>
+                                                <a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!--------Tab sabado--------->
+                                <section id="content6" class="tab-content">
+                                    <!-- Formulario do Plano de Estudo -->
+                                    <div class="container" align="center">
+                                        <div class="row col-md-12 col-md-offset-2 custyle">
+                                            <form class="w-100" th:action="@{/cadastroPlano}"
+                                                  method="post" th:object="${planoEstudo}" id="plano_form">
+                                                <div class="alert alert-success" th:if="${mensagem}"
+                                                     th:text="${mensagem}"></div>
+                                                <div>
+                                                    <input type="hidden" th:field="*{id_plano}"/> <input
+                                                        type="hidden" id="diadasemana" value="sabado"
+                                                        name="diadasemana"/>
+                                                </div>
+                                                <h6>Horario</h6>
+                                                <div class="alert alert-danger" th:if="${mensagemErroHorario}">
+                                                    <div th:if="${mensagemErroHorario}"
+                                                         th:text="${mensagemErroHorario}"></div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <span>Das</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioInicio}" class="form-control mb-4"
+                                                               placeholder="horarioInicio" min="00:01" max="23:00">
+                                                    </div>
+                                                    <span>Até</span>
+                                                    <div class="col">
+
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioFinal}" class="form-control mb-4"
+                                                               placeholder="horarioFinal" min="00:01" max="23:00">
+
+                                                    </div>
+                                                </div>
+                                                <span class="span">Disciplina</span> <select
+                                                    class="form-control" id="exampleFormControlSelect1"
+                                                    th:field="*{disciplina}">
+                                                <option value="1" selected>Escolha uma disciplina</option>
+                                                <option th:each="disciplina : ${listaDisciplina}"
+                                                        th:text="${disciplina.descricao}"
+                                                        th:value="${disciplina.id}"></option>
+                                            </select> <br>
+                                                <div id="assunto">
+                                                    <span class="span">Assunto</span> <select
+                                                        class="form-control" id="exampleFormControlSelect1"
+                                                        th:field="*{assunto}">
+                                                    <!-- Assunto -->
+                                                    <option value="1" selected>Escolha um Assunto</option>
+                                                    <option th:each="assunto : ${listaAssunto}"
+                                                            th:text="${assunto.descricao}"
+                                                            th:value="${assunto.id}"></option>
+                                                </select>
+                                                </div>
+                                                <br>
+                                                <button class="btn btn-outline-success" type="submit">Salvar</button>
+                                                <a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!--------Tab domingo--------->
+                                <section id="content7" class="tab-content">
+                                    <!-- Formulario do Plano de Estudo -->
+                                    <div class="container" align="center">
+                                        <div class="row col-md-12 col-md-offset-2 custyle">
+                                            <form class="w-100" th:action="@{/cadastroPlano}"
+                                                  method="post" th:object="${planoEstudo}" id="plano_form">
+                                                <div class="alert alert-success" th:if="${mensagem}"
+                                                     th:text="${mensagem}"></div>
+                                                <div>
+                                                    <input type="hidden" th:field="*{id_plano}"/> <input
+                                                        type="hidden" id="diadasemana" value="domingo"
+                                                        name="diadasemana"/>
+                                                </div>
+                                                <h6>Horario</h6>
+                                                <div class="alert alert-danger" th:if="${mensagemErroHorario}">
+                                                    <div th:if="${mensagemErroHorario}"
+                                                         th:text="${mensagemErroHorario}"></div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <span>Das</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioInicio}" class="form-control mb-4"
+                                                               placeholder="horarioInicio" min="00:01" max="23:00">
+                                                    </div>
+                                                    <span>Até</span>
+                                                    <div class="col">
+                                                        <input type="time" id="defaultContactFormName"
+                                                               th:field="*{horarioFinal}" class="form-control mb-4"
+                                                               placeholder="horarioFinal" min="00:01" max="23:00">
+                                                    </div>
+                                                </div>
+                                                <span class="span">Disciplina</span> <select
+                                                    class="form-control" id="exampleFormControlSelect1"
+                                                    th:field="*{disciplina}">
+                                                <option value="1" selected>Escolha uma disciplina</option>
+                                                <option th:each="disciplina : ${listaDisciplina}"
+                                                        th:text="${disciplina.descricao}"
+                                                        th:value="${disciplina.id}"></option>
+                                            </select> <br>
+                                                <div id="assunto">
+                                                    <span class="span">Assunto</span> <select
+                                                        class="form-control" id="exampleFormControlSelect1"
+                                                        th:field="*{assunto}">
+                                                    <!-- Assunto -->
+                                                    <option value="1" selected>Escolha um Assunto</option>
+                                                    <option th:each="assunto : ${listaAssunto}"
+                                                            th:text="${assunto.descricao}"
+                                                            th:value="${assunto.id}"></option>
+                                                </select>
+                                                </div>
+                                                <br>
+                                                <button class="btn btn-outline-success" type="submit">Salvar</button>
+                                                <a th:href="@{/perfil}" class="btn btn-outline-success">Voltar</a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </div>
+                        </div>
+                        <!-- End of Main Content -->
 
 
-					<!-- Page level custom scripts -->
-					<!-- --<script src="js/demo/datatables-demo.js"></script> -->
-	</th:block>
+                    </div>
+                    <!-- End of Content Wrapper -->
+
+                </div>
+                <!-- End of Page Wrapper -->
+
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top"> <i
+                        class="fas fa-angle-up"></i>
+                </a>
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1"
+                     role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" align="center">
+                                <h5 class="modal-title" id="exampleModalLabel">Deseja
+                                    Sair?</h5>
+                                <button class="close" type="button" data-dismiss="modal"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Selecione Logout se desejar sair
+                                da conta
+                            </div>
+                            <div class="modal-footer">
+                                <form th:action="@{/logout}" method="post">
+                                    <button class="btn btn-info" type="submit">Sair</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                <script src="/js/listaPlano.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
+
+
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+</th:block>
 </body>
 
 </html>

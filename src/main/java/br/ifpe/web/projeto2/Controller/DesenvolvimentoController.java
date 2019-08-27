@@ -1,4 +1,4 @@
-package br.ifpe.web.projeto2;
+package br.ifpe.web.projeto2.Controller;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

@@ -30,7 +30,7 @@ public class Alternativa {
 	@Enumerated
 	private Correta resposta;
 	@ManyToOne
-	@JoinColumn(name="questoes_id")
+	@JoinColumn(name="id_questoes")
 	private Questoes questoes;
 	
 	

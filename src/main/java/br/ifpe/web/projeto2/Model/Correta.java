@@ -2,7 +2,7 @@ package br.ifpe.web.projeto2.Model;
 
 public enum Correta {
 	
-	Certa("Certa"),Errada("Errada");
+	Errada("Errada"),Certa("Certa");
 	
 public String texto;
 	

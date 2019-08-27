@@ -2,12 +2,12 @@ package br.ifpe.web.projeto2.Material;
 
 import java.util.List;
 
+import br.ifpe.web.projeto2.exceptions.EmailExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.ifpe.web.projeto2.DAO.DisciplinaDAO;
 import br.ifpe.web.projeto2.Model.Disciplina;
-import br.ifpe.web2.excecoes.EmailExistsException;
 
 @Service
 public class MaterialService {
